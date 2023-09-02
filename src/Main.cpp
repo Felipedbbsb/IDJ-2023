@@ -1,4 +1,6 @@
-#include "../include/Game.h"
+
+#define SDL_MAIN_HANDLED
+#include "Game.h"
 
 int main(int argc, char** argv) {
     Game& game = Game::GetInstance();
