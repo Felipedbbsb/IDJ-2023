@@ -1,4 +1,4 @@
-dep/Music.d bin/Music.o: src/Music.cpp \
+dep/Face.d bin/Face.o: src/Face.cpp include/Face.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++config.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\os_defines.h \
@@ -96,10 +96,36 @@ dep/Music.d bin/Music.o: src/Music.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc \
- include/Music.h include/SDL_include.h C:/SDL2/include/SDL2/SDL.h \
- C:/SDL2/include/SDL2/SDL_main.h C:/SDL2/include/SDL2/SDL_stdinc.h \
- C:/SDL2/include/SDL2/SDL_config.h C:/SDL2/include/SDL2/SDL_platform.h \
- C:/SDL2/include/SDL2/begin_code.h C:/SDL2/include/SDL2/close_code.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_construct.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tempbuf.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_raw_storage_iter.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\typeinfo \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\concurrence.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uses_allocator.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\functional \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\tuple \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\utility \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_relops.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\array \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unique_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_base.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocated_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\aligned_buffer.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
+ include/GameObject.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
+ include/Rect.h include/Component.h include/Sound.h include/SDL_include.h \
+ C:/SDL2/include/SDL2/SDL.h C:/SDL2/include/SDL2/SDL_main.h \
+ C:/SDL2/include/SDL2/SDL_stdinc.h C:/SDL2/include/SDL2/SDL_config.h \
+ C:/SDL2/include/SDL2/SDL_platform.h C:/SDL2/include/SDL2/begin_code.h \
+ C:/SDL2/include/SDL2/close_code.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdlib.h \
  C:/SDL2/include/SDL2/SDL_assert.h C:/SDL2/include/SDL2/SDL_atomic.h \
  C:/SDL2/include/SDL2/SDL_audio.h C:/SDL2/include/SDL2/SDL_error.h \
@@ -158,6 +184,8 @@ dep/Music.d bin/Music.o: src/Music.cpp \
  C:/SDL2/include/SDL2/SDL_timer.h C:/SDL2/include/SDL2/SDL_version.h \
  C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
  C:/SDL2/include/SDL2/SDL_mixer.h
+
+include/Face.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:
 
@@ -363,7 +391,63 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc:
 
-include/Music.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_construct.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tempbuf.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_raw_storage_iter.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\typeinfo:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\concurrence.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uses_allocator.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\functional:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\tuple:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\utility:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_relops.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\array:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unique_ptr.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_base.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocated_ptr.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\aligned_buffer.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h:
+
+include/GameObject.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc:
+
+include/Rect.h:
+
+include/Component.h:
+
+include/Sound.h:
 
 include/SDL_include.h:
 
