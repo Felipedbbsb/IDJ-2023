@@ -3,35 +3,38 @@
 #include "Face.h"
 #include "Vec2.h"
 
+
+// -----------Background assets -------------------
 #define BACKGROUND_SPRITE_PATH "assets/img/ocean.jpg"
 #define BACKGROUND_SOUND_PATH "assets/audio/stageState.ogg"
 #define BACKGROUND_SOUND_LOOP_TIMES -1 // -1 for infinite loop
+#define BACKGROUND_MUSIC_LOOP_TIMES -1 // -1 for infinite loop
+#define BACKGROUND_MUSIC_PATH "assets/audio/stageState.ogg"
 
-
+// -----------Enemy assets -------------------
 #define ENEMY_SPRITE_PATH "assets/img/penguinface.png"
 #define ENEMY_SOUND_PATH "assets/audio/boom.wav"
 
 #define PI 3.141592
 
-State::State() : bg_sprite(new Sprite(background, BACKGROUND_SPRITE_PATH)),
-                 bg_sound(new Sound(background, BACKGROUND_SOUND_PATH))
-{
+State::State() : bg_sprite(new Sprite(background, BACKGROUND_SPRITE_PATH)){  
+    
     background.AddComponent((std::shared_ptr<Sprite>)bg_sprite);
-    background.AddComponent((std::shared_ptr<Sound>)bg_sound);
     objectArray.emplace_back((std::shared_ptr<GameObject>)&background);
-    LoadAssets();
+    
     quitRequested = false;
-    Sound *sound = (Sound *)background.GetComponent("Sound").get();
-    sound->Play();
+    LoadAssets();
+    music.Play(BACKGROUND_MUSIC_LOOP_TIMES);
 }
 
 State::~State(){
     objectArray.clear();
 }
 
-//método que cuida de pré-carregar os assets dostate do jogo
+//método que cuida de pré-carregar os assets do state do jogo
 void State::LoadAssets()
 {
+    music.Open(BACKGROUND_MUSIC_PATH);
 }
 
 
@@ -40,14 +43,11 @@ void State::LoadAssets()
 void State::Update(float dt)
 {
     Input();
-    for (int i = (int)objectArray.size() - 1; i >= 0; --i)
-    {
-        objectArray[i]->Update(dt);
+    for (int i = (int)objectArray.size() - 1; i >= 0; --i){
+        objectArray[i]->Update(dt);             
     }
-    for (int i = (int)objectArray.size() - 1; i >= 0; --i)
-    {
-        if (objectArray[i]->IsDead())
-        {
+    for (int i = (int)objectArray.size() - 1; i >= 0; --i){
+        if (objectArray[i]->IsDead()){
             objectArray.erase(objectArray.begin() + i);
         }
     }
@@ -95,7 +95,6 @@ void State::Input()
                 // Nota: Desencapsular o ponteiro é algo que devemos evitar ao máximo.
                 // Esse código, assim como a classe Face, é provisório. Futuramente, para
                 // chamar funções de GameObjects, use objectArray[i]->função() direto.
-
                 if (go->box.Contains(float(mouseX), float(mouseY)))
                 {
                     Face *face = (Face *)go->GetComponent("Face").get();
@@ -109,6 +108,7 @@ void State::Input()
                         break;
                     }
                 }
+                
             }
         }
         if (event.type == SDL_KEYDOWN)
@@ -143,7 +143,13 @@ void State::AddObject(int mouseX, int mouseY)
 
     enemy->box.x = mouseX - (enemy_sprite->GetWidth()) / 2;
     enemy->box.y = mouseY - (enemy_sprite->GetHeight()) / 2;
+    enemy->box.w = enemy_sprite->GetWidth()  ;
+    enemy->box.h = enemy_sprite->GetHeight()  ;
 
+    std::cout << "Object created box: " << "x:" << enemy -> box.x << " " <<
+                                           "y:" << enemy -> box.y << " " <<
+                                           "w:" << enemy -> box.w << " " << 
+                                           "h:" << enemy -> box.h << std::endl;
     // Adicionando o inimigo no objectArray
     objectArray.emplace_back(enemy);
 }

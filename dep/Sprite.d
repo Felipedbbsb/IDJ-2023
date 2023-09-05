@@ -184,8 +184,8 @@ dep/Sprite.d bin/Sprite.o: src/Sprite.cpp include/Sprite.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
- include/Game.h include/State.h include/Sound.h \
- C:/SDL2/include/SDL2/SDL_mixer.h
+ include/Game.h include/State.h include/Music.h \
+ C:/SDL2/include/SDL2/SDL_mixer.h include/Sound.h
 
 include/Sprite.h:
 
@@ -631,6 +631,8 @@ include/Game.h:
 
 include/State.h:
 
-include/Sound.h:
+include/Music.h:
 
 C:/SDL2/include/SDL2/SDL_mixer.h:
+
+include/Sound.h:

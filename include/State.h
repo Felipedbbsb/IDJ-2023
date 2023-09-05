@@ -4,6 +4,7 @@
 #include <memory>
 
 #include "Sprite.h"
+#include "Music.h"
 #include "Sound.h"
 #include "GameObject.h"
 
@@ -23,7 +24,7 @@ class State {
     private:
         GameObject background;
         Sprite *bg_sprite;
-        Sound *bg_sound;
+        Music music;
         bool quitRequested;
         void Input();
         void AddObject(int mouseX, int mouseY);

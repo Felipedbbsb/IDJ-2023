@@ -12,7 +12,6 @@
 class Sprite : public Component
 {
 public:
-  Sprite(std::string file);
   Sprite(GameObject &associated);
   Sprite(GameObject &associated, std::string file);
   ~Sprite();

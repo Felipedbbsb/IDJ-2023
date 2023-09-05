@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "GameObject.h"
 
+
 #define CLIP_START_X 0
 #define CLIP_START_Y 0
 
@@ -10,6 +11,7 @@ Sprite::Sprite(GameObject &associated) : Component::Component(associated){
 }
 
 Sprite::Sprite(GameObject &associated, std::string file) : Sprite(associated){
+    texture = nullptr;
     Open(file);
 }
 
@@ -19,15 +21,19 @@ Sprite::~Sprite(){
     };
 }
 
-//Carrega a imagem indicada pelo caminho file.
+// Carrega a imagem indicada pelo caminho file.
 void Sprite::Open(std::string file) {
+    Game& instance = Game::GetInstance();
+
     if (texture != nullptr) {
        SDL_DestroyTexture(texture);
     };
+
+    // carrega textura
     texture = IMG_LoadTexture(Game::GetInstance().GetRenderer(), file.c_str());
     if (texture == nullptr)
     {
-        std::cout << "Failed to load texture" << std::endl;
+        std::cout << "Failed to load texture" << std::endl; // falha em carregar imagem.
     } else {
         std::cout << "Texture loaded successfully!" << std::endl;
         SDL_QueryTexture(texture, nullptr, nullptr, &width, &height);
