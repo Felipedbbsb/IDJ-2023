@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
 
-#include "../include/Game.h"
+#include "Game.h"
 
 #define AUDIO_CHUNKSIZE 1024
 #define AUDIO_FREQUENCY MIX_DEFAULT_FREQUENCY
@@ -118,8 +118,8 @@ SDL_Renderer* Game::GetRenderer() {
 
 void Game::Run() {
     while (state->QuitRequested()!=true) {
-        state->Update(33);
-        state->Render();
+        state->Update(33); 
+        state->Render(); 
         SDL_RenderPresent(Game::GetInstance().GetRenderer());
     }
 }

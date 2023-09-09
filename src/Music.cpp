@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/Music.h"
+#include "Music.h"
 
 
 Music::Music() {
@@ -7,7 +7,7 @@ Music::Music() {
 }
 
 Music::Music(std::string file) {
-
+    music = nullptr;
     Open(file);
 }
 

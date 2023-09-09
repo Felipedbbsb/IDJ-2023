@@ -1,14 +1,16 @@
-#include "../include/Sprite.h"
-#include "../include/Game.h"
+#include "Sprite.h"
+#include "Game.h"
+#include "GameObject.h"
+
 
 #define CLIP_START_X 0
 #define CLIP_START_Y 0
 
-Sprite::Sprite() {
+Sprite::Sprite(GameObject &associated) : Component::Component(associated){
     texture = nullptr;
 }
 
-Sprite::Sprite(std::string file) {
+Sprite::Sprite(GameObject &associated, std::string file) : Sprite(associated){
     texture = nullptr;
     Open(file);
 }
@@ -19,15 +21,19 @@ Sprite::~Sprite(){
     };
 }
 
-//Carrega a imagem indicada pelo caminho file.
+// Carrega a imagem indicada pelo caminho file.
 void Sprite::Open(std::string file) {
+    Game& instance = Game::GetInstance();
+
     if (texture != nullptr) {
        SDL_DestroyTexture(texture);
     };
+
+    // carrega textura
     texture = IMG_LoadTexture(Game::GetInstance().GetRenderer(), file.c_str());
     if (texture == nullptr)
     {
-        std::cout << "Failed to load texture" << std::endl;
+        std::cout << "Failed to load texture" << std::endl; // falha em carregar imagem.
     } else {
         std::cout << "Texture loaded successfully!" << std::endl;
         SDL_QueryTexture(texture, nullptr, nullptr, &width, &height);
@@ -55,9 +61,9 @@ void Sprite::SetClip(int x, int y, int w, int h) {
 //escala, contraindo ou expandindo a imagem para se adaptar a esses
 //valores.
 
-void Sprite::Render(int x, int y) {
+void Sprite::Render() {
     int RENDER_ERROR;
-    SDL_Rect dstLoc = {x, y, GetWidth(), GetHeight()};
+    SDL_Rect dstLoc = {int(associated.box.x), int(associated.box.y), clipRect.w, clipRect.h};
 
     RENDER_ERROR = SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc);
     if (RENDER_ERROR != 0) {
@@ -80,5 +86,20 @@ bool Sprite::IsOpen() {
         return false;
     } else {
         return true;
+    }
+}
+
+
+void Sprite::Update(float dt){
+}
+
+bool Sprite::Is(std::string type){
+    if (type == "Sprite")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }

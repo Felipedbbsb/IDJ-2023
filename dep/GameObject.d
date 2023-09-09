@@ -1,5 +1,5 @@
-dep/Music.d bin/Music.o: src/Music.cpp \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
+dep/GameObject.d bin/GameObject.o: src/GameObject.cpp \
+ include/GameObject.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++config.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\os_defines.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\cpu_defines.h \
@@ -96,68 +96,34 @@ dep/Music.d bin/Music.o: src/Music.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc \
- include/Music.h include/SDL_include.h C:/SDL2/include/SDL2/SDL.h \
- C:/SDL2/include/SDL2/SDL_main.h C:/SDL2/include/SDL2/SDL_stdinc.h \
- C:/SDL2/include/SDL2/SDL_config.h C:/SDL2/include/SDL2/SDL_platform.h \
- C:/SDL2/include/SDL2/begin_code.h C:/SDL2/include/SDL2/close_code.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdlib.h \
- C:/SDL2/include/SDL2/SDL_assert.h C:/SDL2/include/SDL2/SDL_atomic.h \
- C:/SDL2/include/SDL2/SDL_audio.h C:/SDL2/include/SDL2/SDL_error.h \
- C:/SDL2/include/SDL2/SDL_endian.h C:/SDL2/include/SDL2/SDL_mutex.h \
- C:/SDL2/include/SDL2/SDL_thread.h c:\mingw\include\process.h \
- c:\mingw\include\stdint.h C:/SDL2/include/SDL2/SDL_rwops.h \
- C:/SDL2/include/SDL2/SDL_clipboard.h C:/SDL2/include/SDL2/SDL_cpuinfo.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\immintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\mmintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\xmmintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\mm_malloc.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\emmintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\pmmintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\tmmintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\smmintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\popcntintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\wmmintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\avxintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\avx2intrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512fintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512erintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512pfintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512cdintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512vlintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512bwintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512dqintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512vlbwintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512vldqintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512ifmaintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512ifmavlintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512vbmiintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512vbmivlintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\shaintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\lzcntintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\bmiintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\bmi2intrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\fmaintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\f16cintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\rtmintrin.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\xtestintrin.h \
- C:/SDL2/include/SDL2/SDL_events.h C:/SDL2/include/SDL2/SDL_video.h \
- C:/SDL2/include/SDL2/SDL_pixels.h C:/SDL2/include/SDL2/SDL_rect.h \
- C:/SDL2/include/SDL2/SDL_surface.h C:/SDL2/include/SDL2/SDL_blendmode.h \
- C:/SDL2/include/SDL2/SDL_keyboard.h C:/SDL2/include/SDL2/SDL_keycode.h \
- C:/SDL2/include/SDL2/SDL_scancode.h C:/SDL2/include/SDL2/SDL_mouse.h \
- C:/SDL2/include/SDL2/SDL_joystick.h C:/SDL2/include/SDL2/SDL_guid.h \
- C:/SDL2/include/SDL2/SDL_gamecontroller.h \
- C:/SDL2/include/SDL2/SDL_sensor.h C:/SDL2/include/SDL2/SDL_quit.h \
- C:/SDL2/include/SDL2/SDL_gesture.h C:/SDL2/include/SDL2/SDL_touch.h \
- C:/SDL2/include/SDL2/SDL_filesystem.h C:/SDL2/include/SDL2/SDL_haptic.h \
- C:/SDL2/include/SDL2/SDL_hidapi.h C:/SDL2/include/SDL2/SDL_hints.h \
- C:/SDL2/include/SDL2/SDL_loadso.h C:/SDL2/include/SDL2/SDL_log.h \
- C:/SDL2/include/SDL2/SDL_messagebox.h C:/SDL2/include/SDL2/SDL_metal.h \
- C:/SDL2/include/SDL2/SDL_power.h C:/SDL2/include/SDL2/SDL_render.h \
- C:/SDL2/include/SDL2/SDL_shape.h C:/SDL2/include/SDL2/SDL_system.h \
- C:/SDL2/include/SDL2/SDL_timer.h C:/SDL2/include/SDL2/SDL_version.h \
- C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
- C:/SDL2/include/SDL2/SDL_mixer.h
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_construct.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
+ include/Rect.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tempbuf.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_raw_storage_iter.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\typeinfo \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\concurrence.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uses_allocator.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\functional \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\tuple \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\utility \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_relops.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\array \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unique_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_base.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocated_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\aligned_buffer.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
+ include/Component.h
+
+include/GameObject.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:
 
@@ -363,180 +329,56 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc:
 
-include/Music.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector:
 
-include/SDL_include.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_construct.h:
 
-C:/SDL2/include/SDL2/SDL.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h:
 
-C:/SDL2/include/SDL2/SDL_main.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h:
 
-C:/SDL2/include/SDL2/SDL_stdinc.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h:
 
-C:/SDL2/include/SDL2/SDL_config.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc:
 
-C:/SDL2/include/SDL2/SDL_platform.h:
+include/Rect.h:
 
-C:/SDL2/include/SDL2/begin_code.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory:
 
-C:/SDL2/include/SDL2/close_code.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tempbuf.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdlib.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_raw_storage_iter.h:
 
-C:/SDL2/include/SDL2/SDL_assert.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\typeinfo:
 
-C:/SDL2/include/SDL2/SDL_atomic.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\concurrence.h:
 
-C:/SDL2/include/SDL2/SDL_audio.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uses_allocator.h:
 
-C:/SDL2/include/SDL2/SDL_error.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\functional:
 
-C:/SDL2/include/SDL2/SDL_endian.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\tuple:
 
-C:/SDL2/include/SDL2/SDL_mutex.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\utility:
 
-C:/SDL2/include/SDL2/SDL_thread.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_relops.h:
 
-c:\mingw\include\process.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\array:
 
-c:\mingw\include\stdint.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unique_ptr.h:
 
-C:/SDL2/include/SDL2/SDL_rwops.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr.h:
 
-C:/SDL2/include/SDL2/SDL_clipboard.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_base.h:
 
-C:/SDL2/include/SDL2/SDL_cpuinfo.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocated_ptr.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\immintrin.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\aligned_buffer.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\mmintrin.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\xmmintrin.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\mm_malloc.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\emmintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\pmmintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\tmmintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\smmintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\popcntintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\wmmintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\avxintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\avx2intrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512fintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512erintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512pfintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512cdintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512vlintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512bwintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512dqintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512vlbwintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512vldqintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512ifmaintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512ifmavlintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512vbmiintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\avx512vbmivlintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\shaintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\lzcntintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\bmiintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\bmi2intrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\fmaintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\f16cintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\rtmintrin.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\xtestintrin.h:
-
-C:/SDL2/include/SDL2/SDL_events.h:
-
-C:/SDL2/include/SDL2/SDL_video.h:
-
-C:/SDL2/include/SDL2/SDL_pixels.h:
-
-C:/SDL2/include/SDL2/SDL_rect.h:
-
-C:/SDL2/include/SDL2/SDL_surface.h:
-
-C:/SDL2/include/SDL2/SDL_blendmode.h:
-
-C:/SDL2/include/SDL2/SDL_keyboard.h:
-
-C:/SDL2/include/SDL2/SDL_keycode.h:
-
-C:/SDL2/include/SDL2/SDL_scancode.h:
-
-C:/SDL2/include/SDL2/SDL_mouse.h:
-
-C:/SDL2/include/SDL2/SDL_joystick.h:
-
-C:/SDL2/include/SDL2/SDL_guid.h:
-
-C:/SDL2/include/SDL2/SDL_gamecontroller.h:
-
-C:/SDL2/include/SDL2/SDL_sensor.h:
-
-C:/SDL2/include/SDL2/SDL_quit.h:
-
-C:/SDL2/include/SDL2/SDL_gesture.h:
-
-C:/SDL2/include/SDL2/SDL_touch.h:
-
-C:/SDL2/include/SDL2/SDL_filesystem.h:
-
-C:/SDL2/include/SDL2/SDL_haptic.h:
-
-C:/SDL2/include/SDL2/SDL_hidapi.h:
-
-C:/SDL2/include/SDL2/SDL_hints.h:
-
-C:/SDL2/include/SDL2/SDL_loadso.h:
-
-C:/SDL2/include/SDL2/SDL_log.h:
-
-C:/SDL2/include/SDL2/SDL_messagebox.h:
-
-C:/SDL2/include/SDL2/SDL_metal.h:
-
-C:/SDL2/include/SDL2/SDL_power.h:
-
-C:/SDL2/include/SDL2/SDL_render.h:
-
-C:/SDL2/include/SDL2/SDL_shape.h:
-
-C:/SDL2/include/SDL2/SDL_system.h:
-
-C:/SDL2/include/SDL2/SDL_timer.h:
-
-C:/SDL2/include/SDL2/SDL_version.h:
-
-C:/SDL2/include/SDL2/SDL_locale.h:
-
-C:/SDL2/include/SDL2/SDL_misc.h:
-
-C:/SDL2/include/SDL2/SDL_mixer.h:
+include/Component.h:

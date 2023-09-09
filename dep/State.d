@@ -1,40 +1,141 @@
-dep/State.d bin/State.o: src/State.cpp src/../include/State.h \
- src/../include/Sprite.h src/../include/SDL_include.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_main.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_stdinc.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_config.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_platform.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/begin_code.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/close_code.h \
- c:\mingw\include\sdkddkver.h \
+dep/State.d bin/State.o: src/State.cpp include/State.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algobase.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++config.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\os_defines.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\cpu_defines.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\functexcept.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\exception_defines.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\cpp_type_traits.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\type_traits.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\numeric_traits.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_pair.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\move.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\concept_check.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\type_traits \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_iterator_base_types.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_iterator_base_funcs.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\debug\assertions.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_iterator.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ptr_traits.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\debug\debug.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\predefined_ops.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocator.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++allocator.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\new_allocator.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\new \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\exception \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_lockfree_defines.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\exception_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\nested_exception.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\memoryfwd.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_construct.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\alloc_traits.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\alloc_traits.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\initializer_list \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\functional_hash.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hash_bytes.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\range_access.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tempbuf.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_raw_storage_iter.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\typeinfo \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iosfwd \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stringfwd.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\postypes.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwchar \
+ c:\mingw\include\wchar.h c:\mingw\include\_mingw.h \
+ c:\mingw\include\msvcrtver.h c:\mingw\include\w32api.h \
+ c:\mingw\include\sdkddkver.h c:\mingw\include\stdio.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\stddef.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\stdarg.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\time.h \
+ c:\mingw\include\sys\types.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\atomicity.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\gthr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\gthr-default.h \
+ c:\mingw\include\errno.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\atomic_word.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\concurrence.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_function.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\binders.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uses_allocator.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\functional \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\tuple \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\utility \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_relops.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\array \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdexcept \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\string \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\char_traits.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdint \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\stdint.h \
- c:\mingw\include\stdint.h c:\mingw\include\_mingw.h \
- c:\mingw\include\msvcrtver.h c:\mingw\include\w32api.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_assert.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_atomic.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_audio.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_error.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_endian.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_mutex.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_thread.h \
- c:\mingw\include\process.h c:\mingw\include\sys\types.h \
  c:\mingw\include\stdint.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_rwops.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_clipboard.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_cpuinfo.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\localefwd.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++locale.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\clocale \
+ c:\mingw\include\locale.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cctype \
+ c:\mingw\include\ctype.h c:\mingw\include\wctype.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream_insert.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\cxxabi_forced.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_string.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\string_conversions.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdlib \
+ c:\mingw\include\stdlib.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdio \
+ c:\mingw\include\stdio.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cerrno \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_string.tcc \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unique_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_base.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocated_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\aligned_buffer.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
+ include/Sprite.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ios \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ios_base.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.tcc \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\system_error \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\error_constants.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\streambuf \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf.tcc \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwctype \
+ c:\mingw\include\wctype.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_base.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf_iterator.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_inline.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.tcc \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.tcc \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc \
+ include/SDL_include.h C:/SDL2/include/SDL2/SDL.h \
+ C:/SDL2/include/SDL2/SDL_main.h C:/SDL2/include/SDL2/SDL_stdinc.h \
+ C:/SDL2/include/SDL2/SDL_config.h C:/SDL2/include/SDL2/SDL_platform.h \
+ C:/SDL2/include/SDL2/begin_code.h C:/SDL2/include/SDL2/close_code.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdlib.h \
+ C:/SDL2/include/SDL2/SDL_assert.h C:/SDL2/include/SDL2/SDL_atomic.h \
+ C:/SDL2/include/SDL2/SDL_audio.h C:/SDL2/include/SDL2/SDL_error.h \
+ C:/SDL2/include/SDL2/SDL_endian.h C:/SDL2/include/SDL2/SDL_mutex.h \
+ C:/SDL2/include/SDL2/SDL_thread.h c:\mingw\include\process.h \
+ c:\mingw\include\stdint.h C:/SDL2/include/SDL2/SDL_rwops.h \
+ C:/SDL2/include/SDL2/SDL_clipboard.h C:/SDL2/include/SDL2/SDL_cpuinfo.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\immintrin.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\mmintrin.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\xmmintrin.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\mm_malloc.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdlib.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdlib \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++config.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\os_defines.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\cpu_defines.h \
- c:\mingw\include\stdlib.h c:\mingw\include\errno.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\emmintrin.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\pmmintrin.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\tmmintrin.h \
@@ -64,160 +165,129 @@ dep/State.d bin/State.o: src/State.cpp src/../include/State.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\f16cintrin.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\rtmintrin.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\xtestintrin.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_events.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_video.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_pixels.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_rect.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_surface.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_blendmode.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_keyboard.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_keycode.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_scancode.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_mouse.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_joystick.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_guid.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_gamecontroller.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_sensor.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_quit.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_gesture.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_touch.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_filesystem.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_haptic.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_hidapi.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_hints.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_loadso.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_log.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_messagebox.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_metal.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_power.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_render.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_shape.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_system.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_timer.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_version.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_locale.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_misc.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_image.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_version.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ios \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iosfwd \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stringfwd.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\memoryfwd.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\postypes.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwchar \
- c:\mingw\include\wchar.h c:\mingw\include\stdio.h \
- c:\mingw\include\stdlib.h c:\mingw\include\time.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\exception \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_lockfree_defines.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\exception_ptr.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\exception_defines.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\nested_exception.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\move.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\concept_check.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\type_traits \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\char_traits.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algobase.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\functexcept.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\cpp_type_traits.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\type_traits.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\numeric_traits.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_pair.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_iterator_base_types.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_iterator_base_funcs.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\debug\assertions.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_iterator.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ptr_traits.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\debug\debug.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\predefined_ops.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdint \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\localefwd.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++locale.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\clocale \
- c:\mingw\include\locale.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cctype \
- c:\mingw\include\ctype.h c:\mingw\include\wctype.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ios_base.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\atomicity.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\gthr.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\gthr-default.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\atomic_word.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\string \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocator.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++allocator.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\new_allocator.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\new \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream_insert.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\cxxabi_forced.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_function.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\binders.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\range_access.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\initializer_list \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_string.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\alloc_traits.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\alloc_traits.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\string_conversions.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdio \
- c:\mingw\include\stdio.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cerrno \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\functional_hash.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hash_bytes.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_string.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\system_error \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\error_constants.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdexcept \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\streambuf \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwctype \
- c:\mingw\include\wctype.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_base.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf_iterator.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_inline.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc \
- src/../include/Music.h C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_mixer.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_stdinc.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_rwops.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_audio.h \
- C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_endian.h
+ C:/SDL2/include/SDL2/SDL_events.h C:/SDL2/include/SDL2/SDL_video.h \
+ C:/SDL2/include/SDL2/SDL_pixels.h C:/SDL2/include/SDL2/SDL_rect.h \
+ C:/SDL2/include/SDL2/SDL_surface.h C:/SDL2/include/SDL2/SDL_blendmode.h \
+ C:/SDL2/include/SDL2/SDL_keyboard.h C:/SDL2/include/SDL2/SDL_keycode.h \
+ C:/SDL2/include/SDL2/SDL_scancode.h C:/SDL2/include/SDL2/SDL_mouse.h \
+ C:/SDL2/include/SDL2/SDL_joystick.h C:/SDL2/include/SDL2/SDL_guid.h \
+ C:/SDL2/include/SDL2/SDL_gamecontroller.h \
+ C:/SDL2/include/SDL2/SDL_sensor.h C:/SDL2/include/SDL2/SDL_quit.h \
+ C:/SDL2/include/SDL2/SDL_gesture.h C:/SDL2/include/SDL2/SDL_touch.h \
+ C:/SDL2/include/SDL2/SDL_filesystem.h C:/SDL2/include/SDL2/SDL_haptic.h \
+ C:/SDL2/include/SDL2/SDL_hidapi.h C:/SDL2/include/SDL2/SDL_hints.h \
+ C:/SDL2/include/SDL2/SDL_loadso.h C:/SDL2/include/SDL2/SDL_log.h \
+ C:/SDL2/include/SDL2/SDL_messagebox.h C:/SDL2/include/SDL2/SDL_metal.h \
+ C:/SDL2/include/SDL2/SDL_power.h C:/SDL2/include/SDL2/SDL_render.h \
+ C:/SDL2/include/SDL2/SDL_shape.h C:/SDL2/include/SDL2/SDL_system.h \
+ C:/SDL2/include/SDL2/SDL_timer.h C:/SDL2/include/SDL2/SDL_version.h \
+ C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
+ C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h \
+ include/Component.h include/GameObject.h include/Rect.h include/Music.h \
+ C:/SDL2/include/SDL2/SDL_mixer.h include/Sound.h include/Face.h \
+ include/Vec2.h
 
-src/../include/State.h:
+include/State.h:
 
-src/../include/Sprite.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector:
 
-src/../include/SDL_include.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algobase.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++config.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_main.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\os_defines.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_stdinc.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\cpu_defines.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_config.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\functexcept.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_platform.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\exception_defines.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/begin_code.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\cpp_type_traits.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/close_code.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\type_traits.h:
 
-c:\mingw\include\sdkddkver.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\numeric_traits.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\stddef.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_pair.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\stdarg.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\move.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\stdint.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\concept_check.h:
 
-c:\mingw\include\stdint.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\type_traits:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_iterator_base_types.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_iterator_base_funcs.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\debug\assertions.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_iterator.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ptr_traits.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\debug\debug.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\predefined_ops.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocator.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++allocator.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\new_allocator.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\new:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\exception:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_lockfree_defines.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\exception_ptr.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\nested_exception.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\memoryfwd.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_construct.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\alloc_traits.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\alloc_traits.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\initializer_list:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\functional_hash.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hash_bytes.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\range_access.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tempbuf.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_raw_storage_iter.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\typeinfo:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iosfwd:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stringfwd.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\postypes.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwchar:
+
+c:\mingw\include\wchar.h:
 
 c:\mingw\include\_mingw.h:
 
@@ -225,31 +295,197 @@ c:\mingw\include\msvcrtver.h:
 
 c:\mingw\include\w32api.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_assert.h:
+c:\mingw\include\sdkddkver.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_atomic.h:
+c:\mingw\include\stdio.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_audio.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\stddef.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_error.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\stdarg.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_endian.h:
+c:\mingw\include\stdlib.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_mutex.h:
-
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_thread.h:
-
-c:\mingw\include\process.h:
+c:\mingw\include\time.h:
 
 c:\mingw\include\sys\types.h:
 
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\atomicity.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\gthr.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\gthr-default.h:
+
+c:\mingw\include\errno.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\atomic_word.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\concurrence.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_function.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\binders.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uses_allocator.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\functional:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\tuple:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\utility:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_relops.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\array:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdexcept:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\string:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\char_traits.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdint:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\stdint.h:
+
 c:\mingw\include\stdint.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_rwops.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\localefwd.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_clipboard.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++locale.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_cpuinfo.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\clocale:
+
+c:\mingw\include\locale.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cctype:
+
+c:\mingw\include\ctype.h:
+
+c:\mingw\include\wctype.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream_insert.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\cxxabi_forced.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_string.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\string_conversions.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdlib:
+
+c:\mingw\include\stdlib.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdio:
+
+c:\mingw\include\stdio.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cerrno:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_string.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unique_ptr.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_base.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocated_ptr.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\aligned_buffer.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h:
+
+include/Sprite.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ios:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ios_base.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\system_error:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\error_constants.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\streambuf:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwctype:
+
+c:\mingw\include\wctype.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_base.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf_iterator.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_inline.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc:
+
+include/SDL_include.h:
+
+C:/SDL2/include/SDL2/SDL.h:
+
+C:/SDL2/include/SDL2/SDL_main.h:
+
+C:/SDL2/include/SDL2/SDL_stdinc.h:
+
+C:/SDL2/include/SDL2/SDL_config.h:
+
+C:/SDL2/include/SDL2/SDL_platform.h:
+
+C:/SDL2/include/SDL2/begin_code.h:
+
+C:/SDL2/include/SDL2/close_code.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdlib.h:
+
+C:/SDL2/include/SDL2/SDL_assert.h:
+
+C:/SDL2/include/SDL2/SDL_atomic.h:
+
+C:/SDL2/include/SDL2/SDL_audio.h:
+
+C:/SDL2/include/SDL2/SDL_error.h:
+
+C:/SDL2/include/SDL2/SDL_endian.h:
+
+C:/SDL2/include/SDL2/SDL_mutex.h:
+
+C:/SDL2/include/SDL2/SDL_thread.h:
+
+c:\mingw\include\process.h:
+
+c:\mingw\include\stdint.h:
+
+C:/SDL2/include/SDL2/SDL_rwops.h:
+
+C:/SDL2/include/SDL2/SDL_clipboard.h:
+
+C:/SDL2/include/SDL2/SDL_cpuinfo.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\immintrin.h:
 
@@ -258,20 +494,6 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\mmintrin.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\xmmintrin.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\mm_malloc.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdlib.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdlib:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++config.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\os_defines.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\cpu_defines.h:
-
-c:\mingw\include\stdlib.h:
-
-c:\mingw\include\errno.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\emmintrin.h:
 
@@ -331,258 +553,88 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\rtmintrin.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\xtestintrin.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_events.h:
+C:/SDL2/include/SDL2/SDL_events.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_video.h:
+C:/SDL2/include/SDL2/SDL_video.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_pixels.h:
+C:/SDL2/include/SDL2/SDL_pixels.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_rect.h:
+C:/SDL2/include/SDL2/SDL_rect.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_surface.h:
+C:/SDL2/include/SDL2/SDL_surface.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_blendmode.h:
+C:/SDL2/include/SDL2/SDL_blendmode.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_keyboard.h:
+C:/SDL2/include/SDL2/SDL_keyboard.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_keycode.h:
+C:/SDL2/include/SDL2/SDL_keycode.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_scancode.h:
+C:/SDL2/include/SDL2/SDL_scancode.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_mouse.h:
+C:/SDL2/include/SDL2/SDL_mouse.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_joystick.h:
+C:/SDL2/include/SDL2/SDL_joystick.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_guid.h:
+C:/SDL2/include/SDL2/SDL_guid.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_gamecontroller.h:
+C:/SDL2/include/SDL2/SDL_gamecontroller.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_sensor.h:
+C:/SDL2/include/SDL2/SDL_sensor.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_quit.h:
+C:/SDL2/include/SDL2/SDL_quit.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_gesture.h:
+C:/SDL2/include/SDL2/SDL_gesture.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_touch.h:
+C:/SDL2/include/SDL2/SDL_touch.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_filesystem.h:
+C:/SDL2/include/SDL2/SDL_filesystem.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_haptic.h:
+C:/SDL2/include/SDL2/SDL_haptic.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_hidapi.h:
+C:/SDL2/include/SDL2/SDL_hidapi.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_hints.h:
+C:/SDL2/include/SDL2/SDL_hints.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_loadso.h:
+C:/SDL2/include/SDL2/SDL_loadso.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_log.h:
+C:/SDL2/include/SDL2/SDL_log.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_messagebox.h:
+C:/SDL2/include/SDL2/SDL_messagebox.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_metal.h:
+C:/SDL2/include/SDL2/SDL_metal.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_power.h:
+C:/SDL2/include/SDL2/SDL_power.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_render.h:
+C:/SDL2/include/SDL2/SDL_render.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_shape.h:
+C:/SDL2/include/SDL2/SDL_shape.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_system.h:
+C:/SDL2/include/SDL2/SDL_system.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_timer.h:
+C:/SDL2/include/SDL2/SDL_timer.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_version.h:
+C:/SDL2/include/SDL2/SDL_version.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_locale.h:
+C:/SDL2/include/SDL2/SDL_locale.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_misc.h:
+C:/SDL2/include/SDL2/SDL_misc.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_image.h:
+C:/SDL2/include/SDL2/SDL_image.h:
 
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_version.h:
+C:/SDL2/include/SDL2/SDL.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:
+include/Component.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream:
+include/GameObject.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ios:
+include/Rect.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iosfwd:
+include/Music.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stringfwd.h:
+C:/SDL2/include/SDL2/SDL_mixer.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\memoryfwd.h:
+include/Sound.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\postypes.h:
+include/Face.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwchar:
-
-c:\mingw\include\wchar.h:
-
-c:\mingw\include\stdio.h:
-
-c:\mingw\include\stdlib.h:
-
-c:\mingw\include\time.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\exception:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_lockfree_defines.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\exception_ptr.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\exception_defines.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\nested_exception.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\move.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\concept_check.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\type_traits:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\char_traits.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algobase.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\functexcept.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\cpp_type_traits.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\type_traits.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\numeric_traits.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_pair.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_iterator_base_types.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_iterator_base_funcs.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\debug\assertions.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_iterator.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ptr_traits.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\debug\debug.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\predefined_ops.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdint:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\localefwd.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++locale.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\clocale:
-
-c:\mingw\include\locale.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cctype:
-
-c:\mingw\include\ctype.h:
-
-c:\mingw\include\wctype.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ios_base.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\atomicity.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\gthr.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\gthr-default.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\atomic_word.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\string:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocator.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++allocator.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\new_allocator.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\new:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream_insert.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\cxxabi_forced.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_function.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\binders.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\range_access.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\initializer_list:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_string.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\alloc_traits.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\alloc_traits.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\string_conversions.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdio:
-
-c:\mingw\include\stdio.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cerrno:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\functional_hash.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hash_bytes.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_string.tcc:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.tcc:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\system_error:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\error_constants.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdexcept:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\streambuf:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf.tcc:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwctype:
-
-c:\mingw\include\wctype.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_base.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf_iterator.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_inline.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.tcc:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.tcc:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc:
-
-src/../include/Music.h:
-
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_mixer.h:
-
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_stdinc.h:
-
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_rwops.h:
-
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_audio.h:
-
-C:/SDL2/i686-w64-mingw32/include/SDL2/SDL_endian.h:
+include/Vec2.h:
