@@ -12,8 +12,7 @@ Sound::Sound(GameObject &associated, std::string file) : Sound(associated){
 
 
 void Sound::Play(int times){
-    //channel = Mix_PlayChannel(-1, chunk, times - 1);
-    channel = -1; 
+    channel = Mix_PlayChannel(-1, chunk, times - 1); 
     if (channel == -1)
     {
         std::cout << "Failed to play sound!" << SDL_GetError() << std::endl;
@@ -21,15 +20,16 @@ void Sound::Play(int times){
 }
 
 void Sound::Stop(){
-    chunk = nullptr;
     if (chunk != nullptr){
+        std::cout << "Teste2" << std::endl;
         Mix_HaltChannel(channel);
+        std::cout << "Teste2" << std::endl;
     }
 }
 
 void Sound::Open(std::string file){
-    //chunk = Mix_LoadWAV(file.c_str());
-    chunk = nullptr;
+    chunk = Mix_LoadWAV(file.c_str());
+
     if (chunk == nullptr)
     {
         std::cout << "Failed to open sound!" << std::endl;
@@ -40,9 +40,7 @@ void Sound::Open(std::string file){
 Sound::~Sound(){
     if (chunk != nullptr)
     {
-        while (Mix_Playing(channel));
-        Stop();
-        Mix_FreeChunk(chunk);
+        
     }
 }
 

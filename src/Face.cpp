@@ -11,8 +11,8 @@ void Face::Damage(int damage){
     {
         Sound* tmp= (Sound *)associated.GetComponent("Sound").get();
         if (tmp != nullptr)
-        {
-        tmp->Play();
+        {    
+        tmp->Play();  
         }
         associated.RequestDelete();
     }

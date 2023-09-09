@@ -184,7 +184,8 @@ dep/Game.d bin/Game.o: src/Game.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
  include/Sprite.h C:/SDL2/include/SDL2/SDL_image.h \
  C:/SDL2/include/SDL2/SDL.h include/Component.h include/GameObject.h \
- include/Rect.h include/Sound.h C:/SDL2/include/SDL2/SDL_mixer.h
+ include/Rect.h include/Music.h C:/SDL2/include/SDL2/SDL_mixer.h \
+ include/Sound.h
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\string:
 
@@ -630,6 +631,8 @@ include/GameObject.h:
 
 include/Rect.h:
 
-include/Sound.h:
+include/Music.h:
 
 C:/SDL2/include/SDL2/SDL_mixer.h:
+
+include/Sound.h:

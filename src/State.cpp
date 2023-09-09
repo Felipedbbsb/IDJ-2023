@@ -51,8 +51,8 @@ void State::Update(float dt)
             objectArray.erase(objectArray.begin() + i);
         }
     }
-
     SDL_Delay(dt);
+
 }
 
 //renderização do estado do jogo. Isso inclui entidades, cenários, HUD, entre outros.
