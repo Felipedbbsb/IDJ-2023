@@ -1,8 +1,6 @@
 #include "GameObject.h"
 
-GameObject::GameObject() : box(0, 0, 0, 0), isDead(false)
-{
-}
+GameObject::GameObject() : box(0, 0, 0, 0), isDead(false){}
 
 GameObject::~GameObject(){
     components.clear();

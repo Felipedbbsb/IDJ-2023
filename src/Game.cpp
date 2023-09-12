@@ -1,6 +1,6 @@
 #include <string>
 #include <iostream>
-
+#include "Resources.h"
 #include "Game.h"
 
 #define AUDIO_CHUNKSIZE 1024
@@ -122,4 +122,7 @@ void Game::Run() {
         state->Render(); 
         SDL_RenderPresent(Game::GetInstance().GetRenderer());
     }
+    Resources::ClearImages();
+    Resources::ClearMusics();
+    Resources::ClearSounds();
 }

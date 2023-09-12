@@ -17,31 +17,48 @@
 
 #define PI 3.141592
 
-State::State() : bg_sprite(new Sprite(background, BACKGROUND_SPRITE_PATH)){  
+// -----------Tile assets -------------------
+#define TILE_WIDTH 64
+#define TILE_HEIGHT 64
+#define MAP_TILEMAP_PATH "assets/map/tileMap.txt"
+#define MAP_TILESET_PATH "assets/img/tileset.png"
+
+State::State() {  
     
-    background.AddComponent((std::shared_ptr<Sprite>)bg_sprite);
-    objectArray.emplace_back((std::shared_ptr<GameObject>)&background);
-    
+    // ====================Background ================================
+    GameObject *background = new GameObject();
+        //Background Sprite
+        Sprite *bg_sprite = new Sprite(*background, BACKGROUND_SPRITE_PATH);
+        background->AddComponent((std::shared_ptr<Sprite>)bg_sprite);
+        background->box.x = 0;
+        background->box.y = 0;
+        objectArray.emplace_back(background);    // Adicionando o background no objectArray
+    // ==================== Map ================================
+    GameObject *map = new GameObject();
+        //================================Tile================================
+        TileSet *tileSet = new TileSet(*map, TILE_HEIGHT, TILE_WIDTH, MAP_TILESET_PATH);
+        TileMap *tileMap = new TileMap(*map, MAP_TILEMAP_PATH, tileSet);
+        map->AddComponent((std::shared_ptr<TileMap>)tileMap);
+        map->box.x = 0;
+        map->box.y = 0;
+        objectArray.emplace_back(map);
+
     quitRequested = false;
     LoadAssets();
     music.Play(BACKGROUND_MUSIC_LOOP_TIMES);
 }
 
-State::~State(){
-    objectArray.clear();
-}
+State::~State(){objectArray.clear();}
 
 //método que cuida de pré-carregar os assets do state do jogo
-void State::LoadAssets()
-{
+void State::LoadAssets(){
     music.Open(BACKGROUND_MUSIC_PATH);
 }
 
 
 //atualização do estado das entidades, testes de
 //colisões e a checagem relativa ao encerramento do jogo.
-void State::Update(float dt)
-{
+void State::Update(float dt){
     Input();
     for (int i = (int)objectArray.size() - 1; i >= 0; --i){
         objectArray[i]->Update(dt);             
@@ -57,15 +74,12 @@ void State::Update(float dt)
 
 //renderização do estado do jogo. Isso inclui entidades, cenários, HUD, entre outros.
 void State::Render(){
-    for (int i = 0; i != (int)objectArray.size(); i++)
-    {
+    for (int i = 0; i != (int)objectArray.size(); i++){
         objectArray[i]->Render();
     }
 }
 
-bool State::QuitRequested() {
-    return quitRequested;
-}
+bool State::QuitRequested() {return quitRequested;}
 
 void State::Input()
 {
@@ -128,8 +142,7 @@ void State::Input()
     }
 }
 
-void State::AddObject(int mouseX, int mouseY)
-{
+void State::AddObject(int mouseX, int mouseY){
     GameObject *enemy = new GameObject();
     // Criando o sprite do inimigo
     Sprite *enemy_sprite = new Sprite(*enemy, ENEMY_SPRITE_PATH);

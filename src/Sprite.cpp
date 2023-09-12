@@ -1,7 +1,7 @@
 #include "Sprite.h"
 #include "Game.h"
 #include "GameObject.h"
-
+#include "Resources.h"
 
 #define CLIP_START_X 0
 #define CLIP_START_Y 0
@@ -15,19 +15,11 @@ Sprite::Sprite(GameObject &associated, std::string file) : Sprite(associated){
     Open(file);
 }
 
-Sprite::~Sprite(){
-    if (texture != nullptr) {
-        SDL_DestroyTexture(texture);
-    };
-}
+Sprite::~Sprite(){}
 
 // Carrega a imagem indicada pelo caminho file.
 void Sprite::Open(std::string file) {
-    Game& instance = Game::GetInstance();
-
-    if (texture != nullptr) {
-       SDL_DestroyTexture(texture);
-    };
+    texture = Resources::GetImage(file.c_str());
 
     // carrega textura
     texture = IMG_LoadTexture(Game::GetInstance().GetRenderer(), file.c_str());
@@ -71,13 +63,19 @@ void Sprite::Render() {
     }
 }
 
-int Sprite::GetWidth() {
-    return width;
+void Sprite::Render(int x, int y){
+    int RENDER_ERROR;
+    SDL_Rect dstLoc = {x, y, clipRect.w, clipRect.h};
+    
+    RENDER_ERROR = SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc);
+    if (RENDER_ERROR != 0){
+        std::cout << "Texture render failure " << SDL_GetError() << std::endl;
+    }
 }
 
-int Sprite::GetHeight() {
-    return height;
-}
+int Sprite::GetWidth() {return width;}
+
+int Sprite::GetHeight() {return height;}
 
 //Retorna true se texture estiver alocada.
 bool Sprite::IsOpen() {
@@ -90,16 +88,9 @@ bool Sprite::IsOpen() {
 }
 
 
-void Sprite::Update(float dt){
-}
+void Sprite::Update(float dt){}
 
 bool Sprite::Is(std::string type){
-    if (type == "Sprite")
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    if (type == "Sprite"){return true;}
+    else{return false;}
 }
