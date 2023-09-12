@@ -184,8 +184,13 @@ dep/State.d bin/State.o: src/State.cpp include/State.h \
  C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
  C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h \
  include/Component.h include/GameObject.h include/Rect.h include/Music.h \
- C:/SDL2/include/SDL2/SDL_mixer.h include/Sound.h include/Face.h \
- include/Vec2.h
+ C:/SDL2/include/SDL2/SDL_mixer.h include/Sound.h include/TileMap.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc \
+ include/TileSet.h include/Face.h include/Vec2.h
 
 include/State.h:
 
@@ -634,6 +639,20 @@ include/Music.h:
 C:/SDL2/include/SDL2/SDL_mixer.h:
 
 include/Sound.h:
+
+include/TileMap.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc:
+
+include/TileSet.h:
 
 include/Face.h:
 

@@ -157,7 +157,46 @@ dep/Music.d bin/Music.o: src/Music.cpp \
  C:/SDL2/include/SDL2/SDL_shape.h C:/SDL2/include/SDL2/SDL_system.h \
  C:/SDL2/include/SDL2/SDL_timer.h C:/SDL2/include/SDL2/SDL_version.h \
  C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
- C:/SDL2/include/SDL2/SDL_mixer.h
+ C:/SDL2/include/SDL2/SDL_mixer.h include/Resources.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\unordered_map \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\utility \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_relops.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\tuple \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\array \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uses_allocator.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\aligned_buffer.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h \
+ C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h \
+ include/Game.h include/State.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_construct.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tempbuf.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_raw_storage_iter.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\typeinfo \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\concurrence.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\functional \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unique_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_base.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocated_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
+ include/Sprite.h include/Component.h include/GameObject.h include/Rect.h \
+ include/Sound.h include/TileMap.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc \
+ include/TileSet.h
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:
 
@@ -540,3 +579,95 @@ C:/SDL2/include/SDL2/SDL_locale.h:
 C:/SDL2/include/SDL2/SDL_misc.h:
 
 C:/SDL2/include/SDL2/SDL_mixer.h:
+
+include/Resources.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\unordered_map:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\utility:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_relops.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\tuple:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\array:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uses_allocator.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\aligned_buffer.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h:
+
+C:/SDL2/include/SDL2/SDL_image.h:
+
+C:/SDL2/include/SDL2/SDL.h:
+
+include/Game.h:
+
+include/State.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_construct.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tempbuf.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_raw_storage_iter.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\typeinfo:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\concurrence.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\functional:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unique_ptr.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_base.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocated_ptr.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h:
+
+include/Sprite.h:
+
+include/Component.h:
+
+include/GameObject.h:
+
+include/Rect.h:
+
+include/Sound.h:
+
+include/TileMap.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc:
+
+include/TileSet.h:

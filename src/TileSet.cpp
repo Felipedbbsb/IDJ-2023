@@ -5,7 +5,7 @@ TileSet::TileSet(GameObject& associated, int tileWidth, int tileHeight, std::str
                                                                                             tileHeight(tileHeight)
 {
     if (tileSet.IsOpen()){
-		cbrtl = tileSet.GetWidth()/tileWidth;
+		columns = tileSet.GetWidth()/tileWidth;
         rows = tileSet.GetHeight()/tileHeight;
         tilesNumber = columns * rows;
 	} else {
@@ -26,11 +26,6 @@ void TileSet::RenderTile(unsigned index, float x, float y){
     
 }
 
-int TileSet::GetTileWidth()
-{
-    return tileWidth;
-}
+int TileSet::GetTileWidth(){return tileWidth;}
 
-int TileSet::GetTileHeight(){
-    return tileHeight;
-}
+int TileSet::GetTileHeight(){return tileHeight;}

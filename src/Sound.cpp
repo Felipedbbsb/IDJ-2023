@@ -1,11 +1,13 @@
 #include "Sound.h"
 #define INCLUDE_SDL_MIXER
 #include "SDL_include.h"
+#include "Resources.h"
 Sound::Sound(GameObject &associated) : Component::Component(associated){
     chunk = nullptr;
 }
 
 Sound::Sound(GameObject &associated, std::string file) : Sound(associated){
+    chunk = nullptr;
     Open(file.c_str());
 }
 
@@ -21,15 +23,13 @@ void Sound::Play(int times){
 
 void Sound::Stop(){
     if (chunk != nullptr){
-        std::cout << "Teste2" << std::endl;
         Mix_HaltChannel(channel);
-        std::cout << "Teste2" << std::endl;
     }
 }
 
 void Sound::Open(std::string file){
-    chunk = Mix_LoadWAV(file.c_str());
-
+    //chunk = Mix_LoadWAV(file.c_str());
+    chunk = Resources::GetSound(file.c_str());
     if (chunk == nullptr)
     {
         std::cout << "Failed to open sound!" << std::endl;

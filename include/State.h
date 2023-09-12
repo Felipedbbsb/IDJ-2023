@@ -7,6 +7,8 @@
 #include "Music.h"
 #include "Sound.h"
 #include "GameObject.h"
+#include "TileMap.h"
+#include "TileSet.h"
 
 
 
@@ -22,8 +24,6 @@ class State {
         void Render();
 
     private:
-        GameObject background;
-        Sprite *bg_sprite;
         Music music;
         bool quitRequested;
         void Input();

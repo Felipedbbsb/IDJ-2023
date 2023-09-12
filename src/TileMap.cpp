@@ -8,43 +8,43 @@ TileMap::TileMap(GameObject &associated, std::string file, TileSet *tileSet) : C
 
 void TileMap::Load(std::string file){
     int tile;
-    char separator;
+    char empty;
     std::ifstream file_object;
     file_object.open(file.c_str());
-    // Garante que o arquivo foi aberto corretamente
-    if (file_object) 
-    {
-        // Pega os três primeiros valores do arquivo tileMap.txt
-        file_object >> mapWidth >> separator >> mapHeight >> separator >> mapDepth >> separator;
-        std::cout << "TileMap:  tileMap width: " << mapWidth << std::endl  << "tileMap height: " << mapHeight << std::endl << "tileMap depth: " << mapWidth << std::endl;
+    // Confere se foi aberto
+    if (file_object) {
+        file_object >> mapWidth >> empty >> mapHeight >> empty >> mapDepth >> empty;
+        std::cout << "TileMap: " << std::endl;
+        std::cout << "tileMap width: " << mapWidth << std::endl;  
+        std::cout << "tileMap height: " << mapHeight << std::endl; 
+        std::cout << "tileMap depth: " << mapWidth << std::endl;
+    }
+    else{
+         std::cout << "Failed to open TileMap " << std::endl;
     }
 
-    for (int i = 0; i < (mapWidth * mapHeight * mapDepth); i++)
-    {
-        file_object >> tile >> separator;
-        // std::cout << i << ": " << tile << std::endl;
+    for (int i = 0; i < (mapWidth * mapHeight * mapDepth); i++){
+        file_object >> tile >> empty;
         tileMatrix.push_back(tile-1);
     }
 }
 
-void TileMap::SetTileSet(TileSet* tileSet)
-{
+int& TileMap::At(int x, int y, int z){
+    int index = x + (y * mapWidth) + (z * mapWidth * mapHeight);
+    int& result = tileMatrix[index];
+    return result;
+}
+
+
+void TileMap::SetTileSet(TileSet* tileSet){
     this->tileSet = tileSet;
 }
-int& TileMap::At(int x, int y, int z)
-{
-    int index = x + (y * mapWidth) + (z * mapWidth * mapHeight);
-    int& reference = tileMatrix[index];
 
-    return reference;
-}
 
 void TileMap::RenderLayer(int layer, int cameraX, int cameraY)
 {
-    for (int x = 0; x < mapWidth; x++)
-    {
-        for (int y = 0; y < mapHeight; y++)
-        {
+    for (int x = 0; x < mapWidth; x++){
+        for (int y = 0; y < mapHeight; y++){
             tileSet->RenderTile(At(x, y, layer),
                                 (float)(x * tileSet->GetTileWidth()), 
                                 (float)(y * tileSet->GetTileHeight()));
@@ -52,40 +52,29 @@ void TileMap::RenderLayer(int layer, int cameraX, int cameraY)
     }
 }
 
-void TileMap::Render()
-{
-    for (int i = 0; i < mapDepth; i++)
-    {   
-        // std::cout << "TileMap::Render: Indice da layer " << i << std::endl;
-        RenderLayer(i);
-    }
-}
 
-int TileMap::GetWidth()
-{
+
+int TileMap::GetWidth(){
     return mapWidth;
 }
 
-int TileMap::GetHeight()
-{
+int TileMap::GetHeight(){
     return mapHeight;
 }
 
-int TileMap::GetDepth()
-{
+int TileMap::GetDepth(){
     return mapDepth;
 }
 
-bool TileMap::Is(std::string type)
-{
-    if (type == "TileMap")
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+bool TileMap::Is(std::string type){
+    if (type == "TileMap"){return true;}
+    else{return false;}
 }
 
 void TileMap::Update(float dt) {}
+
+void TileMap::Render(){
+    for (int i = 0; i < mapDepth; i++){   
+        RenderLayer(i);
+    }
+}
