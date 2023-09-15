@@ -9,8 +9,8 @@
 #define AUDIO_CHANNELS MIX_DEFAULT_CHANNELS
 #define SOUND_RESOLUTION 32
 
-#define SCREEN_WIDTH 1024
-#define SCREEN_HEIGHT 600
+#define SCREEN_WIDTH 1280
+#define SCREEN_HEIGHT 720
 #define SCREEN_TITLE "Felipe Dantas Borges - 202021749"
 
 #define WINDOW_FLAGS 0 // Ex.: SDL_WINDOW_FULLSCREEN
@@ -126,3 +126,17 @@ void Game::Run() {
     Resources::ClearMusics();
     Resources::ClearSounds();
 }
+
+
+
+void Game::CalculateDeltaTime(){
+    int time_delta  = SDL_GetTicks();
+    // std::cout << "frameStart: " << frameStart << std::endl;
+    // std::cout << "instTime: " << instTime << std::endl;
+
+    dt = (ctime_delta - frameStart) / 1000.0; // converting time from miliseconds to seconds
+    // std::cout << "dt: " << dt << std::endl;
+    frameStart = time_delta;
+}
+
+float Game::GetDeltaTime(){return dt;}
