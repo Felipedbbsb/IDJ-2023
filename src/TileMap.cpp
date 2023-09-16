@@ -1,8 +1,9 @@
-
+#include "Camera.h"
 #include "TileMap.h"
 
 TileMap::TileMap(GameObject &associated, std::string file, TileSet *tileSet) : Component::Component(associated) {
-    this->tileSet = tileSet;                                                                            
+    this->tileSet = tileSet;       
+    this->parallax = 0;                                                                     
     TileMap::Load(file.c_str());
 }
 
@@ -41,15 +42,13 @@ void TileMap::SetTileSet(TileSet* tileSet){
 }
 
 
-void TileMap::RenderLayer(int layer, int cameraX, int cameraY)
-{
-    for (int x = 0; x < mapWidth; x++){
-        for (int y = 0; y < mapHeight; y++){
-            tileSet->RenderTile(At(x, y, layer),
-                                (float)(x * tileSet->GetTileWidth()), 
-                                (float)(y * tileSet->GetTileHeight()));
-        }
-    }
+void TileMap::RenderLayer(int layer, int cameraX, int cameraY){
+    for(int x = 0; x < mapHeight; x++){
+		for(int y = 0; y < mapWidth; y++){
+			tileSet->RenderTile(At(x, y, layer),
+                    (float)((x + cameraX * layer * this-> parallax) * tileSet->GetTileWidth()),
+                    (float)((y + cameraY * layer * this-> parallax) * tileSet->GetTileHeight()));}
+	}
 }
 
 
@@ -74,7 +73,13 @@ bool TileMap::Is(std::string type){
 void TileMap::Update(float dt) {}
 
 void TileMap::Render(){
-    for (int i = 0; i < mapDepth; i++){   
-        RenderLayer(i);
+    for (int i = 0; i < mapDepth; i++)
+    {
+        // std::cout << "TileMap::Render: Indice da layer " << i << std::endl;
+        RenderLayer(i, Camera::pos.x + (int)Camera::pos.x*parallax*i, Camera::pos.y + (int)Camera::pos.y*parallax*i);
     }
+}
+
+void TileMap::SetParallax(float parallax) {
+	this->parallax = parallax;
 }

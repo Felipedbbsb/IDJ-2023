@@ -8,4 +8,5 @@ class Vec2{
         Vec2 GetRotated(float theta);
         float x, y;
         Vec2 operator+(const Vec2 &other) const;
+        Vec2();
 };

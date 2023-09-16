@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Resources.h"
 #include "Game.h"
+#include "InputManager.h"
 
 #define AUDIO_CHUNKSIZE 1024
 #define AUDIO_FREQUENCY MIX_DEFAULT_FREQUENCY
@@ -9,8 +10,8 @@
 #define AUDIO_CHANNELS MIX_DEFAULT_CHANNELS
 #define SOUND_RESOLUTION 32
 
-#define SCREEN_WIDTH 1280
-#define SCREEN_HEIGHT 720
+#define SCREEN_WIDTH 1024
+#define SCREEN_HEIGHT 600
 #define SCREEN_TITLE "Felipe Dantas Borges - 202021749"
 
 #define WINDOW_FLAGS 0 // Ex.: SDL_WINDOW_FULLSCREEN
@@ -19,7 +20,8 @@
 Game *Game::instance = nullptr;
 
 
-Game::Game (std::string title, int width, int height) {
+Game::Game (std::string title, int width, int height) : frameStart(0),
+                                                       dt(0.0){
     int SDL_ERROR;
     int IMG_ERROR;
     int MSC_ERROR;
@@ -118,8 +120,10 @@ SDL_Renderer* Game::GetRenderer() {
 
 void Game::Run() {
     while (state->QuitRequested()!=true) {
-        state->Update(33); 
-        state->Render(); 
+         CalculateDeltaTime();
+        InputManager::GetInstance().Update();
+        state->Update(dt);
+        state->Render();
         SDL_RenderPresent(Game::GetInstance().GetRenderer());
     }
     Resources::ClearImages();
@@ -131,11 +135,12 @@ void Game::Run() {
 
 void Game::CalculateDeltaTime(){
     int time_delta  = SDL_GetTicks();
-    // std::cout << "frameStart: " << frameStart << std::endl;
-    // std::cout << "instTime: " << instTime << std::endl;
+    //std::cout << "frameStart: " << frameStart << std::endl;
+    //std::cout << "time_delta: " << time_delta << std::endl;
 
-    dt = (ctime_delta - frameStart) / 1000.0; // converting time from miliseconds to seconds
-    // std::cout << "dt: " << dt << std::endl;
+    dt = (time_delta - frameStart) / 1000.0; // converting time from miliseconds to seconds
+    //std::cout << "dt: " << dt << std::endl;
+    //std::cout << "Frames = " << 1000/dt <<std::endl; 
     frameStart = time_delta;
 }
 

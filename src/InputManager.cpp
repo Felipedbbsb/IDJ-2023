@@ -1,12 +1,6 @@
 #include "InputManager.h"
 
-//------------------COMMANDS---------------------
-#define LEFT_ARROW_KEY SDLK_LEFT
-#define RIGHT_ARROW_KEY SDLK_RIGHT
-#define UP_ARROW_KEY SDLK_UP
-#define DOWN_ARROW_KEY SDLK_DOWN
-#define ESCAPE_KEY SDLK_ESCAPE
-#define LEFT_MOUSE_BUTTON SDL_BUTTON_LEFT
+
 
 //Meyers’ Singleton.
 InputManager &InputManager::GetInstance(){
@@ -32,13 +26,14 @@ void InputManager::Update(){
 
     updateCounter ++;//Atualiza o updateCounter
     quitRequested = false;
-    std::cout << "Tecla: " << event.key.keysym.sym << std::endl;
-    std::cout << "Botão: " << event.button.button << std::endl;
-    std::cout << "MouseXY: X" << GetMouseX() << " Y" << GetMouseY() << std::endl;
+    
 
     // SDL_PollEvent retorna 1 se encontrar eventos, zero caso contrário
     while (SDL_PollEvent(&event)){   
-        // Para saber se o evento é repetido
+        // Para saber se o evento é repetidos
+        //std::cout << "Tecla: " << event.key.keysym.sym << std::endl;
+        //std::cout << "Botao: " << event.button.button << std::endl;
+        //std::cout << "MouseXY: X" << GetMouseX() << " Y" << GetMouseY() << std::endl;
         if (event.key.repeat != true) {   
             
             // Switch melhor que if nessa situacao

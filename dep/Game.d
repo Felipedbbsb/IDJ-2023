@@ -196,7 +196,7 @@ dep/Game.d bin/Game.o: src/Game.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc \
- include/TileSet.h
+ include/TileSet.h include/InputManager.h
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\string:
 
@@ -671,3 +671,5 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc:
 
 include/TileSet.h:
+
+include/InputManager.h:

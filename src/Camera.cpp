@@ -10,11 +10,13 @@ Vec2 Camera::speed;
 
 void Camera::Update(float dt){
     if (focus == nullptr) {
+        InputManager& input = InputManager::GetInstance();
         //EIXO X
-        if (InputManager::GetInstance().IsKeyDown(RIGHT_ARROW_KEY)){
-            speed.x = SPEED;
+
+        if (input.IsKeyDown(RIGHT_ARROW_KEY)){
+            speed.x = CAMERA_SPEED;
         }
-        else if (InputManager::GetInstance().IsKeyDown(LEFT_ARROW_KEY)){
+        else if (input.IsKeyDown(LEFT_ARROW_KEY)){
             speed.x =  CAMERA_SPEED * (-1) ;
         }
         else{
@@ -22,22 +24,26 @@ void Camera::Update(float dt){
         }
              
         
-        
         //EIXO Y
-        if (InputManager::GetInstance().IsKeyDown(UP_ARROW_EY)){ // Também verificar se o eixo y está sendo pressionado ~ diagonais
+        if (input.IsKeyDown(UP_ARROW_KEY)){ // Também verificar se o eixo y está sendo pressionado ~ diagonais
             speed.y = CAMERA_SPEED * (-1) ;
         }
-        else if (InputManager::GetInstance().IsKeyDown(DOWN_ARROW_KEY)){
+        else if (input.IsKeyDown(DOWN_ARROW_KEY)){
             speed.y = CAMERA_SPEED;
         }     
         else{
             speed.y = 0;
         }
 
-        
 
         pos.x += dt * speed.x;
         pos.y += dt * speed.y;
+
+    }
+    else{
+        // Se mudar o tamanho da tela tem que mudar aqui!!!
+		pos.x = focus->box.x + focus->box.w - 1024/2;
+		pos.y = focus->box.y + focus->box.h - 600/2;
     }
 }
 
