@@ -3,7 +3,7 @@
 #include "Vec2.h"
 #include "GameObject.h"
 
-#define CAMERA_SPEED 100 //movement speed
+
 
 class Camera{
     public:

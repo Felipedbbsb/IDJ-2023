@@ -1,6 +1,7 @@
 #include "Camera.h"
 #include "InputManager.h"
 #include "Game.h"
+#define CAMERA_SPEED 500 //movement speed
 
 GameObject* Camera::focus;
 
@@ -42,8 +43,8 @@ void Camera::Update(float dt){
     }
     else{
         // Se mudar o tamanho da tela tem que mudar aqui!!!
-		pos.x = focus->box.x + focus->box.w - 1024/2;
-		pos.y = focus->box.y + focus->box.h - 600/2;
+		//pos.x = focus->box.x + focus->box.w - 1024/2;
+		//pos.y = focus->box.y + focus->box.h - 600/2;
     }
 }
 
