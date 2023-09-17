@@ -18,7 +18,7 @@ void TileMap::Load(std::string file){
         std::cout << "TileMap: " << std::endl;
         std::cout << "tileMap width: " << mapWidth << std::endl;  
         std::cout << "tileMap height: " << mapHeight << std::endl; 
-        std::cout << "tileMap depth: " << mapWidth << std::endl;
+        std::cout << "tileMap depth: " << mapDepth << std::endl;
     }
     else{
          std::cout << "Failed to open TileMap " << std::endl;

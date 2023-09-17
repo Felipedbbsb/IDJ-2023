@@ -42,7 +42,7 @@ void Camera::Update(float dt){
 
     }
     else{
-        // Se mudar o tamanho da tela tem que mudar aqui!!!
+        //tamanho da tela 
 		//pos.x = focus->box.x + focus->box.w - 1024/2;
 		//pos.y = focus->box.y + focus->box.h - 600/2;
     }
