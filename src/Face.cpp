@@ -12,8 +12,7 @@ void Face::Damage(int damage){
     if (hitpoints <= 0)
     {
         Sound* tmp= (Sound *)associated.GetComponent("Sound").get();
-        if (tmp != nullptr)
-        {    
+        if (tmp != nullptr){    
         tmp->Play();  
         }
         associated.RequestDelete();
@@ -30,6 +29,7 @@ void Face::Update(float dt) {
             std::cout << "Damage applied: " << damage << std::endl;
            
             Damage(damage); //ataque
+            
         }
     }
 }

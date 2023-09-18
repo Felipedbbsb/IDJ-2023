@@ -46,7 +46,7 @@ State::State() {
     GameObject *map = new GameObject();
         TileSet *tileSet = new TileSet(*map, TILE_HEIGHT, TILE_WIDTH, MAP_TILESET_PATH);
         TileMap *tileMap = new TileMap(*map, MAP_TILEMAP_PATH, tileSet);
-        tileMap->SetParallax(0.1);
+        tileMap->SetParallax(0.005);
         map->AddComponent((std::shared_ptr<TileMap>)tileMap);
         
         map->box.x = 0;
@@ -85,8 +85,9 @@ void State::Update(float dt){
         //objPos = objPos + Vec2(input.GetMouseX(), input.GetMouseY());
         Vec2 objPos = Vec2(200, 0).GetRotated(-PI + PI * (rand() % 1001) / 500.0) + Vec2(input.GetMouseX(), input.GetMouseY());
         AddObject((int)objPos.x - Camera::pos.x, (int)objPos.y - Camera::pos.y);
-        std::cout << "aaaaaaaa: " << (int)objPos.x - Camera::pos.x << " "<< Camera::pos.y<< std::endl;
     }
+
+    
 
     for (int i = (int)objectArray.size() - 1; i >= 0; --i){
         objectArray[i]->Update(dt);         
