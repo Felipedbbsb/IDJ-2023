@@ -9,12 +9,11 @@
 
 class Component;
 
-class GameObject
-{
+class GameObject{
   public:
     GameObject();
     ~GameObject();
-
+    void Start();
     void Update(float dt);
     void Render();
     bool IsDead();
@@ -29,4 +28,5 @@ class GameObject
   private:
     std::vector<std::shared_ptr<Component>> components;
     bool isDead;
+    bool started;
 };

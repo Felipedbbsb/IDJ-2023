@@ -119,6 +119,7 @@ SDL_Renderer* Game::GetRenderer() {
 //GAME LOOP
 
 void Game::Run() {
+    state->Start();
     while (state->QuitRequested()!=true) {
         CalculateDeltaTime();
         InputManager::GetInstance().Update();

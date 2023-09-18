@@ -184,18 +184,18 @@ dep/State.d bin/State.o: src/State.cpp include/State.h \
  C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
  C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h \
  include/Component.h include/GameObject.h include/Rect.h include/Music.h \
- C:/SDL2/include/SDL2/SDL_mixer.h include/Sound.h include/TileMap.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
+ C:/SDL2/include/SDL2/SDL_mixer.h include/Sound.h include/Face.h \
+ include/TileMap.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc \
- include/TileSet.h include/CameraFollower.h include/Camera.h \
- include/Vec2.h include/Face.h include/InputManager.h \
+ include/TileSet.h include/Vec2.h include/InputManager.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\unordered_map \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h \
+ include/Camera.h include/CameraFollower.h
 
 include/State.h:
 
@@ -645,6 +645,8 @@ C:/SDL2/include/SDL2/SDL_mixer.h:
 
 include/Sound.h:
 
+include/Face.h:
+
 include/TileMap.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream:
@@ -659,13 +661,7 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc:
 
 include/TileSet.h:
 
-include/CameraFollower.h:
-
-include/Camera.h:
-
 include/Vec2.h:
-
-include/Face.h:
 
 include/InputManager.h:
 
@@ -676,3 +672,7 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h:
+
+include/Camera.h:
+
+include/CameraFollower.h:
