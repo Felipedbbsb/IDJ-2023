@@ -4,7 +4,7 @@
 
 #include "SDL_include.h"
 #include "State.h"
-
+#include "InputManager.h"
 
 //Class responsible for running main game loop
 class Game {
@@ -15,10 +15,15 @@ class Game {
         SDL_Renderer* renderer;
         State* state;
 
+        int frameStart;
+        float dt;
+        void CalculateDeltaTime();
+
     public:
         ~Game();
         void Run();
         SDL_Renderer* GetRenderer();
         State& GetState();
         static Game& GetInstance();
+        float GetDeltaTime();
 };

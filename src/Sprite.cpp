@@ -21,8 +21,7 @@ Sprite::~Sprite(){}
 void Sprite::Open(std::string file) {
     texture = Resources::GetImage(file.c_str());
 
-    // carrega textura
-    texture = IMG_LoadTexture(Game::GetInstance().GetRenderer(), file.c_str());
+
     if (texture == nullptr)
     {
         std::cout << "Failed to load texture" << std::endl; // falha em carregar imagem.
@@ -39,6 +38,10 @@ void Sprite::SetClip(int x, int y, int w, int h) {
     clipRect.y = y;
     clipRect.w = w;
     clipRect.h = h;
+
+    //Hitbox do tamanho do sprite
+    associated.box.w = w;
+    associated.box.h = h;
 }
 
 
@@ -55,7 +58,7 @@ void Sprite::SetClip(int x, int y, int w, int h) {
 
 void Sprite::Render() {
     int RENDER_ERROR;
-    SDL_Rect dstLoc = {int(associated.box.x), int(associated.box.y), clipRect.w, clipRect.h};
+    SDL_Rect dstLoc = {int(associated.box.x) + (int)Camera::pos.x, int(associated.box.y) + (int)Camera::pos.y, clipRect.w, clipRect.h};
 
     RENDER_ERROR = SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc);
     if (RENDER_ERROR != 0) {
@@ -65,7 +68,7 @@ void Sprite::Render() {
 
 void Sprite::Render(int x, int y){
     int RENDER_ERROR;
-    SDL_Rect dstLoc = {x, y, clipRect.w, clipRect.h};
+    SDL_Rect dstLoc = {x + (int)Camera::pos.x, y + (int)Camera::pos.y, clipRect.w, clipRect.h};
     
     RENDER_ERROR = SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc);
     if (RENDER_ERROR != 0){
