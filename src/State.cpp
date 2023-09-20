@@ -27,7 +27,18 @@ State::State() {
         map->box.y = 0;
         objectArray.emplace_back(map);
 
-    
+
+    // ===================== ALIEN ===============================
+    GameObject *alien = new GameObject();
+        Alien *behaviour = new Alien(*alien, 4);
+        alien->AddComponent((std::shared_ptr<Alien>)behaviour);
+
+        alien->box.x = 512;
+        alien->box.y = 300;
+
+        objectArray.emplace_back(alien);
+
+
     LoadAssets();
     music.Open(BG_MUSIC);
     music.Play(BACKGROUND_MUSIC_LOOP_TIMES);

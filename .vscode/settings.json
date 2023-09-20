@@ -70,6 +70,10 @@
         "xutility": "cpp",
         "list": "c",
         "xhash": "c",
-        "component.h": "c"
+        "component.h": "c",
+        "optional": "c",
+        "queue": "c",
+        "ranges": "c",
+        "span": "c"
     }
 }

@@ -14,6 +14,7 @@
 #include "InputManager.h"
 #include "Camera.h"
 #include "CameraFollower.h"
+#include "Alien.h"
 
 // -----------Background assets -------------------
 #define BG_SPRITE "assets/img/ocean.jpg"
