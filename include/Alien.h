@@ -8,7 +8,8 @@
 #include "GameObject.h"
 #include "Vec2.h"
 #include "Component.h"
-
+#include "Minion.h"
+#include "Rect.h"
 
 #define ALIEN_SPRITE "assets/img/alien.png"
 #define ALIEN_HP 50

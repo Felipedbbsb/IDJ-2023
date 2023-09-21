@@ -29,8 +29,8 @@ void Alien::Start(){
     for (int i = 0; i < nMinions; i++){
         GameObject *minion = new GameObject();
         int equally_dist = 360/nMinions * i;
-        //Minion *minion_behaviour = new Minion(*minion, go_alien , equally_dist);
-       // minion->AddComponent((std::shared_ptr<Minion>)minion_behaviour);
+        Minion *minion_behaviour = new Minion(*minion, go_alien , equally_dist);
+        minion->AddComponent((std::shared_ptr<Minion>)minion_behaviour);
 
         std::weak_ptr<GameObject> go_minion = Game::GetInstance().GetState().AddObject(minion);
         minionArray.push_back(go_minion);
@@ -46,6 +46,9 @@ Alien::~Alien(){
 }
 
 void Alien::Update(float dt){
+    
+    // Faz o alien girar
+    //associated.angleDeg += dt * ALIEN_ANG_VEL;
 
     InputManager& input = InputManager::GetInstance();
     // get task de action, seta tipo e posicao
@@ -74,23 +77,35 @@ void Alien::Update(float dt){
                 //     |              |
                 //      --------------
                 //
-                
+
                 Vec2 centralized = Vec2(associated.box.x + associated.box.w / 2, associated.box.y + associated.box.h / 2);
                 Vec2 distance = Vec2::D2points(centralized, taskQueue.front().pos);
 
-                //std::cout <<input.GetMouseX() - Camera::pos.x <<" " << Camera::pos.y<<" " << taskQueue.front().pos.x <<" " << taskQueue.front().pos.y<<std::endl;
 
-                //vc ta aq
-                if (distance.Magnitude() > step){
-                    associated.box.x += step * cos(distance.Arg());
-                    associated.box.y += step * sin(distance.Arg());
+                //----aproxima x----
+                bool xFinished = false;
+                bool yFinished = false;
+                std::cout << fabsf(distance.x) <<" " << fabsf(distance.y) << " "<< step<<std::endl;
+
+                if (fabsf(distance.x) > step){
+                    associated.box.x += step * cos(atan2(distance.y, distance.x));
                 }
-                else
-                {
-                    associated.box.x = taskQueue.front().pos.x - associated.box.w / 2;
-                    associated.box.y = taskQueue.front().pos.y - associated.box.h / 2;
-                    taskQueue.pop(); //remove task de se mover
+                else{
+                    associated.box.x = taskQueue.front().pos.x- associated.box.w / 2; 
+                    xFinished = true;
                 }
+                
+                //----aproxima y----
+                 if (fabsf(distance.y) > step){
+                    associated.box.y += step * sin(atan2(distance.y, distance.x));
+                }
+                else{
+                    associated.box.y = taskQueue.front().pos.y- associated.box.h / 2;
+                    yFinished = true;
+                }
+
+                //Valida se ja incremetou ate x e y
+                if(yFinished == true && xFinished == true){taskQueue.pop();}
                 break;
             }
 
