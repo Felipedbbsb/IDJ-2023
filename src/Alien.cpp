@@ -12,7 +12,7 @@ Alien::Action::Action(ActionType type, float x, float y){
 }
 
 Alien::Alien(GameObject &associated, int nMinions) : Component::Component(associated){   
-    hp = ALIEN_HP;
+    hp = ALIEN_VIDA;
     this ->nMinions = nMinions;
 
     //sprite do alien
@@ -65,7 +65,7 @@ void Alien::Update(float dt){
     if (!taskQueue.empty()){
         switch (taskQueue.front().type){
             case MOVE:{
-                float step = dt * ALIEN_VELOCITY;
+                float step = dt * ALIEN_VELOCIDADE;
 
                 // Calculo de velocidade e mudança de posição
                 //             w

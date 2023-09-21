@@ -7,11 +7,7 @@ Minion::Minion(GameObject& associated, std::weak_ptr<GameObject> alienCenter, fl
     // Inicializa com sprite fixo
     Sprite* minion_sprite = new Sprite(associated, MINION_SPRITE_PATH);
     
-    // Tamaho aleatorio
-    float size = 1 + ((rand() % 50) / 100.0);
-
-    associated.box.w = associated.box.w * size;
-    associated.box.h = associated.box.h * size;
+    
 
     //std::cout << "scale: " << scale << std::endl;
     //minion_sprite->SetScale(scale, scale);
@@ -59,7 +55,8 @@ void Minion::Render()
 
 bool Minion::Is(std::string type)
 {
-    return (type == "Minion");
+    if (type == "Minion"){return true;}
+    else{return false;}
 }
 
 void Minion::Shoot(Vec2 target)

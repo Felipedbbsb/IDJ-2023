@@ -30,7 +30,8 @@ State::State() {
 
     // ===================== ALIEN ===============================
     GameObject *alien = new GameObject();
-        Alien *behaviour = new Alien(*alien, 4);
+        int randomMinions = 2 + (rand() % 4); //minimo de 2 e maximo de 6 minions
+        Alien *behaviour = new Alien(*alien, randomMinions);
         alien->AddComponent((std::shared_ptr<Alien>)behaviour);
 
         alien->box.x = 512;

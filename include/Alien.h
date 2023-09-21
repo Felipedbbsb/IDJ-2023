@@ -12,8 +12,8 @@
 #include "Rect.h"
 
 #define ALIEN_SPRITE "assets/img/alien.png"
-#define ALIEN_HP 50
-#define ALIEN_VELOCITY 150
+#define ALIEN_VELOCIDADE 200
+#define ALIEN_VIDA 25
 #define ALIEN_ANG_VEL 2 // degree/frame
 #define MIN_DIST 5
 

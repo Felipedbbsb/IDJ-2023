@@ -30,4 +30,5 @@ class GameObject{
     std::vector<std::shared_ptr<Component>> components;
     bool isDead;
     bool started;
+    double angleDeg;
 };
