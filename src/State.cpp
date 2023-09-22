@@ -4,7 +4,7 @@
 State::State() {  
     started = false;
     quitRequested = false;
-
+    
     // ====================Background ================================
     GameObject *background = new GameObject();
         Sprite *bg_sprite = new Sprite(*background, BG_SPRITE);
@@ -20,7 +20,7 @@ State::State() {
     GameObject *map = new GameObject();
         TileSet *tileSet = new TileSet(*map, TILE_H, TILE_W, MAP_TILESET);
         TileMap *tileMap = new TileMap(*map, MAP_TILEMAP, tileSet);
-        tileMap->SetParallax(0.005);
+        tileMap->SetParallax(0.011);
         map->AddComponent((std::shared_ptr<TileMap>)tileMap);
         
         map->box.x = 0;

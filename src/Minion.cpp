@@ -1,16 +1,19 @@
-#include "../include/Minion.h"
-#include "../include/Game.h"
+#include "Minion.h"
+#include "Game.h"
+#include "Sprite.h"
 
 Minion::Minion(GameObject& associated, std::weak_ptr<GameObject> alienCenter, float arcOffsetDeg) : Component::Component(associated),
-                                                                                                    alienCenter(alienCenter),
-                                                                                                    arc(arcOffsetDeg){
+alienCenter(alienCenter),
+arc(arcOffsetDeg){
+
     // Inicializa com sprite fixo
+    
     Sprite* minion_sprite = new Sprite(associated, MINION_SPRITE_PATH);
     
     
-
-    //std::cout << "scale: " << scale << std::endl;
-    //minion_sprite->SetScale(scale, scale);
+    float zoom = (rand() % 50) / 100.0 + 1;
+    //std::cout << zoom<< std::endl;
+    minion_sprite->SetScale(zoom, zoom);
     // Adicionando o sprite ao GameObject
     associated.AddComponent((std::shared_ptr<Sprite>)minion_sprite);
 
@@ -32,8 +35,7 @@ Minion::Minion(GameObject& associated, std::weak_ptr<GameObject> alienCenter, fl
 
 }
 
-void Minion::Update(float dt)
-{   
+void Minion::Update(float dt){   
     float arcStep = dt * MINION_ANG_VEL;
 
     // Compensação de giro

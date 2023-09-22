@@ -1,4 +1,4 @@
-dep/Minion.d bin/Minion.o: src/Minion.cpp src/../include/Minion.h \
+dep/Minion.d bin/Minion.o: src/Minion.cpp include/Minion.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++config.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\os_defines.h \
@@ -119,11 +119,10 @@ dep/Minion.d bin/Minion.o: src/Minion.cpp src/../include/Minion.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath c:\mingw\include\math.h \
- src/../include/Sprite.h src/../include/SDL_include.h \
- C:/SDL2/include/SDL2/SDL.h C:/SDL2/include/SDL2/SDL_main.h \
- C:/SDL2/include/SDL2/SDL_stdinc.h C:/SDL2/include/SDL2/SDL_config.h \
- C:/SDL2/include/SDL2/SDL_platform.h C:/SDL2/include/SDL2/begin_code.h \
- C:/SDL2/include/SDL2/close_code.h \
+ include/Sprite.h include/SDL_include.h C:/SDL2/include/SDL2/SDL.h \
+ C:/SDL2/include/SDL2/SDL_main.h C:/SDL2/include/SDL2/SDL_stdinc.h \
+ C:/SDL2/include/SDL2/SDL_config.h C:/SDL2/include/SDL2/SDL_platform.h \
+ C:/SDL2/include/SDL2/begin_code.h C:/SDL2/include/SDL2/close_code.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdlib.h \
  C:/SDL2/include/SDL2/SDL_assert.h C:/SDL2/include/SDL2/SDL_atomic.h \
  C:/SDL2/include/SDL2/SDL_audio.h C:/SDL2/include/SDL2/SDL_error.h \
@@ -182,27 +181,26 @@ dep/Minion.d bin/Minion.o: src/Minion.cpp src/../include/Minion.h \
  C:/SDL2/include/SDL2/SDL_timer.h C:/SDL2/include/SDL2/SDL_version.h \
  C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
  C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h \
- src/../include/Component.h src/../include/GameObject.h \
+ include/Component.h include/GameObject.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
- src/../include/Rect.h src/../include/Vec2.h src/../include/Game.h \
- src/../include/State.h src/../include/Music.h \
- C:/SDL2/include/SDL2/SDL_mixer.h src/../include/Sound.h \
- src/../include/Face.h src/../include/TileMap.h \
+ include/Rect.h include/Vec2.h include/Game.h include/State.h \
+ include/Music.h C:/SDL2/include/SDL2/SDL_mixer.h include/Sound.h \
+ include/Face.h include/TileMap.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc \
- src/../include/TileSet.h src/../include/InputManager.h \
+ include/TileSet.h include/InputManager.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\unordered_map \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h \
- src/../include/Camera.h src/../include/CameraFollower.h \
- src/../include/Alien.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\queue \
+ include/Camera.h include/CameraFollower.h include/Alien.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\queue \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\deque \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_deque.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\deque.tcc \
@@ -210,7 +208,7 @@ dep/Minion.d bin/Minion.o: src/Minion.cpp src/../include/Minion.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_queue.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\limits
 
-src/../include/Minion.h:
+include/Minion.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:
 
@@ -464,9 +462,9 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath:
 
 c:\mingw\include\math.h:
 
-src/../include/Sprite.h:
+include/Sprite.h:
 
-src/../include/SDL_include.h:
+include/SDL_include.h:
 
 C:/SDL2/include/SDL2/SDL.h:
 
@@ -644,9 +642,9 @@ C:/SDL2/include/SDL2/SDL_image.h:
 
 C:/SDL2/include/SDL2/SDL.h:
 
-src/../include/Component.h:
+include/Component.h:
 
-src/../include/GameObject.h:
+include/GameObject.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector:
 
@@ -656,23 +654,23 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc:
 
-src/../include/Rect.h:
+include/Rect.h:
 
-src/../include/Vec2.h:
+include/Vec2.h:
 
-src/../include/Game.h:
+include/Game.h:
 
-src/../include/State.h:
+include/State.h:
 
-src/../include/Music.h:
+include/Music.h:
 
 C:/SDL2/include/SDL2/SDL_mixer.h:
 
-src/../include/Sound.h:
+include/Sound.h:
 
-src/../include/Face.h:
+include/Face.h:
 
-src/../include/TileMap.h:
+include/TileMap.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream:
 
@@ -684,9 +682,9 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc:
 
-src/../include/TileSet.h:
+include/TileSet.h:
 
-src/../include/InputManager.h:
+include/InputManager.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\unordered_map:
 
@@ -696,11 +694,11 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h:
 
-src/../include/Camera.h:
+include/Camera.h:
 
-src/../include/CameraFollower.h:
+include/CameraFollower.h:
 
-src/../include/Alien.h:
+include/Alien.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\queue:
 

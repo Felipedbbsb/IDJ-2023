@@ -120,7 +120,9 @@ dep/Component.d bin/Component.o: src/Component.cpp include/Component.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\aligned_buffer.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
+ include/Vec2.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath c:\mingw\include\math.h
 
 include/Component.h:
 
@@ -381,3 +383,11 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h:
+
+include/Vec2.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath:
+
+c:\mingw\include\math.h:

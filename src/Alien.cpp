@@ -31,7 +31,6 @@ void Alien::Start(){
         int equally_dist = 360/nMinions * i;
         Minion *minion_behaviour = new Minion(*minion, go_alien , equally_dist);
         minion->AddComponent((std::shared_ptr<Minion>)minion_behaviour);
-
         std::weak_ptr<GameObject> go_minion = Game::GetInstance().GetState().AddObject(minion);
         minionArray.push_back(go_minion);
     }
@@ -85,7 +84,7 @@ void Alien::Update(float dt){
                 //----aproxima x----
                 bool xFinished = false;
                 bool yFinished = false;
-                std::cout << fabsf(distance.x) <<" " << fabsf(distance.y) << " "<< step<<std::endl;
+                //std::cout << fabsf(distance.x) <<" " << fabsf(distance.y) << " "<< step<<std::endl;
 
                 if (fabsf(distance.x) > step){
                     associated.box.x += step * cos(atan2(distance.y, distance.x));

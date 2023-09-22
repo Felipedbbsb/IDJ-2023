@@ -5,6 +5,7 @@ GameObject::GameObject() : box(0, 0, 0, 0){
     started = false;
     angleDeg = 0;
     
+    
 }
 
 GameObject::~GameObject(){
