@@ -16,15 +16,13 @@ bool Rect::Contains(float x, float y){
     else {return false;}
 }
 
-void Rect::DefineCenter(float x, float y)
-{
+void Rect::DefineCenter(float x, float y) {
     this->x = x - (this->w / 2);
     this->y = y - (this->h / 2);
 }
 
-void Rect::DefineCenter(Vec2 box)
-{   
-    DefineCenter(box.x, box.y);
+void Rect::DefineCenter(Vec2 box) {
+    DefineCenter(box.x, box.y); // Call the float version
 }
 
 Vec2 Rect::GetCenter()

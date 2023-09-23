@@ -126,7 +126,7 @@ void Game::Run() {
         state->Update(dt);
         state->Render();
         SDL_RenderPresent(Game::GetInstance().GetRenderer());
-        SDL_Delay(10* dt);//por enquanto, depois será criado controle de frame
+        //SDL_Delay(10* dt);//por enquanto, depois será criado controle de frame
     }
     Resources::ClearImages();
     Resources::ClearMusics();

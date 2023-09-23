@@ -14,7 +14,7 @@
 #define ALIEN_SPRITE "assets/img/alien.png"
 #define ALIEN_VELOCIDADE 200
 #define ALIEN_VIDA 25
-#define ALIEN_ANG_VEL 2 // degree/frame
+#define ALIEN_V_ANGULAR 20 // degree/frame
 #define MIN_DIST 5
 
 enum ActionType{MOVE, SHOOT};  

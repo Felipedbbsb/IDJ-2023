@@ -36,7 +36,7 @@ void Camera::Update(float dt){
             speed.y = 0;
         }
 
-
+        
         pos.x += dt * speed.x;
         pos.y += dt * speed.y;
 

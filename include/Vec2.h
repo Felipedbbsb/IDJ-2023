@@ -8,13 +8,10 @@ class Vec2{
         Vec2(float x, float y);
         Vec2();
         static Vec2 D2points(Vec2 begin, Vec2 end);
-        float Magnitude();
-        float Arg();
-        float ArgDeg();
+        float Hypotenuse();
         Vec2 GetRotated(float theta);
-        Vec2 GetRotatedDeg(float theta);
         void Rotate(float theta);
-        void RotateDeg(float theta);
+        void RotateAngle(float degrees);
         float x, y;
         Vec2 operator+(const Vec2 &other) const;
         Vec2 operator-(const Vec2 &other) const;

@@ -4,42 +4,34 @@
 #include "Vec2.h"
 #include "Game.h"
 
-Alien::Action::Action(ActionType type, float x, float y){
-    this ->type = type;
-    pos.x = x;
-    pos.y = y;
+Alien::Action::Action(ActionType type, float x, float y)
+    : type(type), pos(x, y) {}
 
+Alien::Alien(GameObject& associated, int nMinions)
+    : Component::Component(associated),
+      hp(ALIEN_VIDA),
+      nMinions(nMinions) {
+    // Sprite do alien
+    Sprite* alien_sprite = new Sprite(associated, ALIEN_SPRITE);
+    associated.AddComponent(std::shared_ptr<Sprite>(alien_sprite));
 }
 
-Alien::Alien(GameObject &associated, int nMinions) : Component::Component(associated){   
-    hp = ALIEN_VIDA;
-    this ->nMinions = nMinions;
+void Alien::Start() {
+    std::weak_ptr<GameObject> go_alien = Game::GetInstance().GetState().GetObjectPtr(&associated);
 
-    //sprite do alien
-    Sprite *alien_sprite = new Sprite(associated, ALIEN_SPRITE);
-    associated.AddComponent((std::shared_ptr<Sprite>)alien_sprite);
-}
-
-
-
-
-
-void Alien::Start(){
-    std::weak_ptr<GameObject> go_alien  = Game::GetInstance().GetState().GetObjectPtr(&associated);
-    for (int i = 0; i < nMinions; i++){
-        GameObject *minion = new GameObject();
-        int equally_dist = 360/nMinions * i;
-        Minion *minion_behaviour = new Minion(*minion, go_alien , equally_dist);
-        minion->AddComponent((std::shared_ptr<Minion>)minion_behaviour);
+    for (int i = 0; i < nMinions; i++) {
+        GameObject* minion = new GameObject();
+        int equally_dist = 360 / nMinions * i;
+        Minion* minion_behaviour = new Minion(*minion, go_alien, equally_dist);
+        minion->AddComponent(std::shared_ptr<Minion>(minion_behaviour));
         std::weak_ptr<GameObject> go_minion = Game::GetInstance().GetState().AddObject(minion);
         minionArray.push_back(go_minion);
     }
-    
 }
 
-Alien::~Alien(){
-    //sempre remover de tras pra frente
-    for (int i = minionArray.size() - 1; i >= 0; i--){
+Alien::~Alien() {
+    // Always remove from back to front
+    for (int i = minionArray.size() - 1; i >= 0; i--) {
         minionArray.erase(minionArray.begin() + i);
     }
 }
@@ -47,7 +39,9 @@ Alien::~Alien(){
 void Alien::Update(float dt){
     
     // Faz o alien girar
-    //associated.angleDeg += dt * ALIEN_ANG_VEL;
+
+    associated.angleDeg += dt * ALIEN_V_ANGULAR;
+
 
     InputManager& input = InputManager::GetInstance();
     // get task de action, seta tipo e posicao
@@ -123,7 +117,7 @@ void Alien::Update(float dt){
                         if (!minionArray[i].expired())
                         {
                             std::shared_ptr<GameObject> temp_minion = minionArray[i].lock();
-                            float closerMinionDistance = Vec2::D2points(temp_minion->box.GetCenter(), target).Magnitude();
+                            float closerMinionDistance = Vec2::D2points(temp_minion->box.GetCenter(), target).Hypotenuse();
 
                             if (closerMinionDistance < distToTarget)
                             {
@@ -134,7 +128,6 @@ void Alien::Update(float dt){
                     }
                 }
                 
-
                 if (minion != nullptr)
                 {   
                     //Minion* realPtrMinion = (Minion *)minion->GetComponent("Minion").get();

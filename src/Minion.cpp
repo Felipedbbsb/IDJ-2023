@@ -2,52 +2,51 @@
 #include "Game.h"
 #include "Sprite.h"
 
-Minion::Minion(GameObject& associated, std::weak_ptr<GameObject> alienCenter, float arcOffsetDeg) : Component::Component(associated),
-alienCenter(alienCenter),
-arc(arcOffsetDeg){
-
+Minion::Minion(GameObject& associated, std::weak_ptr<GameObject> alienCenter, float arcOffsetDeg): Component::Component(associated),
+      alienCenter(alienCenter),
+      arc(arcOffsetDeg)
+{
     // Inicializa com sprite fixo
-    
-    Sprite* minion_sprite = new Sprite(associated, MINION_SPRITE_PATH);
-    
-    
-    float zoom = (rand() % 50) / 100.0 + 1;
-    //std::cout << zoom<< std::endl;
-    minion_sprite->SetScale(zoom, zoom);
-    // Adicionando o sprite ao GameObject
-    associated.AddComponent((std::shared_ptr<Sprite>)minion_sprite);
+    Sprite* minion_spr = new Sprite(associated, MINION_SPRITE);
 
-    std::shared_ptr<GameObject> shared_alien = alienCenter.lock();
-    if (shared_alien.get() != nullptr){
-        // Radius inicia com x aproximadamente igual à diagonal do sprite do alien
-        radius.x = (shared_alien->box.w / 2);
-        radius.y = (shared_alien->box.h / 2);
-    }
-    else
-    {   
+    float zoom = ((rand() % 50) / 100.0) + 1;
+    minion_spr->SetScale(zoom, zoom);
+    associated.AddComponent(std::shared_ptr<Sprite>(minion_spr));
+
+    if (auto reference_center = alienCenter.lock()) {
+        radius.x = (reference_center->box.w / 2) * 1.5;
+        radius.y = (reference_center->box.h / 2) * 1.5;
+
+        radius.RotateAngle(arc);
+        Vec2 pos = radius + Vec2(reference_center->box.x + reference_center->box.w / 2, reference_center->box.y + reference_center->box.h / 2);
+        associated.box.DefineCenter(pos.x, pos.y);
+        //Minions sempre com a parte de baixo do Sprite virada para o Alien;
+        // Calculate the vector from the minion to the center
+        Vec2 toCenter = reference_center->box.GetCenter() - associated.box.GetCenter();
+
+        // Calculate the angle to face the center
+        float angleToCenter = atan2(toCenter.y, toCenter.x);
+
+        // Convert the angle from radians to degrees and set it as the rotation angle
+        associated.angleDeg = angleToCenter * 180.0f / 3.14159265359;
+
+    } else {
         associated.RequestDelete();
+        std::cout << "No alien reference was found." << std::endl;
     }
-    radius.RotateDeg(arc);
+
     
-    // Compensação do giro inicial
-    //associated.angleDeg -= radius.ArgDeg();
-
-
 }
 
-void Minion::Update(float dt){   
-    float arcStep = dt * MINION_ANG_VEL;
+void Minion::Update(float dt) {
+    float angleMovement = dt * MINION_V_ANGULAR;
+    associated.angleDeg += angleMovement; // faz girar
 
-    // Compensação de giro
-    //associated.angleDeg += arcStep;
-    if (alienCenter.lock().get() != nullptr)
-    {
-        radius.RotateDeg(arcStep);
-        Vec2 pos = radius + Vec2(alienCenter.lock()->box.x + alienCenter.lock()->box.w / 2, alienCenter.lock()->box.y + alienCenter.lock()->box.h / 2);
-        associated.box.DefineCenter(pos.x, pos.y);
-    }
-    else
-    {
+    if (auto center = alienCenter.lock()) {
+        radius.RotateAngle(angleMovement);
+        Vec2 newRef = radius + Vec2(center->box.x + center->box.w / 2, center->box.y + center->box.h / 2);
+        associated.box.DefineCenter(newRef.x, newRef.y);
+    } else {
         associated.RequestDelete();
     }
 }
