@@ -181,8 +181,14 @@ dep/Main.d bin/Main.o: src/Main.cpp include/Game.h include/SDL_include.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc \
  C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h \
- include/Component.h include/GameObject.h include/Rect.h include/Sound.h \
- C:/SDL2/include/SDL2/SDL_mixer.h
+ include/Component.h include/GameObject.h include/Rect.h include/Music.h \
+ C:/SDL2/include/SDL2/SDL_mixer.h include/Sound.h include/TileMap.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc \
+ include/TileSet.h
 
 include/Game.h:
 
@@ -628,6 +634,22 @@ include/GameObject.h:
 
 include/Rect.h:
 
-include/Sound.h:
+include/Music.h:
 
 C:/SDL2/include/SDL2/SDL_mixer.h:
+
+include/Sound.h:
+
+include/TileMap.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc:
+
+include/TileSet.h:
