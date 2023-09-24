@@ -195,7 +195,8 @@ dep/Resources.d bin/Resources.o: src/Resources.cpp include/Resources.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc \
- include/TileSet.h
+ include/TileSet.h include/CameraFollower.h include/Camera.h \
+ include/Vec2.h include/InputManager.h
 
 include/Resources.h:
 
@@ -670,3 +671,11 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc:
 
 include/TileSet.h:
+
+include/CameraFollower.h:
+
+include/Camera.h:
+
+include/Vec2.h:
+
+include/InputManager.h:
