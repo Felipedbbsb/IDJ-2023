@@ -10,7 +10,9 @@ Minion::Minion(GameObject& associated, std::weak_ptr<GameObject> alienCenter, fl
     Sprite* minion_spr = new Sprite(associated, MINION_SPRITE);
 
     float zoom = ((rand() % 50) / 100.0) + 1;
+    std::cout << associated.box.w << std::endl;
     minion_spr->SetScale(zoom, zoom);
+    std::cout << associated.box.w << std::endl;
     associated.AddComponent(std::shared_ptr<Sprite>(minion_spr));
 
     if (auto reference_center = alienCenter.lock()) {
@@ -62,15 +64,16 @@ bool Minion::Is(std::string type)
 
 void Minion::Shoot(Vec2 target)
 {
-    //Vec2 distance = target - Vec2(associated.box.x + (associated.box.w / 2), associated.box.y + (associated.box.h / 2));
-    //float angle = atan2(distance.y, distance.x);
+    Vec2 path = target - associated.box.GetCenter();
+    float angle = atan2(path.y, path.x);
 
     // Criando um bullet
-    //GameObject* bullet = new GameObject();
-    //Bullet *bullet_behaviour = new Bullet(*bullet, angle, MINION_BULLET_SPEED, MINION_BULLET_DAMAGE, distance.Magnitude(), MINION_BULLET_SPRITE_PATH);
-    //bullet->AddComponent((std::shared_ptr<Bullet>)bullet_behaviour);
+    GameObject* bullet = new GameObject();
+    Bullet *bullet_behaviour = new Bullet(*bullet, angle, MINION_V_BULLET, BULLET_DAMAGE, path.Hypotenuse(), BULLET_SPRITE);
+    bullet->AddComponent((std::shared_ptr<Bullet>)bullet_behaviour);
 
-    //bullet->box.DefineCenter(associated.box.GetCenter());
+    bullet->box.DefineCenter(associated.box.GetCenter());
 
-    //Game::GetInstance().GetState().AddObject(bullet);
+    Game::GetInstance().GetState().AddObject(bullet);
+    std::cout << "Shoot to target: X"  << target.x << " Y" << target.y  <<  std::endl;
 }

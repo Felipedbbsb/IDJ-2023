@@ -40,6 +40,10 @@ Vec2 Vec2::GetRotated(float theta)
     return temp;
 }
 
+float Vec2::RotateDegree(){
+    return atan2(y, x)* (180 / 3.14159265359);
+}
+
 float Vec2::Hypotenuse(){
     return (float)sqrt(pow(x, 2) + pow(y, 2));
 }

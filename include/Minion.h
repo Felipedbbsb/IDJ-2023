@@ -2,9 +2,9 @@
 
 #define MINION_SPRITE "assets/img/minion.png"
 #define MINION_V_ANGULAR -100
-#define MINION_BULLET_SPEED 50.0
-#define MINION_BULLET_DAMAGE 30.0
-#define MINION_BULLET_SPRITE_PATH "assets/img/minionbullet1.png"
+#define MINION_V_BULLET 200.0
+#define BULLET_DAMAGE 30.0
+#define BULLET_SPRITE "assets/img/minionbullet1.png"
 
 #include <iostream>
 #include <memory>
@@ -14,7 +14,7 @@
 #include "GameObject.h"
 #include "Component.h"
 #include "Vec2.h"
-//#include "Bullet.h"
+#include "Bullet.h"
 
 class Minion : public Component{
 public:

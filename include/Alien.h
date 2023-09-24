@@ -11,6 +11,8 @@
 #include "Minion.h"
 #include "Rect.h"
 
+#include <algorithm> 
+
 #define ALIEN_SPRITE "assets/img/alien.png"
 #define ALIEN_VELOCIDADE 200
 #define ALIEN_VIDA 25

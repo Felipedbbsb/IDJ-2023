@@ -12,6 +12,7 @@ class Vec2{
         Vec2 GetRotated(float theta);
         void Rotate(float theta);
         void RotateAngle(float degrees);
+        float RotateDegree();
         float x, y;
         Vec2 operator+(const Vec2 &other) const;
         Vec2 operator-(const Vec2 &other) const;

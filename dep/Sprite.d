@@ -206,6 +206,10 @@ dep/Sprite.d bin/Sprite.o: src/Sprite.cpp include/Sprite.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_heap.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_queue.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\limits include/Minion.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h \
  include/Resources.h
 
 include/Sprite.h:
@@ -713,5 +717,13 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_queue.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\limits:
 
 include/Minion.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h:
 
 include/Resources.h:

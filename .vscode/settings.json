@@ -74,6 +74,7 @@
         "optional": "c",
         "queue": "c",
         "ranges": "c",
-        "span": "c"
+        "span": "c",
+        "sprite.h": "c"
     }
 }

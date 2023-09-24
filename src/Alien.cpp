@@ -7,10 +7,11 @@
 Alien::Action::Action(ActionType type, float x, float y)
     : type(type), pos(x, y) {}
 
-Alien::Alien(GameObject& associated, int nMinions)
-    : Component::Component(associated),
-      hp(ALIEN_VIDA),
-      nMinions(nMinions) {
+Alien::Alien(GameObject& associated, int nMinions): Component::Component(associated),
+    hp(ALIEN_VIDA),
+    nMinions(nMinions) 
+    {
+
     // Sprite do alien
     Sprite* alien_sprite = new Sprite(associated, ALIEN_SPRITE);
     associated.AddComponent(std::shared_ptr<Sprite>(alien_sprite));
@@ -36,29 +37,33 @@ Alien::~Alien() {
     }
 }
 
-void Alien::Update(float dt){
-    
-    // Faz o alien girar
 
+    
+
+void Alien::Update(float dt) {
+    // Faz o alien girar
     associated.angleDeg += dt * ALIEN_V_ANGULAR;
 
-
     InputManager& input = InputManager::GetInstance();
+
     // get task de action, seta tipo e posicao
-    if (input.MousePress(SDL_BUTTON_LEFT)){
-        taskQueue.emplace(Action(SHOOT, input.GetMouseX() , input.GetMouseY() ));
-        
+    if (input.MousePress(SDL_BUTTON_LEFT)) {
+        taskQueue.emplace(Action(SHOOT, input.GetMouseX() - Camera::pos.x, input.GetMouseY() - Camera::pos.y));
     }
-    if (input.MousePress(SDL_BUTTON_RIGHT)){
+    if (input.MousePress(SDL_BUTTON_RIGHT)) {
         taskQueue.emplace(Action(MOVE, input.GetMouseX() - Camera::pos.x, input.GetMouseY() - Camera::pos.y));
-        std::cout <<"Alien moves queue to X:" << input.GetMouseX() - Camera::pos.x << " Y:" <<input.GetMouseY() - Camera::pos.y <<std::endl;
+        std::cout << "Alien moves queue to X:" << input.GetMouseX() - Camera::pos.x << " Y:" << input.GetMouseY() - Camera::pos.y << std::endl;
     }
 
     // Executa front queue, n usa while para n executar tudo de uma vez
-    if (!taskQueue.empty()){
-        switch (taskQueue.front().type){
-            case MOVE:{
-                float step = dt * ALIEN_VELOCIDADE;
+    if (!taskQueue.empty()) {
+        switch (taskQueue.front().type) {
+            case MOVE: {
+                float alienMoviment = dt * ALIEN_VELOCIDADE;
+
+                // Calculo de velocidade e mudança de posição
+                Vec2 centralized = Vec2(associated.box.x + associated.box.w / 2, associated.box.y + associated.box.h / 2);
+                Vec2 distance = Vec2::D2points(centralized, taskQueue.front().pos);
 
                 // Calculo de velocidade e mudança de posição
                 //             w
@@ -71,82 +76,64 @@ void Alien::Update(float dt){
                 //      --------------
                 //
 
-                Vec2 centralized = Vec2(associated.box.x + associated.box.w / 2, associated.box.y + associated.box.h / 2);
-                Vec2 distance = Vec2::D2points(centralized, taskQueue.front().pos);
-
-
                 //----aproxima x----
                 bool xFinished = false;
                 bool yFinished = false;
-                //std::cout << fabsf(distance.x) <<" " << fabsf(distance.y) << " "<< step<<std::endl;
 
-                if (fabsf(distance.x) > step){
-                    associated.box.x += step * cos(atan2(distance.y, distance.x));
-                }
-                else{
-                    associated.box.x = taskQueue.front().pos.x- associated.box.w / 2; 
+                if (fabsf(distance.x) > alienMoviment) {
+                    associated.box.x += alienMoviment * cos(atan2(distance.y, distance.x));
+                } else {
+                    associated.box.x = taskQueue.front().pos.x - associated.box.w / 2;
                     xFinished = true;
                 }
-                
+
                 //----aproxima y----
-                 if (fabsf(distance.y) > step){
-                    associated.box.y += step * sin(atan2(distance.y, distance.x));
-                }
-                else{
-                    associated.box.y = taskQueue.front().pos.y- associated.box.h / 2;
+                if (fabsf(distance.y) > alienMoviment) {
+                    associated.box.y += alienMoviment * sin(atan2(distance.y, distance.x));
+                } else {
+                    associated.box.y = taskQueue.front().pos.y - associated.box.h / 2;
                     yFinished = true;
                 }
 
-                //Valida se ja incremetou ate x e y
-                if(yFinished == true && xFinished == true){taskQueue.pop();}
+                // Valida se ja incremetou ate x e y
+                if (yFinished == true && xFinished == true) {
+                    taskQueue.pop();
+                }
                 break;
             }
 
-            case SHOOT:
-            {   
-                std::shared_ptr<GameObject> minion;
+            case SHOOT: {
                 Vec2 target = taskQueue.front().pos;
-                
-                float distToTarget = std::numeric_limits<float>::max();
 
-                // Percorre o vector de minions procurando pelo mais próximo do target
-                if (!minionArray.empty())
-                {   
-                    for (int i = 0; i < (int)minionArray.size(); i++)
-                    {   
-                        if (!minionArray[i].expired())
-                        {
-                            std::shared_ptr<GameObject> temp_minion = minionArray[i].lock();
-                            float closerMinionDistance = Vec2::D2points(temp_minion->box.GetCenter(), target).Hypotenuse();
+                // Determine the closest minion using std::min_element and a lambda function
+                auto closestMinion = std::min_element(minionArray.begin(), minionArray.end(), [&](const std::weak_ptr<GameObject>& minionA, const std::weak_ptr<GameObject>& minionB) {
+                    if (minionA.expired() || minionB.expired()) return false;
+                    
+                    Vec2 centerA = minionA.lock()->box.GetCenter();
+                    Vec2 centerB = minionB.lock()->box.GetCenter();
 
-                            if (closerMinionDistance < distToTarget)
-                            {
-                                distToTarget = closerMinionDistance;
-                                minion = temp_minion;
-                            }
-                        }
-                    }
-                }
-                
-                if (minion != nullptr)
-                {   
-                    //Minion* realPtrMinion = (Minion *)minion->GetComponent("Minion").get();
-                    //realPtrMinion->Shoot(target);
-                }
-                else
-                {
-                    std::cout << "ERRO: minion é um nullptr!" << std::endl;
+                    float distanceA = Vec2::D2points(centerA, target).Hypotenuse();
+                    float distanceB = Vec2::D2points(centerB, target).Hypotenuse();
+                    
+                    return distanceA < distanceB;
+                });
+
+                if (closestMinion != minionArray.end() && !closestMinion->expired()) {
+                    auto minion = closestMinion->lock();
+                    Minion* MinionPtr = (Minion*)minion->GetComponent("Minion").get();
+                    MinionPtr->Shoot(target);
+                } 
+                else {
+                    std::cout << "minion = nullptr!" << std::endl;
                 }
 
                 taskQueue.pop();
                 break;
+            
             }
         }
     }
-}   
-    
-
-
+}
 
 void Alien::Render(){}
 
