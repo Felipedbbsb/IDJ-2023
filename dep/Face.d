@@ -121,7 +121,10 @@ dep/Face.d bin/Face.o: src/Face.cpp include/Face.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
- include/Rect.h include/Component.h include/Sound.h include/SDL_include.h \
+ include/Rect.h include/Vec2.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath c:\mingw\include\math.h \
+ include/Component.h include/Sound.h include/SDL_include.h \
  C:/SDL2/include/SDL2/SDL.h C:/SDL2/include/SDL2/SDL_main.h \
  C:/SDL2/include/SDL2/SDL_stdinc.h C:/SDL2/include/SDL2/SDL_config.h \
  C:/SDL2/include/SDL2/SDL_platform.h C:/SDL2/include/SDL2/begin_code.h \
@@ -188,7 +191,7 @@ dep/Face.d bin/Face.o: src/Face.cpp include/Face.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h \
- include/Camera.h include/Vec2.h
+ include/Camera.h
 
 include/Face.h:
 
@@ -450,6 +453,14 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc:
 
 include/Rect.h:
 
+include/Vec2.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath:
+
+c:\mingw\include\math.h:
+
 include/Component.h:
 
 include/Sound.h:
@@ -641,5 +652,3 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h:
 
 include/Camera.h:
-
-include/Vec2.h:
