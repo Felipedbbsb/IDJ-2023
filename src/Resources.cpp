@@ -8,16 +8,18 @@ SDL_Texture *Resources::GetImage(std::string file){
     SDL_Texture* texture;
     std::unordered_map<std::string, SDL_Texture*>::iterator it = Resources::imageTable.find(file);
     
-    if (it == Resources::imageTable.end()){   
-        std::cout << "Loading a new _image_ file... " << "(" << file << ")" << std::endl;
-        texture = IMG_LoadTexture(Game::GetInstance().GetRenderer(), file.c_str());
-        Resources::imageTable.insert({file, texture});
-        std::cout << "---Loading done!--- " << "(" << file << ")" << std::endl;
-        return texture;
-    }
-    
-    else{
+    if (it != Resources::imageTable.end()){   
         return it->second;
+        
+    }
+
+    std::cout << "Loading a new _image_ file... " << "(" << file << ")" << std::endl;
+    texture = IMG_LoadTexture(Game::GetInstance().GetRenderer(), file.c_str());
+    
+    if(texture != nullptr){
+       Resources::imageTable.insert({file, texture});
+       std::cout << "---Loading done!--- " << "(" << file << ")" << std::endl;
+       return texture;
     }
     
 }
@@ -34,8 +36,8 @@ void Resources::ClearImages(){
 
 Mix_Music *Resources::GetMusic(std::string file){
     Mix_Music *music;
-    std::unordered_map<std::string, Mix_Music *>::iterator it = Resources::musicTable.find(file);
-    if (it == Resources::musicTable.end()){
+    std::unordered_map<std::string, Mix_Music *>::iterator i = Resources::musicTable.find(file);
+    if (i == Resources::musicTable.end()){
         std::cout << "Loading a new _music_ file... " << "(" << file << ")" << std::endl;
  
         music = Mix_LoadMUS(file.c_str());
@@ -43,7 +45,7 @@ Mix_Music *Resources::GetMusic(std::string file){
         std::cout << "---Loading done!--- " << "(" << file << ")" << std::endl;
         return music;
     }
-    return it->second;
+    return i->second;
 }
     
 void Resources::ClearMusics(){
@@ -58,15 +60,15 @@ void Resources::ClearMusics(){
 
 Mix_Chunk *Resources::GetSound(std::string file){
     Mix_Chunk *chunk;
-    std::unordered_map<std::string, Mix_Chunk *>::iterator it = Resources::soundTable.find(file);
-    if (it == Resources::soundTable.end()){
+    std::unordered_map<std::string, Mix_Chunk *>::iterator i = Resources::soundTable.find(file);
+    if (i == Resources::soundTable.end()){
         std::cout << "Loading a new _sound_ file... " << "(" << file << ")" << std::endl;
         chunk = Mix_LoadWAV(file.c_str());
         Resources::soundTable.insert({file, chunk});
         std::cout << "Loading done! " << "(" << file << ")" << std::endl;
         return chunk;
     }
-    return it->second;
+    return i->second;
 }
 
 void Resources::ClearSounds(){

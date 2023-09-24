@@ -1,4 +1,4 @@
-dep/Face.d bin/Face.o: src/Face.cpp include/Face.h \
+dep/Bullet.d bin/Bullet.o: src/Bullet.cpp src/../include/Bullet.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++config.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\os_defines.h \
@@ -96,35 +96,7 @@ dep/Face.d bin/Face.o: src/Face.cpp include/Face.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_construct.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tempbuf.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_raw_storage_iter.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\typeinfo \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\concurrence.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uses_allocator.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\functional \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\tuple \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\utility \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_relops.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\array \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unique_ptr.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_base.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocated_ptr.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\aligned_buffer.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
- include/GameObject.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
- include/Rect.h include/Vec2.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath c:\mingw\include\math.h \
- include/Component.h include/Sound.h include/SDL_include.h \
+ src/../include/Sprite.h src/../include/SDL_include.h \
  C:/SDL2/include/SDL2/SDL.h C:/SDL2/include/SDL2/SDL_main.h \
  C:/SDL2/include/SDL2/SDL_stdinc.h C:/SDL2/include/SDL2/SDL_config.h \
  C:/SDL2/include/SDL2/SDL_platform.h C:/SDL2/include/SDL2/begin_code.h \
@@ -186,14 +158,37 @@ dep/Face.d bin/Face.o: src/Face.cpp include/Face.h \
  C:/SDL2/include/SDL2/SDL_shape.h C:/SDL2/include/SDL2/SDL_system.h \
  C:/SDL2/include/SDL2/SDL_timer.h C:/SDL2/include/SDL2/SDL_version.h \
  C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
- C:/SDL2/include/SDL2/SDL_mixer.h include/InputManager.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\unordered_map \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h \
- include/Camera.h
+ C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h \
+ src/../include/Component.h src/../include/GameObject.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_construct.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
+ src/../include/Rect.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tempbuf.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_raw_storage_iter.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\typeinfo \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\concurrence.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uses_allocator.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\functional \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\tuple \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\utility \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_relops.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\array \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unique_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_base.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocated_ptr.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\aligned_buffer.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
+ src/../include/Vec2.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath c:\mingw\include\math.h
 
-include/Face.h:
+src/../include/Bullet.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:
 
@@ -399,73 +394,9 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory:
+src/../include/Sprite.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_construct.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tempbuf.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_raw_storage_iter.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\typeinfo:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\concurrence.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uses_allocator.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\functional:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\tuple:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\utility:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_relops.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\array:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unique_ptr.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_base.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocated_ptr.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\aligned_buffer.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h:
-
-include/GameObject.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc:
-
-include/Rect.h:
-
-include/Vec2.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath:
-
-c:\mingw\include\math.h:
-
-include/Component.h:
-
-include/Sound.h:
-
-include/SDL_include.h:
+src/../include/SDL_include.h:
 
 C:/SDL2/include/SDL2/SDL.h:
 
@@ -639,16 +570,70 @@ C:/SDL2/include/SDL2/SDL_locale.h:
 
 C:/SDL2/include/SDL2/SDL_misc.h:
 
-C:/SDL2/include/SDL2/SDL_mixer.h:
+C:/SDL2/include/SDL2/SDL_image.h:
 
-include/InputManager.h:
+C:/SDL2/include/SDL2/SDL.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\unordered_map:
+src/../include/Component.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable.h:
+src/../include/GameObject.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_construct.h:
 
-include/Camera.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc:
+
+src/../include/Rect.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tempbuf.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_raw_storage_iter.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\typeinfo:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\concurrence.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uses_allocator.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\functional:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\tuple:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\utility:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_relops.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\array:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unique_ptr.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_base.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocated_ptr.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\aligned_buffer.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h:
+
+src/../include/Vec2.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath:
+
+c:\mingw\include\math.h:

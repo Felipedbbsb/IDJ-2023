@@ -1,6 +1,12 @@
 #include "GameObject.h"
 
-GameObject::GameObject() : box(0, 0, 0, 0), isDead(false){}
+GameObject::GameObject() : box(0, 0, 0, 0){
+    isDead = false;
+    started = false;
+    angleDeg = 0;
+    
+    
+}
 
 GameObject::~GameObject(){
     components.clear();
@@ -47,4 +53,11 @@ std::shared_ptr<Component> GameObject::GetComponent(std::string type){
         }
     }
     return nullptr;
+}
+
+void GameObject::Start(){
+    for (int i = 0; i < (int)components.size(); i++){
+        components[i]->Start();
+    }
+        started = true;
 }

@@ -190,13 +190,27 @@ dep/Music.d bin/Music.o: src/Music.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
  include/Sprite.h include/Component.h include/GameObject.h include/Rect.h \
- include/Sound.h include/TileMap.h \
+ include/Vec2.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath c:\mingw\include\math.h \
+ include/Sound.h include/Face.h include/TileMap.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc \
- include/TileSet.h
+ include/TileSet.h include/InputManager.h include/Camera.h \
+ include/CameraFollower.h include/Alien.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\queue \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\deque \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_deque.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\deque.tcc \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_heap.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_queue.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\limits include/Minion.h \
+ include/Bullet.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:
 
@@ -656,7 +670,17 @@ include/GameObject.h:
 
 include/Rect.h:
 
+include/Vec2.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath:
+
+c:\mingw\include\math.h:
+
 include/Sound.h:
+
+include/Face.h:
 
 include/TileMap.h:
 
@@ -671,3 +695,37 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc:
 
 include/TileSet.h:
+
+include/InputManager.h:
+
+include/Camera.h:
+
+include/CameraFollower.h:
+
+include/Alien.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\queue:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\deque:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_deque.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\deque.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_heap.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_queue.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\limits:
+
+include/Minion.h:
+
+include/Bullet.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h:

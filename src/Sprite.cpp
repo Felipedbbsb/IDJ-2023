@@ -3,15 +3,16 @@
 #include "GameObject.h"
 #include "Resources.h"
 
-#define CLIP_START_X 0
-#define CLIP_START_Y 0
+#define SETCLIP_X 0
+#define SETCLIP_Y 0
 
-Sprite::Sprite(GameObject &associated) : Component::Component(associated){
+Sprite::Sprite(GameObject &associated) : Component::Component(associated),
+                                         scale(Vec2(1, 1)){
     texture = nullptr;
+
 }
 
 Sprite::Sprite(GameObject &associated, std::string file) : Sprite(associated){
-    texture = nullptr;
     Open(file);
 }
 
@@ -21,15 +22,14 @@ Sprite::~Sprite(){}
 void Sprite::Open(std::string file) {
     texture = Resources::GetImage(file.c_str());
 
-
-    if (texture == nullptr)
-    {
+    if (texture == nullptr){
         std::cout << "Failed to load texture" << std::endl; // falha em carregar imagem.
-    } else {
+    } 
+    else {
         std::cout << "Texture loaded successfully!" << std::endl;
         SDL_QueryTexture(texture, nullptr, nullptr, &width, &height);
     }
-    SetClip(CLIP_START_X, CLIP_START_Y, width, height);
+    SetClip(SETCLIP_X, SETCLIP_Y, width, height);
 }
 
 //Seta clipRect com os parâmetros dados.
@@ -58,9 +58,10 @@ void Sprite::SetClip(int x, int y, int w, int h) {
 
 void Sprite::Render() {
     int RENDER_ERROR;
-    SDL_Rect dstLoc = {int(associated.box.x) + (int)Camera::pos.x, int(associated.box.y) + (int)Camera::pos.y, clipRect.w, clipRect.h};
+    SDL_Rect dstLoc = {int(associated.box.x) + (int)Camera::pos.x, int(associated.box.y) + (int)Camera::pos.y, (int)associated.box.w, (int)associated.box.h};
 
-    RENDER_ERROR = SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc);
+    //RENDER_ERROR = SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc);
+    RENDER_ERROR = SDL_RenderCopyEx(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc, associated.angleDeg, nullptr, SDL_FLIP_NONE);
     if (RENDER_ERROR != 0) {
         std::cout << "Texture render failure " << SDL_GetError() << std::endl;
     }
@@ -70,7 +71,8 @@ void Sprite::Render(int x, int y){
     int RENDER_ERROR;
     SDL_Rect dstLoc = {x + (int)Camera::pos.x, y + (int)Camera::pos.y, clipRect.w, clipRect.h};
     
-    RENDER_ERROR = SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc);
+    //RENDER_ERROR = SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc);
+    RENDER_ERROR = SDL_RenderCopyEx(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc, associated.angleDeg, nullptr, SDL_FLIP_NONE);
     if (RENDER_ERROR != 0){
         std::cout << "Texture render failure " << SDL_GetError() << std::endl;
     }
@@ -79,6 +81,23 @@ void Sprite::Render(int x, int y){
 int Sprite::GetWidth() {return width;}
 
 int Sprite::GetHeight() {return height;}
+
+Vec2 Sprite::GetScale(){return scale;}
+
+void Sprite::SetScale(float scaleX, float scaleY){
+    if (scaleX != 0){
+       scale.x = scaleX;
+       associated.box.w = associated.box.w * scale.x;
+    }
+    if (scaleY != 0){
+       scale.y = scaleY;
+       associated.box.h = associated.box.h * scale.y;
+
+    }
+}
+
+
+
 
 //Retorna true se texture estiver alocada.
 bool Sprite::IsOpen() {

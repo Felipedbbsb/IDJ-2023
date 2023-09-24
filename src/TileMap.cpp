@@ -15,13 +15,13 @@ void TileMap::Load(std::string file){
     // Confere se foi aberto
     if (file_object) {
         file_object >> mapWidth >> empty >> mapHeight >> empty >> mapDepth >> empty;
-        std::cout << "TileMap: " << std::endl;
-        std::cout << "tileMap width: " << mapWidth << std::endl;  
-        std::cout << "tileMap height: " << mapHeight << std::endl; 
-        std::cout << "tileMap depth: " << mapDepth << std::endl;
+        //std::cout << "TileMap: " << std::endl;
+        //std::cout << "tileMap width: " << mapWidth << std::endl;  
+        //std::cout << "tileMap height: " << mapHeight << std::endl; 
+        //std::cout << "tileMap depth: " << mapDepth << std::endl;
     }
     else{
-         std::cout << "Failed to open TileMap " << std::endl;
+        std::cout << "Failed to open TileMap " << std::endl;
     }
 
     for (int i = 0; i < (mapWidth * mapHeight * mapDepth); i++){

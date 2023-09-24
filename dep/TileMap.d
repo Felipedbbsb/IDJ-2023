@@ -95,7 +95,7 @@ dep/TileMap.d bin/TileMap.o: src/TileMap.cpp include/Camera.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
- include/GameObject.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ios \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ios_base.h \
@@ -117,7 +117,9 @@ dep/TileMap.d bin/TileMap.o: src/TileMap.cpp include/Camera.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath c:\mingw\include\math.h \
+ include/GameObject.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
@@ -397,8 +399,6 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h:
 
-include/GameObject.h:
-
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream:
@@ -442,6 +442,14 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath:
+
+c:\mingw\include\math.h:
+
+include/GameObject.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector:
 

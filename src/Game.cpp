@@ -8,7 +8,7 @@
 #define AUDIO_FREQUENCY MIX_DEFAULT_FREQUENCY
 #define AUDIO_FORMAT MIX_DEFAULT_FORMAT
 #define AUDIO_CHANNELS MIX_DEFAULT_CHANNELS
-#define SOUND_RESOLUTION 32
+#define SOUND_RESOLUTION 64
 
 #define SCREEN_WIDTH 1024
 #define SCREEN_HEIGHT 600
@@ -80,8 +80,8 @@ Game::Game (std::string title, int width, int height) : frameStart(0),
 
 //É utilizado para impedir que uma classe possua mais de uma instância.
 Game& Game::GetInstance() {
-    std::string title = "Felipe Dantas Borges - 202021749";
-    //std::string title = SCREEN_TITLE;
+    //std::string title = "Felipe Dantas Borges - 202021749";
+    std::string title = SCREEN_TITLE;
     // dimensoes da janela do jogo
     int width = SCREEN_WIDTH;
     int height = SCREEN_HEIGHT;
@@ -119,12 +119,14 @@ SDL_Renderer* Game::GetRenderer() {
 //GAME LOOP
 
 void Game::Run() {
+    state->Start();
     while (state->QuitRequested()!=true) {
         CalculateDeltaTime();
         InputManager::GetInstance().Update();
         state->Update(dt);
         state->Render();
         SDL_RenderPresent(Game::GetInstance().GetRenderer());
+        //SDL_Delay(10* dt);//por enquanto, depois será criado controle de frame
     }
     Resources::ClearImages();
     Resources::ClearMusics();
