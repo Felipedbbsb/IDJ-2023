@@ -7,7 +7,7 @@ damage(damage){
     auto bullet_spr = std::make_shared<Sprite>(associated, sprite);
     associated.AddComponent(bullet_spr);
 
-    // Calcule a velocidade diretamente no construtor
+    // Calcule a velocidade diretamente no construto
     this->speed = Vec2(cos(angle) * speed, sin(angle) * speed);
     associated.angleDeg = this->speed.RotateDegree();
 }

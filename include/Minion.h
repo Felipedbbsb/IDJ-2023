@@ -4,7 +4,9 @@
 #define MINION_V_ANGULAR -100
 #define MINION_V_BULLET 200.0
 #define BULLET_DAMAGE 30.0
-#define BULLET_SPRITE "assets/img/minionbullet1.png"
+#define BULLET_SPRITE "assets/img/minionbullet2.png"
+#define BULLET_FC 3
+#define BULLET_FT 0.1
 
 #include <iostream>
 #include <memory>

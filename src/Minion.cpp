@@ -74,6 +74,13 @@ void Minion::Shoot(Vec2 target)
 
     bullet->box.DefineCenter(associated.box.GetCenter());
 
+    
     Game::GetInstance().GetState().AddObject(bullet);
+
+    std::weak_ptr<GameObject> weak_bullet = Game::GetInstance().GetState().AddObject(bullet);
+    Sprite* bulletSprite = (Sprite*)weak_bullet.lock()->GetComponent("Sprite").get();
+    bulletSprite->SetFrameCount(BULLET_FC);
+    bulletSprite->SetFrameTime(BULLET_FT );
+
     std::cout << "Shoot to target: X"  << target.x << " Y" << target.y  <<  std::endl;
 }

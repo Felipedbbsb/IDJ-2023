@@ -7,12 +7,19 @@
 #define SETCLIP_Y 0
 
 Sprite::Sprite(GameObject &associated) : Component::Component(associated),
-                                         scale(Vec2(1, 1)){
+scale(Vec2(1, 1))
+{
     texture = nullptr;
-
 }
 
-Sprite::Sprite(GameObject &associated, std::string file) : Sprite(associated){
+
+
+Sprite::Sprite(GameObject &associated, std::string file, 
+int frameCount, 
+float frameTime) : Sprite(associated)
+{
+    this->frameTime = frameTime;
+    this->frameCount = frameCount;
     Open(file);
 }
 
@@ -78,7 +85,11 @@ void Sprite::Render(int x, int y){
     }
 }
 
-int Sprite::GetWidth() {return width;}
+int Sprite::GetWidth(){   
+    return (width * scale.x) / frameCount;
+}
+
+//int Sprite::GetWidth() {return width;}
 
 int Sprite::GetHeight() {return height;}
 
@@ -101,7 +112,6 @@ void Sprite::SetScale(float scaleX, float scaleY){
 
 //Retorna true se texture estiver alocada.
 bool Sprite::IsOpen() {
-    std::cout << texture << std::endl;
     if (texture == nullptr) {
         return false;
     } else {
@@ -109,8 +119,30 @@ bool Sprite::IsOpen() {
     }
 }
 
+void Sprite::Update(float dt) {
+    timeElapsed += dt; // Verifica em que momento de frame o sprite está
+    if (timeElapsed >= frameTime) { // Passa para o próximo frame
+        currentFrame = (currentFrame + 1) % frameCount; // Evita que currentFrame ultrapasse frameCount
+        SetFrame(currentFrame);
+       timeElapsed = 0;
+    }
+}
 
-void Sprite::Update(float dt){}
+
+void Sprite::SetFrame(int frame){   
+    timeElapsed = 0;
+    currentFrame = frame;
+    SetClip(currentFrame * GetWidth(), SETCLIP_Y, GetWidth(), GetHeight());
+}
+void Sprite::SetFrameCount(int frameCount){this->frameCount = frameCount;
+    SetFrame(0);
+    associated.box.w = GetWidth();
+    associated.box.DefineCenter(associated.box.x, associated.box.y);
+}
+
+void Sprite::SetFrameTime(float frameTime){   
+    this->frameTime = frameTime;
+}
 
 bool Sprite::Is(std::string type){
     if (type == "Sprite"){return true;}
