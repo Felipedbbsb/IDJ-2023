@@ -47,8 +47,8 @@ void Sprite::SetClip(int x, int y, int w, int h) {
     clipRect.h = h;
 
     //Hitbox do tamanho do sprite
-    associated.box.w = w;
-    associated.box.h = h;
+    associated.box.w = w * scale.x;
+    associated.box.h = h * scale.y;
 }
 
 
@@ -65,7 +65,7 @@ void Sprite::SetClip(int x, int y, int w, int h) {
 
 void Sprite::Render() {
     int RENDER_ERROR;
-    SDL_Rect dstLoc = {int(associated.box.x) + (int)Camera::pos.x, int(associated.box.y) + (int)Camera::pos.y, (int)associated.box.w, (int)associated.box.h};
+    SDL_Rect dstLoc = {int(associated.box.x) + (int)Camera::pos.x, int(associated.box.y) + (int)Camera::pos.y, (int)(clipRect.w * GetScale().x), (int)(clipRect.h * GetScale().y)};
 
     //RENDER_ERROR = SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc);
     RENDER_ERROR = SDL_RenderCopyEx(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc, associated.angleDeg, nullptr, SDL_FLIP_NONE);
@@ -76,7 +76,7 @@ void Sprite::Render() {
 
 void Sprite::Render(int x, int y){
     int RENDER_ERROR;
-    SDL_Rect dstLoc = {x + (int)Camera::pos.x, y + (int)Camera::pos.y, clipRect.w, clipRect.h};
+    SDL_Rect dstLoc = {(int)(x * GetScale().x) + (int)Camera::pos.x, (int)(y * GetScale().y) + (int)Camera::pos.y, (int)(clipRect.w * GetScale().x), (int)(clipRect.h * GetScale().y)};
     
     //RENDER_ERROR = SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc);
     RENDER_ERROR = SDL_RenderCopyEx(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc, associated.angleDeg, nullptr, SDL_FLIP_NONE);
@@ -91,18 +91,22 @@ int Sprite::GetWidth(){
 
 //int Sprite::GetWidth() {return width;}
 
-int Sprite::GetHeight() {return height;}
+int Sprite::GetHeight() {
+    return height * scale.y;
+}
+
+//int Sprite::GetHeight() {return height;}
 
 Vec2 Sprite::GetScale(){return scale;}
 
 void Sprite::SetScale(float scaleX, float scaleY){
     if (scaleX != 0){
        scale.x = scaleX;
-       associated.box.w = associated.box.w * scale.x;
+       associated.box.w = clipRect.w * scale.x;
     }
     if (scaleY != 0){
        scale.y = scaleY;
-       associated.box.h = associated.box.h * scale.y;
+       associated.box.h = clipRect.h * scale.y;
 
     }
 }
@@ -123,8 +127,9 @@ void Sprite::Update(float dt) {
     timeElapsed += dt; // Verifica em que momento de frame o sprite está
     if (timeElapsed >= frameTime) { // Passa para o próximo frame
         currentFrame = (currentFrame + 1) % frameCount; // Evita que currentFrame ultrapasse frameCount
+        
         SetFrame(currentFrame);
-       timeElapsed = 0;
+        timeElapsed = 0;
     }
 }
 
@@ -132,9 +137,10 @@ void Sprite::Update(float dt) {
 void Sprite::SetFrame(int frame){   
     timeElapsed = 0;
     currentFrame = frame;
-    SetClip(currentFrame * GetWidth(), SETCLIP_Y, GetWidth(), GetHeight());
+    SetClip(currentFrame * (GetWidth() / scale.x), SETCLIP_Y, GetWidth() / scale.x, GetHeight() / scale.y );
 }
-void Sprite::SetFrameCount(int frameCount){this->frameCount = frameCount;
+void Sprite::SetFrameCount(int frameCount){
+    this->frameCount = frameCount;
     SetFrame(0);
     associated.box.w = GetWidth();
     associated.box.DefineCenter(associated.box.x, associated.box.y);

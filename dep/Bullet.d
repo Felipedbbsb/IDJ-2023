@@ -1,4 +1,4 @@
-dep/Bullet.d bin/Bullet.o: src/Bullet.cpp src/../include/Bullet.h \
+dep/Bullet.d bin/Bullet.o: src/Bullet.cpp include/Bullet.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++config.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\os_defines.h \
@@ -96,11 +96,10 @@ dep/Bullet.d bin/Bullet.o: src/Bullet.cpp src/../include/Bullet.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc \
- src/../include/Sprite.h src/../include/SDL_include.h \
- C:/SDL2/include/SDL2/SDL.h C:/SDL2/include/SDL2/SDL_main.h \
- C:/SDL2/include/SDL2/SDL_stdinc.h C:/SDL2/include/SDL2/SDL_config.h \
- C:/SDL2/include/SDL2/SDL_platform.h C:/SDL2/include/SDL2/begin_code.h \
- C:/SDL2/include/SDL2/close_code.h \
+ include/Sprite.h include/SDL_include.h C:/SDL2/include/SDL2/SDL.h \
+ C:/SDL2/include/SDL2/SDL_main.h C:/SDL2/include/SDL2/SDL_stdinc.h \
+ C:/SDL2/include/SDL2/SDL_config.h C:/SDL2/include/SDL2/SDL_platform.h \
+ C:/SDL2/include/SDL2/begin_code.h C:/SDL2/include/SDL2/close_code.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdlib.h \
  C:/SDL2/include/SDL2/SDL_assert.h C:/SDL2/include/SDL2/SDL_atomic.h \
  C:/SDL2/include/SDL2/SDL_audio.h C:/SDL2/include/SDL2/SDL_error.h \
@@ -159,14 +158,14 @@ dep/Bullet.d bin/Bullet.o: src/Bullet.cpp src/../include/Bullet.h \
  C:/SDL2/include/SDL2/SDL_timer.h C:/SDL2/include/SDL2/SDL_version.h \
  C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
  C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h \
- src/../include/Component.h src/../include/GameObject.h \
+ include/Component.h include/GameObject.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_construct.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
- src/../include/Rect.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory \
+ include/Rect.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tempbuf.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_raw_storage_iter.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\typeinfo \
@@ -185,10 +184,10 @@ dep/Bullet.d bin/Bullet.o: src/Bullet.cpp src/../include/Bullet.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
- src/../include/Vec2.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
+ include/Vec2.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath c:\mingw\include\math.h
 
-src/../include/Bullet.h:
+include/Bullet.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:
 
@@ -394,9 +393,9 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc:
 
-src/../include/Sprite.h:
+include/Sprite.h:
 
-src/../include/SDL_include.h:
+include/SDL_include.h:
 
 C:/SDL2/include/SDL2/SDL.h:
 
@@ -574,9 +573,9 @@ C:/SDL2/include/SDL2/SDL_image.h:
 
 C:/SDL2/include/SDL2/SDL.h:
 
-src/../include/Component.h:
+include/Component.h:
 
-src/../include/GameObject.h:
+include/GameObject.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector:
 
@@ -590,7 +589,7 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc:
 
-src/../include/Rect.h:
+include/Rect.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory:
 
@@ -630,7 +629,7 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h:
 
-src/../include/Vec2.h:
+include/Vec2.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h:
 

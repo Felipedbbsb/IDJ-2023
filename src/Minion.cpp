@@ -10,9 +10,7 @@ Minion::Minion(GameObject& associated, std::weak_ptr<GameObject> alienCenter, fl
     Sprite* minion_spr = new Sprite(associated, MINION_SPRITE);
 
     float zoom = ((rand() % 50) / 100.0) + 1;
-    std::cout << associated.box.w << std::endl;
     minion_spr->SetScale(zoom, zoom);
-    std::cout << associated.box.w << std::endl;
     associated.AddComponent(std::shared_ptr<Sprite>(minion_spr));
 
     if (auto reference_center = alienCenter.lock()) {
@@ -22,7 +20,7 @@ Minion::Minion(GameObject& associated, std::weak_ptr<GameObject> alienCenter, fl
         radius.RotateAngle(arc);
         Vec2 pos = radius + Vec2(reference_center->box.x + reference_center->box.w / 2, reference_center->box.y + reference_center->box.h / 2);
         associated.box.DefineCenter(pos.x, pos.y);
-        //Minions sempre com a parte de baixo do Sprite virada para o Alien;
+        //Minions sempre com a parte de baixo do Sprite virada para o Alien
         // Calculate the vector from the minion to the center
         Vec2 toCenter = reference_center->box.GetCenter() - associated.box.GetCenter();
 

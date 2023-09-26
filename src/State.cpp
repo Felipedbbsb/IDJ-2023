@@ -41,8 +41,8 @@ State::State() {
 
 
     LoadAssets();
-    music.Open(BG_MUSIC);
-    music.Play(BACKGROUND_MUSIC_LOOP_TIMES);
+    //music.Open(BG_MUSIC);
+    //music.Play(BACKGROUND_MUSIC_LOOP_TIMES);
 }
 
 State::~State(){objectArray.clear();}

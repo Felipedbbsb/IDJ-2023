@@ -6,7 +6,7 @@
 #define BULLET_DAMAGE 30.0
 #define BULLET_SPRITE "assets/img/minionbullet2.png"
 #define BULLET_FC 3
-#define BULLET_FT 0.1
+#define BULLET_FT 0.5
 
 #include <iostream>
 #include <memory>
