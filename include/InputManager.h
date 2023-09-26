@@ -16,7 +16,11 @@
 #define ESCAPE_KEY SDLK_ESCAPE
 #define LEFT_MOUSE_BUTTON SDL_BUTTON_LEFT
 //ASCII
-#define SPACEBAR_KEY 32
+#define W_KEY SDLK_w
+#define A_KEY SDLK_a
+#define S_KEY SDLK_s
+#define D_KEY SDLK_d
+#define SPACEBAR_KEY SDLK_SPACE
 
 
 class InputManager{
