@@ -5,6 +5,8 @@
 #include "Component.h"
 #include "Camera.h"
 #include "GameObject.h"
+#include "Vec2.h"
+#include "Rect.h"
 
 class CameraFollower : public Component{
     public:

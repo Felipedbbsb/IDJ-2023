@@ -15,7 +15,9 @@ class Bullet : public Component{
                 float angle, 
                 float speed, 
                 int damage, 
-                float maxDistance, std::string sprite);
+                float maxDistance,
+                std::string sprite, 
+                std::string WhoShooter = "" );
 
         void Update(float dt);
         void Render();
@@ -26,4 +28,5 @@ class Bullet : public Component{
         Vec2 speed;
         float distanceLeft;
         int damage;
+        std::string WhoShooter;
 };

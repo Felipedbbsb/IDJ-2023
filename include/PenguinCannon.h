@@ -3,14 +3,14 @@
 #define PENGUINCANNON_SPRITE "assets/img/cubngun.png"
 #define PENGUIN_BULLET_SPRITE "assets/img/penguinbullet.png"
 
-#define PENGUIN_BULLET_SPPED 100.0
+#define PENGUIN_BULLET_SPEED 200.0
 #define PENGUIN_BULLET_DAMAGE 30.0
 #define PENGUIN_BULLET_DISTANCE 2000
 #define PENGUIN_BULLET_WIDTH_FACTOR 0.75
 #define PENGUIN_BULLET_CD 0.25
 
 #define PENGUINCANNON_FC 4
-#define PENGUINCANNON_FT 2
+#define PENGUINCANNON_FT 0.2
 
 #include <iostream>
 #include <memory>

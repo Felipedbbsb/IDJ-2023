@@ -15,6 +15,9 @@
 #include "Camera.h"
 #include "CameraFollower.h"
 #include "Alien.h"
+#include "PenguinBody.h"
+#include "PenguinCannon.h"
+
 
 // -----------Background assets -------------------
 #define BG_SPRITE "assets/img/ocean.jpg"

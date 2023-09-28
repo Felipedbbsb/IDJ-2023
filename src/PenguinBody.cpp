@@ -17,7 +17,8 @@ hp(PENGUIN_HP)
     Sprite* sp = new Sprite(associated, PENGUINBODY_SPRITE);
     associated.AddComponent((std::shared_ptr<Sprite>)sp);
 
-    //Camera::Follow(&associated);
+
+    Camera::Follow(&associated);
 
     //Collider *cl = new Collider(associated);
 	//associated.AddComponent(cl);
@@ -25,23 +26,24 @@ hp(PENGUIN_HP)
 
 PenguinBody::~PenguinBody()
 {
-    //Camera::Unfollow();
+    Camera::Unfollow();
     player = nullptr;
 }
-
+ 
 void PenguinBody::Start() {
-    //GameObject *go = new GameObject();
-	//std::weak_ptr<GameObject> weak_ptr = Game::GetInstance().GetState().AddObject(go);
-	//std::shared_ptr<GameObject> ptr = weak_ptr.lock();
-	//pcannon = weak_ptr;
 
-    //PenguinCannon* pcan = new PenguinCannon(*ptr, Game::GetInstance().GetState().GetObjectPtr(&associated));
-	//ptr->box = associated.box;
-	//ptr->AddComponent(pcan);
+    std::weak_ptr<GameObject> weak_pcan = Game::GetInstance().GetState().GetObjectPtr(&associated);
+    GameObject *pcan = new GameObject();
+    PenguinCannon* pcan_behaviour = new PenguinCannon(*pcan, weak_pcan);
+    std::shared_ptr<PenguinCannon> pcan_shared = std::make_shared<PenguinCannon>(*pcan_behaviour);
+    pcan->AddComponent(pcan_shared);
+    Game::GetInstance().GetState().AddObject(pcan);
+	
 }
 
-void PenguinBody::Update(float dt){   
-    if (hp <= 0)
+void PenguinBody::Update(float dt) {
+    
+     if (hp <= 0)
     {
         associated.RequestDelete();
 
@@ -58,44 +60,32 @@ void PenguinBody::Update(float dt){
         
         explosion_sound->Play();
     }
+    // Mapeamento das teclas para o movimento
+    std::unordered_map<int, Vec2> keyMovementMap = {
+        {W_KEY, Vec2(0, PENGUIN_ACC)},
+        {S_KEY, Vec2(0, -PENGUIN_ACC)},
+        {A_KEY, Vec2(-SPEED_ANG, 0)},
+        {D_KEY, Vec2(SPEED_ANG, 0)}
+    };
 
-    if (InputManager::GetInstance().IsKeyDown(W_KEY))
-    {
-        if (linearSpeed < SPEED_MAX)
-        {
-            linearSpeed += PENGUIN_ACC;
+    for (const auto& keyVecPair : keyMovementMap) {
+        if (InputManager::GetInstance().IsKeyDown(keyVecPair.first)) {
+            linearSpeed = std::min(std::max(linearSpeed + keyVecPair.second.y, -static_cast<float>(SPEED_MAX)), static_cast<float>(SPEED_MAX));
+            associated.angleDeg += keyVecPair.second.x;
         }
     }
-    if (InputManager::GetInstance().IsKeyDown(S_KEY))
-    {
-        if (linearSpeed > -SPEED_MAX)
-        {
-            linearSpeed -= PENGUIN_ACC;
-        }
-    }
 
-    if (InputManager::GetInstance().IsKeyDown(A_KEY))
-    {
-        associated.angleDeg -= SPEED_ANG;
-    }
-    if (InputManager::GetInstance().IsKeyDown(D_KEY))
-    {
-        associated.angleDeg += SPEED_ANG;
-    }
-
-    angle = associated.angleDeg / (180 / 3.14159265359);
-    Vec2 desloc = Vec2(cos(angle) * linearSpeed, sin(angle) * linearSpeed);
-    associated.box.DefineCenter(associated.box.GetCenter() + desloc);
+    angle = associated.angleDeg * (3.14159265359 / 180.0);
+    Vec2 movement = Vec2(cos(angle) * linearSpeed, sin(angle) * linearSpeed);
+    associated.box.DefineCenter(associated.box.GetCenter() + movement);
 }
 
-void PenguinBody::Render(){}
+void PenguinBody::Render() {}
 
-bool PenguinBody::Is(std::string type)
-{
+bool PenguinBody::Is(std::string type) {
     return (type == "PenguinBody");
 }
 
-Vec2 PenguinBody::Pos()
-{   
+Vec2 PenguinBody::Pos() {
     return associated.box.GetCenter();
 }

@@ -210,7 +210,7 @@ dep/Sprite.d bin/Sprite.o: src/Sprite.cpp include/Sprite.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h \
- include/Resources.h
+ include/PenguinBody.h include/PenguinCannon.h include/Resources.h
 
 include/Sprite.h:
 
@@ -727,5 +727,9 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h:
+
+include/PenguinBody.h:
+
+include/PenguinCannon.h:
 
 include/Resources.h:

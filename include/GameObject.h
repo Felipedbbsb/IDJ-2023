@@ -12,6 +12,8 @@ class Component;
 class GameObject{
   public:
     GameObject();
+    GameObject(int posX, int posY);
+    GameObject(Vec2 pos);
     ~GameObject();
     void Start();
     void Update(float dt);

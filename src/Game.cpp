@@ -10,72 +10,76 @@
 #define AUDIO_CHANNELS MIX_DEFAULT_CHANNELS
 #define SOUND_RESOLUTION 64
 
-#define SCREEN_WIDTH 1024
-#define SCREEN_HEIGHT 600
-#define SCREEN_TITLE "Felipe Dantas Borges - 202021749"
+
 
 #define WINDOW_FLAGS 0 // Ex.: SDL_WINDOW_FULLSCREEN
+
+#include <stdexcept> // Para usar exceções
 
 // Static class member initialization
 Game *Game::instance = nullptr;
 
-
-Game::Game (std::string title, int width, int height) : frameStart(0),
-                                                       dt(0.0){
-    int SDL_ERROR;
-    int IMG_ERROR;
-    int MSC_ERROR;
-
+Game::Game(std::string title, int width, int height) : frameStart(0), dt(0.0) {
     if (Game::instance != nullptr) {
-        std::cout << "Something's Wrong!";
+        throw std::runtime_error("Something's Wrong!");
     } else {
         Game::instance = this;
     }
 
-    //Inicializacao da biblioteca SDL
-    SDL_ERROR = SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER);
-    if (SDL_ERROR != 0) { 
-        std::cout << "SDL_Init Failed";
-    } else {
-        std::cout << "SDL_Init started" << std::endl;
-
-
-        //Inicializacao de loader de IMG_INIT
-        IMG_ERROR = IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF);
-        if (IMG_ERROR == 0){
-            std::cout << "IMG_Init failed";
-        } else {
-            std::cout << "IMG_Init started" << std::endl;
-
-            //Inicializacao de bibliotecas de som via mixer
-            MSC_ERROR = Mix_Init(MIX_INIT_FLAC | MIX_INIT_OGG | MIX_INIT_MP3);
-            if (MSC_ERROR == 0) {
-                std::cout << "No loader was loaded";
-            } else {
-                std::cout << "Mix_Init started correctly" << std::endl;
-
-                //Inicializacao de canais de áudio
-                Mix_OpenAudio(AUDIO_FREQUENCY, AUDIO_FORMAT, AUDIO_CHANNELS, AUDIO_CHUNKSIZE);
-                Mix_AllocateChannels(SOUND_RESOLUTION);
-
-                //Criação de janela
-                window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, WINDOW_FLAGS);
-                if (window == nullptr) {
-                    std::cout << "Window creation failed" <<std::endl;
-                } else {
-                    std::cout << "Window successfully created!" << std::endl;
-                }
-                //Criação de render
-                renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE); //Use SDL_RENDERER_ACCELERATED, para requisitar o uso de OpenGL ouDirect3D.
-                if (renderer == nullptr) {
-                    std::cout << "Failed to create renderer" << std::endl;
-                } else {
-                    std::cout << "Renderer successfully created!" << std::endl;
-                }
-            }
+    try {
+        if (!InitializeSDL() || !InitializeIMG() || !InitializeMixer() || !CreateWindowAndRenderer(title, width, height, WINDOW_FLAGS)) {
+            // Tratar falhas de inicialização aqui, se necessário.
+            throw std::runtime_error("Initialization failed");
         }
-    } // End of initialization routine
+    } catch (const std::runtime_error& e) {
+        std::cerr << "Initialization error: " << e.what() << std::endl;
+        // Faça o tratamento de erro adequado aqui, como sair do jogo.
+        // Você pode até mesmo lançar uma exceção aqui para indicar que a inicialização do jogo falhou.
+    }
+
     state = new State();
+}
+
+bool Game::InitializeSDL() {
+    int SDL_FAIL = SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER);
+    if (SDL_FAIL != 0) {
+        throw std::runtime_error("SDL_Init Failed");
+    }
+    return true;
+}
+
+bool Game::InitializeIMG() {
+    int IMG_FAIL = IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF);
+    if (IMG_FAIL == 0) {
+        throw std::runtime_error("IMG_Init Failed");
+    }
+    return true;
+}
+
+bool Game::InitializeMixer() {
+    int MSC_FAIL = Mix_Init(MIX_INIT_FLAC | MIX_INIT_OGG | MIX_INIT_MP3);
+    if (MSC_FAIL == 0) {
+        throw std::runtime_error("No loader was loaded");
+    }
+
+    Mix_OpenAudio(AUDIO_FREQUENCY, AUDIO_FORMAT, AUDIO_CHANNELS, AUDIO_CHUNKSIZE);
+    Mix_AllocateChannels(SOUND_RESOLUTION);
+
+    return true;
+}
+
+bool Game::CreateWindowAndRenderer(const std::string& title, int width, int height, int flags) {
+    window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
+    if (window == nullptr) {
+        throw std::runtime_error("Window creation failed");
+    }
+
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
+    if (renderer == nullptr) {
+        throw std::runtime_error("Failed to create renderer");
+    }
+
+    return true;
 }
 
 //É utilizado para impedir que uma classe possua mais de uma instância.

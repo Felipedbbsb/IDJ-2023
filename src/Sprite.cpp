@@ -12,12 +12,9 @@ scale(Vec2(1, 1))
     texture = nullptr;
 }
 
-
-
-Sprite::Sprite(GameObject &associated, std::string file, 
-int frameCount, 
-float frameTime) : Sprite(associated)
+Sprite::Sprite(GameObject &associated, std::string file, int frameCount, float frameTime) : Sprite(associated)
 {
+    // Define o tempo entre frames e o número total de frames
     this->frameTime = frameTime;
     this->frameCount = frameCount;
     Open(file);
@@ -25,31 +22,43 @@ float frameTime) : Sprite(associated)
 
 Sprite::~Sprite(){}
 
-// Carrega a imagem indicada pelo caminho file.
 void Sprite::Open(std::string file) {
+    // Carrega a imagem indicada pelo caminho 'file'
     texture = Resources::GetImage(file.c_str());
 
     if (texture == nullptr){
-        std::cout << "Failed to load texture" << std::endl; // falha em carregar imagem.
+        std::cerr << "Failed to load texture: " << file << std::endl; // falha em carregar imagem.
     } 
     else {
-        std::cout << "Texture loaded successfully!" << std::endl;
+        std::cout << "Texture loaded successfully: " << file << std::endl;
         SDL_QueryTexture(texture, nullptr, nullptr, &width, &height);
     }
     SetClip(SETCLIP_X, SETCLIP_Y, width, height);
 }
 
-//Seta clipRect com os parâmetros dados.
 void Sprite::SetClip(int x, int y, int w, int h) {
+    // Define o retângulo de clipagem
     clipRect.x = x;
     clipRect.y = y;
     clipRect.w = w;
     clipRect.h = h;
 
-    //Hitbox do tamanho do sprite
+    // Define o tamanho da hitbox
     associated.box.w = w * scale.x;
     associated.box.h = h * scale.y;
 }
+
+void Sprite::Render() {
+    int RENDER_FAIL;
+    SDL_Rect dstLoc = {int(associated.box.x) + (int)Camera::pos.x, int(associated.box.y) + (int)Camera::pos.y, (int)(clipRect.w * GetScale().x), (int)(clipRect.h * GetScale().y)};
+
+    // Renderiza a textura com a clipagem adequada
+    RENDER_FAIL = SDL_RenderCopyEx(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc, associated.angleDeg, nullptr, SDL_FLIP_NONE);
+    if (RENDER_FAIL != 0) {
+        std::cerr << "Texture render failure: " << SDL_GetError() << std::endl; // falha ao renderizar textura
+    }
+}
+
 
 
 
@@ -63,25 +72,14 @@ void Sprite::SetClip(int x, int y, int w, int h) {
 //escala, contraindo ou expandindo a imagem para se adaptar a esses
 //valores.
 
-void Sprite::Render() {
-    int RENDER_ERROR;
-    SDL_Rect dstLoc = {int(associated.box.x) + (int)Camera::pos.x, int(associated.box.y) + (int)Camera::pos.y, (int)(clipRect.w * GetScale().x), (int)(clipRect.h * GetScale().y)};
-
-    //RENDER_ERROR = SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc);
-    RENDER_ERROR = SDL_RenderCopyEx(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc, associated.angleDeg, nullptr, SDL_FLIP_NONE);
-    if (RENDER_ERROR != 0) {
-        std::cout << "Texture render failure " << SDL_GetError() << std::endl;
-    }
-}
-
 void Sprite::Render(int x, int y){
-    int RENDER_ERROR;
+    int RENDER_FAIL;
     SDL_Rect dstLoc = {(int)(x * GetScale().x) + (int)Camera::pos.x, (int)(y * GetScale().y) + (int)Camera::pos.y, (int)(clipRect.w * GetScale().x), (int)(clipRect.h * GetScale().y)};
     
-    //RENDER_ERROR = SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc);
-    RENDER_ERROR = SDL_RenderCopyEx(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc, associated.angleDeg, nullptr, SDL_FLIP_NONE);
-    if (RENDER_ERROR != 0){
-        std::cout << "Texture render failure " << SDL_GetError() << std::endl;
+    // Renderiza a textura em uma posição específica
+    RENDER_FAIL = SDL_RenderCopyEx(Game::GetInstance().GetRenderer(), texture, &clipRect, &dstLoc, associated.angleDeg, nullptr, SDL_FLIP_NONE);
+    if (RENDER_FAIL != 0){
+        std::cerr << "Texture render failure: " << SDL_GetError() << std::endl; // falha ao renderizar textura
     }
 }
 
@@ -89,13 +87,9 @@ int Sprite::GetWidth(){
     return (width * scale.x) / frameCount;
 }
 
-//int Sprite::GetWidth() {return width;}
-
 int Sprite::GetHeight() {
     return height * scale.y;
 }
-
-//int Sprite::GetHeight() {return height;}
 
 Vec2 Sprite::GetScale(){return scale;}
 
@@ -107,20 +101,11 @@ void Sprite::SetScale(float scaleX, float scaleY){
     if (scaleY != 0){
        scale.y = scaleY;
        associated.box.h = clipRect.h * scale.y;
-
     }
 }
 
-
-
-
-//Retorna true se texture estiver alocada.
 bool Sprite::IsOpen() {
-    if (texture == nullptr) {
-        return false;
-    } else {
-        return true;
-    }
+    return (texture != nullptr);
 }
 
 void Sprite::Update(float dt) {
@@ -133,12 +118,12 @@ void Sprite::Update(float dt) {
     }
 }
 
-
 void Sprite::SetFrame(int frame){   
     timeElapsed = 0;
     currentFrame = frame;
     SetClip(currentFrame * (GetWidth() / scale.x), SETCLIP_Y, GetWidth() / scale.x, GetHeight() / scale.y );
 }
+
 void Sprite::SetFrameCount(int frameCount){
     this->frameCount = frameCount;
     SetFrame(0);
@@ -151,6 +136,5 @@ void Sprite::SetFrameTime(float frameTime){
 }
 
 bool Sprite::Is(std::string type){
-    if (type == "Sprite"){return true;}
-    else{return false;}
+    return (type == "Sprite");
 }

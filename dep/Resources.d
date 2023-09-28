@@ -209,7 +209,8 @@ dep/Resources.d bin/Resources.o: src/Resources.cpp include/Resources.h \
  include/Bullet.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h \
+ include/PenguinBody.h include/PenguinCannon.h
 
 include/Resources.h:
 
@@ -728,3 +729,7 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h:
+
+include/PenguinBody.h:
+
+include/PenguinCannon.h:

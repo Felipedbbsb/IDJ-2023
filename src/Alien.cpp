@@ -51,7 +51,7 @@ void Alien::Update(float dt) {
         taskQueue.emplace(Action(SHOOT, input.GetMouseX() - Camera::pos.x, input.GetMouseY() - Camera::pos.y));
     }
     if (input.MousePress(SDL_BUTTON_RIGHT)) {
-        taskQueue.emplace(Action(MOVE, input.GetMouseX() - Camera::pos.x, input.GetMouseY() - Camera::pos.y));
+       taskQueue.emplace(Action(MOVE, input.GetMouseX() - Camera::pos.x, input.GetMouseY() - Camera::pos.y));
         std::cout << "Alien moves queue to X:" << input.GetMouseX() - Camera::pos.x << " Y:" << input.GetMouseY() - Camera::pos.y << std::endl;
     }
 
@@ -81,7 +81,7 @@ void Alien::Update(float dt) {
                 bool yFinished = false;
 
                 if (fabsf(distance.x) > alienMoviment) {
-                    associated.box.x += alienMoviment * cos(atan2(distance.y, distance.x));
+                    associated.box.x += alienMoviment * cos(distance.Angle());
                 } else {
                     associated.box.x = taskQueue.front().pos.x - associated.box.w / 2;
                     xFinished = true;
@@ -89,7 +89,7 @@ void Alien::Update(float dt) {
 
                 //----aproxima y----
                 if (fabsf(distance.y) > alienMoviment) {
-                    associated.box.y += alienMoviment * sin(atan2(distance.y, distance.x));
+                    associated.box.y += alienMoviment * sin(distance.Angle());
                 } else {
                     associated.box.y = taskQueue.front().pos.y - associated.box.h / 2;
                     yFinished = true;

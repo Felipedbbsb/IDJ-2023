@@ -7,6 +7,7 @@
 #define BULLET_SPRITE "assets/img/minionbullet2.png"
 #define BULLET_FC 3
 #define BULLET_FT 0.5
+#define MINION_BULLET_DISTANCE 1000
 
 #include <iostream>
 #include <memory>

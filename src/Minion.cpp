@@ -67,11 +67,11 @@ void Minion::Shoot(Vec2 target)
 
     // Criando um bullet
     GameObject* bullet = new GameObject();
-    Bullet *bullet_behaviour = new Bullet(*bullet, angle, MINION_V_BULLET, BULLET_DAMAGE, path.Hypotenuse(), BULLET_SPRITE);
+    Bullet *bullet_behaviour = new Bullet(*bullet, angle, MINION_V_BULLET, BULLET_DAMAGE, MINION_BULLET_DISTANCE, BULLET_SPRITE);
     bullet->AddComponent((std::shared_ptr<Bullet>)bullet_behaviour);
 
     bullet->box.DefineCenter(associated.box.GetCenter());
-
+ 
     
     Game::GetInstance().GetState().AddObject(bullet);
 

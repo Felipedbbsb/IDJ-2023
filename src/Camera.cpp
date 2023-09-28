@@ -1,6 +1,7 @@
 #include "Camera.h"
 #include "InputManager.h"
 #include "Game.h"
+
 #define CAMERA_SPEED 500 //movement speed
 
 GameObject* Camera::focus;
@@ -9,43 +10,19 @@ Vec2 Camera::pos;
 Vec2 Camera::speed;
 
 
-void Camera::Update(float dt){
+void Camera::Update(float dt) {
     if (focus == nullptr) {
         InputManager& input = InputManager::GetInstance();
-        //EIXO X
-
-        if (input.IsKeyDown(RIGHT_ARROW_KEY)){
-            speed.x = CAMERA_SPEED;
-        }
-        else if (input.IsKeyDown(LEFT_ARROW_KEY)){
-            speed.x =  CAMERA_SPEED * (-1) ;
-        }
-        else{
-            speed.x = 0;
-        }
-             
-        
-        //EIXO Y
-        if (input.IsKeyDown(UP_ARROW_KEY)){ // Também verificar se o eixo y está sendo pressionado ~ diagonais
-            speed.y = CAMERA_SPEED * (-1) ;
-        }
-        else if (input.IsKeyDown(DOWN_ARROW_KEY)){
-            speed.y = CAMERA_SPEED;
-        }     
-        else{
-            speed.y = 0;
-        }
-
-        
-        pos.x += dt * speed.x;
-        pos.y += dt * speed.y;
-
+        speed.x = static_cast<float>((input.IsKeyDown(RIGHT_ARROW_KEY) - input.IsKeyDown(LEFT_ARROW_KEY)) * CAMERA_SPEED);
+        speed.y = static_cast<float>((input.IsKeyDown(DOWN_ARROW_KEY) - input.IsKeyDown(UP_ARROW_KEY)) * CAMERA_SPEED);
     }
-    else{
-        //tamanho da tela 
-		//pos.x = focus->box.x + focus->box.w - 1024/2;
-		//pos.y = focus->box.y + focus->box.h - 600/2;
+    else {
+        pos.x = -(focus->box.GetCenter().x) + (SCREEN_WIDTH / 2);
+        pos.y = -(focus->box.GetCenter().y) + (SCREEN_HEIGHT / 2);
     }
+
+    pos.x += dt * speed.x;
+    pos.y += dt * speed.y;
 }
 
 void Camera::Follow(GameObject* newFocus){
