@@ -26,7 +26,10 @@ class GameObject{
     std::shared_ptr<Component> GetComponent(std::string type);
     double angleDeg;
     Rect box;
-    
+    void NotifyCollision(GameObject& other);
+
+
+    double GetAngleRad();
 
   private:
     std::vector<std::shared_ptr<Component>> components;

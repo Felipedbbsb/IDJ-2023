@@ -26,6 +26,7 @@ public:
     void Render();
     bool Is(std::string type);
     void Shoot(Vec2 target);
+    void NotifyCollision(GameObject &other);
 
 private:
     Vec2 radius;

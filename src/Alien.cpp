@@ -3,6 +3,7 @@
 #include "Camera.h"
 #include "Vec2.h"
 #include "Game.h"
+#include "Collider.h"
 
 Alien::Action::Action(ActionType type, float x, float y)
     : type(type), pos(x, y) {}
@@ -15,6 +16,10 @@ Alien::Alien(GameObject& associated, int nMinions): Component::Component(associa
     // Sprite do alien
     Sprite* alien_sprite = new Sprite(associated, ALIEN_SPRITE);
     associated.AddComponent(std::shared_ptr<Sprite>(alien_sprite));
+
+    // Adicionando Collider
+    Collider* alien_collider = new Collider(associated);
+    associated.AddComponent((std::shared_ptr<Collider>)alien_collider);
 }
 
 void Alien::Start() {
@@ -41,6 +46,30 @@ Alien::~Alien() {
     
 
 void Alien::Update(float dt) {
+
+    // Verifica morte
+    if (hp <= 0)
+    {
+        associated.RequestDelete();
+
+        // Criando animação de morte
+        //GameObject *alien_death = new GameObject();
+        //Sprite *explosion_anim = new Sprite(*alien_death, ALIEN_DEATH_ANIM_PATH, ALIEN_DEATH_ANIM_COUNT,
+        //                                             ALIEN_DEATH_ANIM_TIME / ALIEN_DEATH_ANIM_COUNT,
+        //                                             ALIEN_DEATH_ANIM_TIME);
+        //alien_death->AddComponent((std::shared_ptr<Sprite>)explosion_anim);
+        // Criando som da morte
+        //Sound *explosion_sound = new Sound(*alien_death, ALIEN_DEATH_SOUND_PATH);
+       // alien_death->AddComponent((std::shared_ptr<Sound>)explosion_sound);
+        //alien_death->box.DefineCenter(associated.box.GetCenter());
+        //Game::GetInstance().GetState().AddObject(alien_death);
+
+        //explosion_sound->Play();
+    }
+    
+
+
+
     // Faz o alien girar
     associated.angleDeg += dt * ALIEN_V_ANGULAR;
 
@@ -140,4 +169,22 @@ void Alien::Render(){}
 bool Alien::Is(std::string type){
     if (type == "Alien"){return true;}
     else{return false;}
+}
+
+void Alien::NotifyCollision(GameObject &other)
+{
+    std::shared_ptr<Component> shared_Bullet = other.GetComponent("Bullet");
+
+    // Se a colisão ocorre com uma bala
+    if (shared_Bullet.get() != nullptr)
+    {
+        Bullet *bullet = (Bullet *)shared_Bullet.get();
+        // Se quem atirou não foi o inimigo, ou seja, ele mesmo
+        //if (!bullet->IsShooter("Enemy"))
+        //{
+           // int damage = bullet->GetDamage();
+            //hp -= damage;
+            //std::cout << "ALIEN HP: " << hp << std::endl;
+        //}
+    }
 }

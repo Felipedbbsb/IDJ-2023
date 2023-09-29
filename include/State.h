@@ -17,7 +17,8 @@
 #include "Alien.h"
 #include "PenguinBody.h"
 #include "PenguinCannon.h"
-
+#include "Collider.h"
+#include "Collision.h"
 
 // -----------Background assets -------------------
 #define BG_SPRITE "assets/img/ocean.jpg"

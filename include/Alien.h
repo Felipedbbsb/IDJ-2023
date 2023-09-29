@@ -19,6 +19,13 @@
 #define ALIEN_V_ANGULAR 20 // degree/frame
 #define MIN_DIST 5
 
+#define ALIEN_DEATH_ANIM_PATH "assets/img/aliendeath.png"
+#define ALIEN_DEATH_ANIM_COUNT 4.0
+#define ALIEN_DEATH_ANIM_TIME 3.0
+#define ALIEN_DEATH_SOUND_PATH "assets/audio/boom.wav"
+
+
+
 enum ActionType{MOVE, SHOOT};  
 
 
@@ -48,5 +55,6 @@ class Alien : public Component{
         std::queue<Action> taskQueue;
         std::vector<std::weak_ptr<GameObject>> minionArray;
         int nMinions;
+        void NotifyCollision(GameObject &other);
 };
 

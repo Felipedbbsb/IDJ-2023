@@ -1,6 +1,5 @@
 #include "State.h"
 
-
 State::State() {  
     started = false;
     quitRequested = false;
@@ -13,7 +12,6 @@ State::State() {
         background->AddComponent((std::shared_ptr<CameraFollower>)bg_cmfl);
         
         AddObject(background);
-
 
     // ==================== Map ================================
     GameObject *map = new GameObject();
@@ -73,6 +71,28 @@ void State::Update(float dt){
     for (int i = (int)objectArray.size() - 1; i >= 0; --i){
         if (objectArray[i]->IsDead()){
             objectArray.erase(objectArray.begin() + i);
+        }
+    }
+
+    // Verifica se há colisões
+    std::vector<std::shared_ptr<GameObject>> objWithCollider;
+    for (int i = (int)objectArray.size() - 1; i >= 0; i--)
+    {   
+        std::shared_ptr<Component> colliderComponent = objectArray[i]->GetComponent("Collider");
+        if (colliderComponent.get() != nullptr)
+        {
+            objWithCollider.push_back(objectArray[i]);
+            for (int j = 0; j < (int)objWithCollider.size(); j++)
+            {
+                if (objectArray[i] != objWithCollider[j])
+                {
+                    if (Collision::IsColliding(objectArray[i]->box, objWithCollider[j]->box, objectArray[i]->GetAngleRad(), objWithCollider[j]->GetAngleRad()))
+                    {
+                        objectArray[i]->NotifyCollision(*objWithCollider[j].get());
+                        objWithCollider[j]->NotifyCollision(*objectArray[i].get());
+                    }
+                }
+            }
         }
     }
     SDL_Delay(dt);

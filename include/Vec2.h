@@ -11,6 +11,7 @@ class Vec2{
         float Hypotenuse();
         Vec2 GetRotated(float theta);
         void Rotate(float theta);
+        Vec2 RotateVector(float theta);
         void RotateAngle(float degrees);
         float Angle();
         float RotateDegree();

@@ -210,7 +210,7 @@ dep/Alien.d bin/Alien.o: src/Alien.cpp include/Alien.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc \
  include/TileSet.h include/CameraFollower.h include/PenguinBody.h \
- include/PenguinCannon.h
+ include/PenguinCannon.h include/Collider.h
 
 include/Alien.h:
 
@@ -731,3 +731,5 @@ include/CameraFollower.h:
 include/PenguinBody.h:
 
 include/PenguinCannon.h:
+
+include/Collider.h:

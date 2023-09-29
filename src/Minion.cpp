@@ -1,6 +1,7 @@
 #include "Minion.h"
 #include "Game.h"
 #include "Sprite.h"
+#include "Collider.h"
 
 Minion::Minion(GameObject& associated, std::weak_ptr<GameObject> alienCenter, float arcOffsetDeg): Component::Component(associated),
       alienCenter(alienCenter),
@@ -12,6 +13,10 @@ Minion::Minion(GameObject& associated, std::weak_ptr<GameObject> alienCenter, fl
     float zoom = ((rand() % 50) / 100.0) + 1;
     minion_spr->SetScale(zoom, zoom);
     associated.AddComponent(std::shared_ptr<Sprite>(minion_spr));
+
+    // Adicionando Collider
+    Collider* minion_collider = new Collider(associated);
+    associated.AddComponent((std::shared_ptr<Collider>)minion_collider);
 
     if (auto reference_center = alienCenter.lock()) {
         radius.x = (reference_center->box.w / 2) * 1.5;
@@ -67,7 +72,7 @@ void Minion::Shoot(Vec2 target)
 
     // Criando um bullet
     GameObject* bullet = new GameObject();
-    Bullet *bullet_behaviour = new Bullet(*bullet, angle, MINION_V_BULLET, BULLET_DAMAGE, MINION_BULLET_DISTANCE, BULLET_SPRITE);
+    Bullet *bullet_behaviour = new Bullet(*bullet, angle, MINION_V_BULLET, BULLET_DAMAGE, MINION_BULLET_DISTANCE, BULLET_SPRITE, "Enemey");
     bullet->AddComponent((std::shared_ptr<Bullet>)bullet_behaviour);
 
     bullet->box.DefineCenter(associated.box.GetCenter());
@@ -82,3 +87,6 @@ void Minion::Shoot(Vec2 target)
 
     std::cout << "Shoot to target: X"  << target.x << " Y" << target.y  <<  std::endl;
 }
+
+void Minion::NotifyCollision(GameObject &other)
+{}

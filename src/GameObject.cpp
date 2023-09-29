@@ -82,3 +82,15 @@ void GameObject::Start(){
         throw; // Re-throw a exceção para encerrar o jogo ou realizar um tratamento superior.
     }
 }
+
+double GameObject::GetAngleRad()
+{
+    return angleDeg / (180 / 3.141592);
+}
+
+void GameObject::NotifyCollision(GameObject &other)
+{
+    for (int i = 0; i < (int)components.size(); i++){
+        components[i]->NotifyCollision(other);
+    }
+}
