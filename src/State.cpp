@@ -55,7 +55,7 @@ State::State() {
 
     LoadAssets();
     music.Open(BG_MUSIC);
-    //music.Play(BACKGROUND_MUSIC_LOOP_TIMES);
+    music.Play(BACKGROUND_MUSIC_LOOP_TIMES);
 }
 
 State::~State(){objectArray.clear();}
@@ -77,21 +77,21 @@ void State::Update(float dt){
 
 
     // Verifica se há colisões  
-    std::vector<std::shared_ptr<GameObject>> objWithCollider;
+    std::vector<std::shared_ptr<GameObject>> obj_cl;
 
     for (const auto& obj : objectArray){
-        auto colliderComponent = obj->GetComponent("Collider");
+        auto clComponent = obj->GetComponent("Collider");
         
-        if (colliderComponent){
-            objWithCollider.push_back(obj);
+        if (clComponent){
+            obj_cl.push_back(obj);
         }
     }
 
-    for (size_t i = 0; i < objWithCollider.size(); ++i){
-        for (size_t j = i + 1; j < objWithCollider.size(); ++j){
-            if (Collision::IsColliding(objWithCollider[i]->box, objWithCollider[j]->box, objWithCollider[i]->GetAngleRad(), objWithCollider[j]->GetAngleRad())){
-                objWithCollider[i]->NotifyCollision(*objWithCollider[j]);
-                objWithCollider[j]->NotifyCollision(*objWithCollider[i]);
+    for (size_t i = 0; i < obj_cl.size(); ++i){
+        for (size_t j = i + 1; j < obj_cl.size(); ++j){
+            if (Collision::IsColliding(obj_cl[i]->box, obj_cl[j]->box, obj_cl[i]->GetAngleRad(), obj_cl[j]->GetAngleRad())){
+                obj_cl[i]->NotifyCollision(*obj_cl[j]);
+                obj_cl[j]->NotifyCollision(*obj_cl[i]);
             }
         }
     }

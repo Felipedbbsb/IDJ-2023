@@ -24,8 +24,8 @@
 #define ALIEN_DEATH_SPRITE_FT 1.0
 #define ALIEN_DEATH_SOUND_PATH "assets/audio/boom.wav"
 
-#define ALIEN_MOV_COOLDOWN 0.5
-#define ALIEN_TARGET_TOLERANCE 300
+#define ALIEN_MOV_TIMER 0.5
+#define ALIEN_TARGET_MAX_DIST 300
 
 
 

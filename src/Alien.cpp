@@ -82,33 +82,31 @@ void Alien::Update(float dt) {
 
     switch (state) {
         case AlienState::MOVING: {
-            // If the distance is greater than a tolerance, MOVE to the destination
-            if (Vec2::D2points(associated.box.GetCenter(), destination).Hypotenuse() > ALIEN_TARGET_TOLERANCE) {
-                float step = dt * ALIEN_VELOCIDADE;
-                Vec2 distance = Vec2::D2points(associated.box.GetCenter(), destination);
+            float maxDistTarget = ALIEN_TARGET_MAX_DIST;
+            float speed = ALIEN_VELOCIDADE * dt;
 
-                // Move to the destination
-                if (distance.Hypotenuse() > step) {
-                    associated.box.x += step * cos(distance.Angle());
-                    associated.box.y += step * sin(distance.Angle());
-                }
-                // Teleport to the destination (handling "vibrations")
-                else {
-                    associated.box.DefineCenter(destination);
-                }
+            Vec2 distance = Vec2::D2points(associated.box.GetCenter(), destination);
+            float ToDest = distance.Hypotenuse();
+
+            // If the distance is greater than a maxDistTarget, MOVE to the destination
+            if (ToDest > maxDistTarget) {
+                float step = std::min(speed, ToDest);
+
+                float angle = distance.Angle();
+                associated.box.x += step * cos(angle);
+                associated.box.y += step * sin(angle);
             } else {
-                std::shared_ptr<GameObject> minion;
-                Vec2 target = destination;
+                std::shared_ptr<GameObject> minion = nullptr;
                 float distToTarget = std::numeric_limits<float>::max();
 
                 // Iterate through the minion vector to find the closest one to the target
                 for (const auto& minionPtr : minionArray) {
                     if (!minionPtr.expired()) {
                         std::shared_ptr<GameObject> temp_minion = minionPtr.lock();
-                        float closerMinionDistance = Vec2::D2points(temp_minion->box.GetCenter(), target).Hypotenuse();
+                        float closerMinion = Vec2::D2points(temp_minion->box.GetCenter(), destination).Hypotenuse();
 
-                        if (closerMinionDistance < distToTarget) {
-                            distToTarget = closerMinionDistance;
+                        if (closerMinion < distToTarget) {
+                            distToTarget = closerMinion;
                             minion = temp_minion;
                         }
                     }
@@ -120,11 +118,11 @@ void Alien::Update(float dt) {
 
                     // Fire
                     if (PenguinBody::player != nullptr) {
-                        std::cout << "ALIEN: HAAAA! PEW" << std::endl;
-                        real_minion->Shoot(target);
+                        real_minion->Shoot(destination);
                     }
-                } else {
-                    std::cout << "ERROR: No minion to shoot" << std::endl;
+                } 
+                else {
+                    std::cout << "No minion" << std::endl;
                 }
 
                 // Reset the timer and change the state to RESTING
@@ -136,7 +134,7 @@ void Alien::Update(float dt) {
 
         case AlienState::RESTING: {
             // If the timer has already "elapsed"
-            if (restTimer.Get() >= ALIEN_MOV_COOLDOWN) {
+            if (restTimer.Get() >= ALIEN_MOV_TIMER) {
                 // Update the destination/target position and change the state to MOVING
                 if (PenguinBody::player != nullptr) {
                     destination = PenguinBody::player->Pos();
@@ -149,6 +147,7 @@ void Alien::Update(float dt) {
             break;
         }
     }
+
     
 }
 

@@ -8,22 +8,26 @@
 #endif //DEBUG
 
 Collider::Collider(GameObject& associated, Vec2 scale, Vec2 offset) : Component::Component(associated),
-                                                                      scale(scale),
-                                                                      offset(offset)
+scale(scale),
+offset(offset)
 {}
 
 void Collider::Update(float dt){
+    // Copy the dimensions of the associated object's bounding box
     this->box = associated.box;
-    this->box.w = this->box.w * scale.x;
-    this->box.h = this->box.h * scale.y;
 
+    // Scale the bounding box dimensions
+    this->box.w *= scale.x;
+    this->box.h *= scale.y;
+
+    // Calculate the rotation in degrees
     float rotationInDegrees = offset.RotateDegree();
-    Vec2 rotationVector(rotationInDegrees, 0); // Criar um vetor com a rotação em graus
-    Vec2 resultVector = rotationVector + offset; // Somar o vetor de rotação com offset
-    this->box.DefineCenter(associated.box.GetCenter() + resultVector);
 
-}
+    // Update the center of the bounding box based on the scaled offset and rotation
+    this->box.DefineCenter(associated.box.GetCenter() + Vec2(rotationInDegrees, 0) + offset);
 
+} 
+ 
 void Collider::Render(){
 #ifdef DEBUG
     Vec2 center(box.GetCenter());
