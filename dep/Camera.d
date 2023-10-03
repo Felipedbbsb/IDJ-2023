@@ -191,8 +191,8 @@ dep/Camera.d bin/Camera.o: src/Camera.cpp include/Camera.h include/Vec2.h \
  C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
  include/Game.h include/State.h include/Sprite.h \
  C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h \
- include/Music.h C:/SDL2/include/SDL2/SDL_mixer.h include/Sound.h \
- include/Face.h include/TileMap.h \
+ include/Timer.h include/Music.h C:/SDL2/include/SDL2/SDL_mixer.h \
+ include/Sound.h include/Face.h include/TileMap.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
@@ -210,7 +210,8 @@ dep/Camera.d bin/Camera.o: src/Camera.cpp include/Camera.h include/Vec2.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h \
- include/PenguinBody.h include/PenguinCannon.h
+ include/PenguinBody.h include/PenguinCannon.h include/Collider.h \
+ include/Collision.h
 
 include/Camera.h:
 
@@ -676,6 +677,8 @@ C:/SDL2/include/SDL2/SDL_image.h:
 
 C:/SDL2/include/SDL2/SDL.h:
 
+include/Timer.h:
+
 include/Music.h:
 
 C:/SDL2/include/SDL2/SDL_mixer.h:
@@ -731,3 +734,7 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h:
 include/PenguinBody.h:
 
 include/PenguinCannon.h:
+
+include/Collider.h:
+
+include/Collision.h:

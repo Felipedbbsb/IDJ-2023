@@ -5,19 +5,17 @@
 #include "Game.h"
 #include "Collider.h"
 
-Alien::Action::Action(ActionType type, float x, float y)
-    : type(type), pos(x, y) {}
+int Alien::alienCount = 0;
 
 Alien::Alien(GameObject& associated, int nMinions): Component::Component(associated),
     hp(ALIEN_VIDA),
-    nMinions(nMinions) 
+    nMinions(nMinions),
+    state(RESTING)
     {
-
-    // Sprite do alien
+    alienCount += 1;    
     Sprite* alien_sprite = new Sprite(associated, ALIEN_SPRITE);
     associated.AddComponent(std::shared_ptr<Sprite>(alien_sprite));
 
-    // Adicionando Collider
     Collider* alien_collider = new Collider(associated);
     associated.AddComponent((std::shared_ptr<Collider>)alien_collider);
 }
@@ -37,6 +35,7 @@ void Alien::Start() {
 
 Alien::~Alien() {
     // Always remove from back to front
+    alienCount -= 1;
     for (int i = minionArray.size() - 1; i >= 0; i--) {
         minionArray.erase(minionArray.begin() + i);
     }
@@ -48,120 +47,109 @@ Alien::~Alien() {
 void Alien::Update(float dt) {
 
     // Verifica morte
-    if (hp <= 0)
-    {
+    if (hp <= 0){
         associated.RequestDelete();
+ 
+        GameObject *alien_death = new GameObject();
+    
+        Sprite *explosion_sprite = new Sprite(*alien_death, ALIEN_DEATH_SPRITE, 
+                                                            ALIEN_DEATH_SPRITE_FC, 
+                                                            ALIEN_DEATH_SPRITE_FT / ALIEN_DEATH_SPRITE_FC  ,
+                                                            ALIEN_DEATH_SPRITE_FT);
 
-        // Criando animação de morte
-        //GameObject *alien_death = new GameObject();
-        //Sprite *explosion_anim = new Sprite(*alien_death, ALIEN_DEATH_ANIM_PATH, ALIEN_DEATH_ANIM_COUNT,
-        //                                             ALIEN_DEATH_ANIM_TIME / ALIEN_DEATH_ANIM_COUNT,
-        //                                             ALIEN_DEATH_ANIM_TIME);
-        //alien_death->AddComponent((std::shared_ptr<Sprite>)explosion_anim);
+
+        explosion_sprite->SetFrameCount(ALIEN_DEATH_SPRITE_FC);                                               
+
+        alien_death->AddComponent((std::shared_ptr<Sprite>)explosion_sprite);
         // Criando som da morte
-        //Sound *explosion_sound = new Sound(*alien_death, ALIEN_DEATH_SOUND_PATH);
-       // alien_death->AddComponent((std::shared_ptr<Sound>)explosion_sound);
-        //alien_death->box.DefineCenter(associated.box.GetCenter());
-        //Game::GetInstance().GetState().AddObject(alien_death);
+        Sound *explosion_sound = new Sound(*alien_death, ALIEN_DEATH_SOUND_PATH);
+        alien_death->AddComponent((std::shared_ptr<Sound>)explosion_sound);
+        alien_death->box.DefineCenter(associated.box.GetCenter());
+        Game::GetInstance().GetState().AddObject(alien_death);
 
-        //explosion_sound->Play();
+        explosion_sound->Play();
     }
     
 
 
 
-    // Faz o alien girar
+    // spin alien
     associated.angleDeg += dt * ALIEN_V_ANGULAR;
 
-    InputManager& input = InputManager::GetInstance();
 
-    // get task de action, seta tipo e posicao
-    if (input.MousePress(SDL_BUTTON_LEFT)) {
-        taskQueue.emplace(Action(SHOOT, input.GetMouseX() - Camera::pos.x, input.GetMouseY() - Camera::pos.y));
-    }
-    if (input.MousePress(SDL_BUTTON_RIGHT)) {
-       taskQueue.emplace(Action(MOVE, input.GetMouseX() - Camera::pos.x, input.GetMouseY() - Camera::pos.y));
-        std::cout << "Alien moves queue to X:" << input.GetMouseX() - Camera::pos.x << " Y:" << input.GetMouseY() - Camera::pos.y << std::endl;
-    }
+    // Get player's position
+    Vec2 destination = (PenguinBody::player != nullptr) ? PenguinBody::player->Pos() : Vec2();
 
-    // Executa front queue, n usa while para n executar tudo de uma vez
-    if (!taskQueue.empty()) {
-        switch (taskQueue.front().type) {
-            case MOVE: {
-                float alienMoviment = dt * ALIEN_VELOCIDADE;
+    switch (state) {
+        case AlienState::MOVING: {
+            // If the distance is greater than a tolerance, MOVE to the destination
+            if (Vec2::D2points(associated.box.GetCenter(), destination).Hypotenuse() > ALIEN_TARGET_TOLERANCE) {
+                float step = dt * ALIEN_VELOCIDADE;
+                Vec2 distance = Vec2::D2points(associated.box.GetCenter(), destination);
 
-                // Calculo de velocidade e mudança de posição
-                Vec2 centralized = Vec2(associated.box.x + associated.box.w / 2, associated.box.y + associated.box.h / 2);
-                Vec2 distance = Vec2::D2points(centralized, taskQueue.front().pos);
-
-                // Calculo de velocidade e mudança de posição
-                //             w
-                //      --------------
-                //     |              |
-                //     |              |
-                //     |       C      |  h     Center(C) = Vec2(w/2 , h/2)
-                //     |              |
-                //     |              |
-                //      --------------
-                //
-
-                //----aproxima x----
-                bool xFinished = false;
-                bool yFinished = false;
-
-                if (fabsf(distance.x) > alienMoviment) {
-                    associated.box.x += alienMoviment * cos(distance.Angle());
-                } else {
-                    associated.box.x = taskQueue.front().pos.x - associated.box.w / 2;
-                    xFinished = true;
+                // Move to the destination
+                if (distance.Hypotenuse() > step) {
+                    associated.box.x += step * cos(distance.Angle());
+                    associated.box.y += step * sin(distance.Angle());
                 }
-
-                //----aproxima y----
-                if (fabsf(distance.y) > alienMoviment) {
-                    associated.box.y += alienMoviment * sin(distance.Angle());
-                } else {
-                    associated.box.y = taskQueue.front().pos.y - associated.box.h / 2;
-                    yFinished = true;
-                }
-
-                // Valida se ja incremetou ate x e y
-                if (yFinished == true && xFinished == true) {
-                    taskQueue.pop();
-                }
-                break;
-            }
-
-            case SHOOT: {
-                Vec2 target = taskQueue.front().pos;
-
-                // Determine the closest minion using std::min_element and a lambda function
-                auto closestMinion = std::min_element(minionArray.begin(), minionArray.end(), [&](const std::weak_ptr<GameObject>& minionA, const std::weak_ptr<GameObject>& minionB) {
-                    if (minionA.expired() || minionB.expired()) return false;
-                    
-                    Vec2 centerA = minionA.lock()->box.GetCenter();
-                    Vec2 centerB = minionB.lock()->box.GetCenter();
-
-                    float distanceA = Vec2::D2points(centerA, target).Hypotenuse();
-                    float distanceB = Vec2::D2points(centerB, target).Hypotenuse();
-                    
-                    return distanceA < distanceB;
-                });
-
-                if (closestMinion != minionArray.end() && !closestMinion->expired()) {
-                    auto minion = closestMinion->lock();
-                    Minion* MinionPtr = (Minion*)minion->GetComponent("Minion").get();
-                    MinionPtr->Shoot(target);
-                } 
+                // Teleport to the destination (handling "vibrations")
                 else {
-                    std::cout << "minion = nullptr!" << std::endl;
+                    associated.box.DefineCenter(destination);
+                }
+            } else {
+                std::shared_ptr<GameObject> minion;
+                Vec2 target = destination;
+                float distToTarget = std::numeric_limits<float>::max();
+
+                // Iterate through the minion vector to find the closest one to the target
+                for (const auto& minionPtr : minionArray) {
+                    if (!minionPtr.expired()) {
+                        std::shared_ptr<GameObject> temp_minion = minionPtr.lock();
+                        float closerMinionDistance = Vec2::D2points(temp_minion->box.GetCenter(), target).Hypotenuse();
+
+                        if (closerMinionDistance < distToTarget) {
+                            distToTarget = closerMinionDistance;
+                            minion = temp_minion;
+                        }
+                    }
                 }
 
-                taskQueue.pop();
-                break;
-            
+                // If this minion exists
+                if (minion != nullptr) {
+                    Minion* real_minion = static_cast<Minion*>(minion->GetComponent("Minion").get());
+
+                    // Fire
+                    if (PenguinBody::player != nullptr) {
+                        std::cout << "ALIEN: HAAAA! PEW" << std::endl;
+                        real_minion->Shoot(target);
+                    }
+                } else {
+                    std::cout << "ERROR: No minion to shoot" << std::endl;
+                }
+
+                // Reset the timer and change the state to RESTING
+                restTimer.Restart();
+                state = AlienState::RESTING;
             }
+            break;
+        }
+
+        case AlienState::RESTING: {
+            // If the timer has already "elapsed"
+            if (restTimer.Get() >= ALIEN_MOV_COOLDOWN) {
+                // Update the destination/target position and change the state to MOVING
+                if (PenguinBody::player != nullptr) {
+                    destination = PenguinBody::player->Pos();
+                }
+                state = AlienState::MOVING;
+            } else {
+                // Update the timer until it "elapses"
+                restTimer.Update(dt);
+            }
+            break;
         }
     }
+    
 }
 
 void Alien::Render(){}
@@ -171,20 +159,15 @@ bool Alien::Is(std::string type){
     else{return false;}
 }
 
-void Alien::NotifyCollision(GameObject &other)
-{
-    std::shared_ptr<Component> shared_Bullet = other.GetComponent("Bullet");
 
-    // Se a colisão ocorre com uma bala
-    if (shared_Bullet.get() != nullptr)
-    {
-        Bullet *bullet = (Bullet *)shared_Bullet.get();
-        // Se quem atirou não foi o inimigo, ou seja, ele mesmo
-        //if (!bullet->IsShooter("Enemy"))
-        //{
-           // int damage = bullet->GetDamage();
-            //hp -= damage;
-            //std::cout << "ALIEN HP: " << hp << std::endl;
-        //}
+void Alien::NotifyCollision(GameObject &other){
+    // Try to convert the component to a Bullet
+    std::shared_ptr<Bullet> shared_Bullet = std::dynamic_pointer_cast<Bullet>(other.GetComponent("Bullet"));
+
+    // Check if the component is a bullet and if it wasn't shot by the player
+    if (shared_Bullet && !shared_Bullet->WhoIsShooter("Minion")){
+        int d_alien = shared_Bullet->GetDamage();
+        hp -= d_alien;
+        std::cout << "ALIEN(HP) " << hp << std::endl;
     }
 }

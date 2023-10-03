@@ -3,8 +3,8 @@
 #define PENGUINCANNON_SPRITE "assets/img/cubngun.png"
 #define PENGUIN_BULLET_SPRITE "assets/img/penguinbullet.png"
 
-#define PENGUIN_BULLET_SPEED 200.0
-#define PENGUIN_BULLET_DAMAGE 30.0
+#define PENGUIN_BULLET_SPEED 400.0
+#define PENGUIN_BULLET_DAMAGE 5.0
 #define PENGUIN_BULLET_DISTANCE 2000
 #define PENGUIN_BULLET_WIDTH_FACTOR 0.75
 #define PENGUIN_BULLET_CD 0.25
@@ -21,9 +21,9 @@
 #include "Bullet.h"
 #include "Component.h"
 #include "GameObject.h"
+#include "Timer.h"
+#include "Collider.h"
 
-//#include "Timer.h"
-//#include "Collider.h"
 class PenguinCannon : public Component
 {
     public:
@@ -32,10 +32,10 @@ class PenguinCannon : public Component
         void Render();
         bool Is(std::string type);
         void Shoot();
-        //void NotifyCollision(GameObject &other);
+        void NotifyCollision(GameObject &other);
 
     private:
         std::weak_ptr<GameObject> pbody;
         float angle;
-        //Timer shootCooldown;
+        Timer shootTimer;
 };

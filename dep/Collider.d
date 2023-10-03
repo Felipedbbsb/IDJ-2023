@@ -187,7 +187,7 @@ dep/Collider.d bin/Collider.o: src/Collider.cpp include/Collider.h \
  C:/SDL2/include/SDL2/SDL_timer.h C:/SDL2/include/SDL2/SDL_version.h \
  C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
  include/State.h include/Sprite.h C:/SDL2/include/SDL2/SDL_image.h \
- C:/SDL2/include/SDL2/SDL.h include/Music.h \
+ C:/SDL2/include/SDL2/SDL.h include/Timer.h include/Music.h \
  C:/SDL2/include/SDL2/SDL_mixer.h include/Sound.h include/Face.h \
  include/TileMap.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
@@ -211,7 +211,7 @@ dep/Collider.d bin/Collider.o: src/Collider.cpp include/Collider.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h \
- include/PenguinBody.h include/PenguinCannon.h
+ include/PenguinBody.h include/PenguinCannon.h include/Collision.h
 
 include/Collider.h:
 
@@ -669,6 +669,8 @@ C:/SDL2/include/SDL2/SDL_image.h:
 
 C:/SDL2/include/SDL2/SDL.h:
 
+include/Timer.h:
+
 include/Music.h:
 
 C:/SDL2/include/SDL2/SDL_mixer.h:
@@ -734,3 +736,5 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h:
 include/PenguinBody.h:
 
 include/PenguinCannon.h:
+
+include/Collision.h:

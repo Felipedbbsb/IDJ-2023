@@ -191,8 +191,8 @@ dep/Resources.d bin/Resources.o: src/Resources.cpp include/Resources.h \
  include/Sprite.h include/Component.h include/GameObject.h include/Rect.h \
  include/Vec2.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath c:\mingw\include\math.h \
- include/Music.h include/Sound.h include/Face.h include/TileMap.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
+ include/Timer.h include/Music.h include/Sound.h include/Face.h \
+ include/TileMap.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h \
@@ -210,7 +210,8 @@ dep/Resources.d bin/Resources.o: src/Resources.cpp include/Resources.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h \
- include/PenguinBody.h include/PenguinCannon.h
+ include/PenguinBody.h include/PenguinCannon.h include/Collider.h \
+ include/Collision.h
 
 include/Resources.h:
 
@@ -676,6 +677,8 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath:
 
 c:\mingw\include\math.h:
 
+include/Timer.h:
+
 include/Music.h:
 
 include/Sound.h:
@@ -733,3 +736,7 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h:
 include/PenguinBody.h:
 
 include/PenguinCannon.h:
+
+include/Collider.h:
+
+include/Collision.h:

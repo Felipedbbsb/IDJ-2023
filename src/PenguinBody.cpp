@@ -17,15 +17,13 @@ hp(PENGUIN_HP)
     Sprite* sp = new Sprite(associated, PENGUINBODY_SPRITE);
     associated.AddComponent((std::shared_ptr<Sprite>)sp);
 
-
     Camera::Follow(&associated);
 
-    //Collider *cl = new Collider(associated);
-	//associated.AddComponent(cl);
+    Collider *cl = new Collider(associated);
+	associated.AddComponent((std::shared_ptr<Collider>)cl);
 }
 
-PenguinBody::~PenguinBody()
-{
+PenguinBody::~PenguinBody(){
     Camera::Unfollow();
     player = nullptr;
 }
@@ -43,15 +41,18 @@ void PenguinBody::Start() {
 
 void PenguinBody::Update(float dt) {
     
-     if (hp <= 0)
-    {
+     if (hp <= 0){
         associated.RequestDelete();
 
         // Criando animação de morte
         GameObject* penguin_death = new GameObject();
-        Sprite *explosion_anim = new Sprite(*penguin_death, PENGUIN_DEATH, PENGUIN_DEATH_FC, 
+        Sprite *explosion_sprite = new Sprite(*penguin_death, PENGUIN_DEATH, PENGUIN_DEATH_FC, PENGUIN_DEATH_FT/PENGUIN_DEATH_FC, 
                                                        PENGUIN_DEATH_FT);
-        penguin_death->AddComponent((std::shared_ptr<Sprite>)explosion_anim);
+
+
+        explosion_sprite->SetFrameCount(PENGUIN_DEATH_FC);   
+
+        penguin_death->AddComponent((std::shared_ptr<Sprite>)explosion_sprite);
         // Criando som da morte
         Sound *explosion_sound = new Sound(*penguin_death, PENGUIN_DEATH_SOUND);
         penguin_death->AddComponent((std::shared_ptr<Sound>)explosion_sound);
@@ -88,4 +89,18 @@ bool PenguinBody::Is(std::string type) {
 
 Vec2 PenguinBody::Pos() {
     return associated.box.GetCenter();
+}
+ 
+  
+void PenguinBody::NotifyCollision(GameObject &other) {
+    // Try to convert the component to a Bullet
+    std::shared_ptr<Bullet> shared_Bullet = std::dynamic_pointer_cast<Bullet>(other.GetComponent("Bullet"));
+
+    // Check if the component is a bullet and if it wasn't shot by the player
+    if (shared_Bullet && !shared_Bullet->WhoIsShooter("Penguin"))
+    {
+        int d_penguin = shared_Bullet->GetDamage();
+        hp -= d_penguin;
+        std::cout << "PENGUIN(HP): " << hp << std::endl;
+    }
 }

@@ -188,7 +188,8 @@ dep/PenguinCannon.d bin/PenguinCannon.o: src/PenguinCannon.cpp \
  include/Rect.h include/Vec2.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath c:\mingw\include\math.h \
- include/Bullet.h include/InputManager.h \
+ include/Timer.h include/Bullet.h include/Collider.h \
+ include/InputManager.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\unordered_map \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h \
@@ -212,7 +213,7 @@ dep/PenguinCannon.d bin/PenguinCannon.o: src/PenguinCannon.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h \
- include/PenguinBody.h
+ include/PenguinBody.h include/Collision.h
 
 include/PenguinCannon.h:
 
@@ -664,7 +665,11 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath:
 
 c:\mingw\include\math.h:
 
+include/Timer.h:
+
 include/Bullet.h:
+
+include/Collider.h:
 
 include/InputManager.h:
 
@@ -733,3 +738,5 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h:
 
 include/PenguinBody.h:
+
+include/Collision.h:

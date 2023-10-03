@@ -23,11 +23,11 @@ class Collision {
 						};
 
 			for (auto& v : A) {
-				v = RotateItself(v - a.GetCenter(), angleOfA) + a.GetCenter();
+				v = Rotate(v - a.GetCenter(), angleOfA) + a.GetCenter();
 			}
 
 			for (auto& v : B) {
-				v = RotateItself(v - b.GetCenter(), angleOfB) + b.GetCenter();
+				v = Rotate(v - b.GetCenter(), angleOfB) + b.GetCenter();
 			}
 
 			Vec2 axes[] = { Norm(A[0] - A[1]), Norm(A[1] - A[2]), Norm(B[0] - B[1]), Norm(B[1] - B[2]) };
@@ -66,7 +66,7 @@ class Collision {
 			return a.x * b.x + a.y * b.y;
 		}
 
-		static inline Vec2 RotateItself(const Vec2& p, float angle) {
+		static inline Vec2 Rotate(const Vec2& p, float angle) {
 			float cs = std::cos(angle), sn = std::sin(angle);
 			return Vec2 ( p.x * cs - p.y * sn, p.x * sn + p.y * cs );
 		}

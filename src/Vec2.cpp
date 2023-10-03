@@ -26,11 +26,12 @@ void Vec2::Rotate(float value) {
     y = yline;
 }
 
-Vec2 Vec2::RotateVector(float theta)
+
+Vec2 Vec2::RotateVector(float degrees)
 {
-    // Recebe theta em radianos
-    float x_ = (x * cos(theta)) - (y * sin(theta));
-    float y_ = (x * sin(theta)) + (y * cos(theta));
+    // Recebe degrees em radianos
+    float x_ = (x * cos(degrees)) - (y * sin(degrees));
+    float y_ = (x * sin(degrees)) + (y * cos(degrees));
 
     x = x_;
     y = y_;
@@ -41,9 +42,9 @@ void Vec2::RotateAngle(float degrees) {
     Rotate(degrees / (180 / 3.14159265359));
 }
 
-Vec2 Vec2::GetRotated(float theta) {
+Vec2 Vec2::GetRotated(float degrees) {
     Vec2 temp(x, y);
-    temp.Rotate(theta);
+    temp.Rotate(degrees);
     return temp;
 }
 

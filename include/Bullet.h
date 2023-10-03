@@ -24,6 +24,7 @@ class Bullet : public Component{
         bool Is(std::string type);
         int GetDamage();
         void NotifyCollision(GameObject &other);
+        bool WhoIsShooter(std::string WhoShooter);
 
     private:
         Vec2 speed;

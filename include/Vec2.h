@@ -9,9 +9,9 @@ class Vec2{
         Vec2();
         static Vec2 D2points(Vec2 begin, Vec2 end);
         float Hypotenuse();
-        Vec2 GetRotated(float theta);
-        void Rotate(float theta);
-        Vec2 RotateVector(float theta);
+        Vec2 GetRotated(float degrees);
+        void Rotate(float degrees);
+        Vec2 RotateVector(float degrees);
         void RotateAngle(float degrees);
         float Angle();
         float RotateDegree();

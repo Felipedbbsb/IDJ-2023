@@ -15,18 +15,18 @@
 
 #define ALIEN_SPRITE "assets/img/alien.png"
 #define ALIEN_VELOCIDADE 200
-#define ALIEN_VIDA 25
+#define ALIEN_VIDA 50
 #define ALIEN_V_ANGULAR 20 // degree/frame
 #define MIN_DIST 5
 
-#define ALIEN_DEATH_ANIM_PATH "assets/img/aliendeath.png"
-#define ALIEN_DEATH_ANIM_COUNT 4.0
-#define ALIEN_DEATH_ANIM_TIME 3.0
+#define ALIEN_DEATH_SPRITE "assets/img/aliendeath.png"
+#define ALIEN_DEATH_SPRITE_FC 4.0
+#define ALIEN_DEATH_SPRITE_FT 1.0
 #define ALIEN_DEATH_SOUND_PATH "assets/audio/boom.wav"
 
+#define ALIEN_MOV_COOLDOWN 0.5
+#define ALIEN_TARGET_TOLERANCE 300
 
-
-enum ActionType{MOVE, SHOOT};  
 
 
 
@@ -38,23 +38,20 @@ class Alien : public Component{
         void Start();                                    
         void Update(float dt);
         void Render();
-
         bool Is(std::string type);
+        void NotifyCollision(GameObject &other);
+        static int alienCount;
 
     private:
-        class Action{
-            public:
-                Action(ActionType type, float x, float y);
-                  
-                ActionType type;
-                Vec2 pos;
-            };
-
+        enum AlienState{MOVING, RESTING};
         Vec2 speed;
         int hp;
-        std::queue<Action> taskQueue;
         std::vector<std::weak_ptr<GameObject>> minionArray;
         int nMinions;
-        void NotifyCollision(GameObject &other);
+
+        AlienState state;
+        Timer restTimer;
+        Vec2 destination;
+
 };
 

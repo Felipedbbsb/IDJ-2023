@@ -31,7 +31,7 @@ State::State() {
 
         AddObject(penguinBody);
 
-    // ===================== ALIEN ===============================
+    // ===================== ALIEN 1 ===============================
     GameObject *alien = new GameObject();
         int randomMinions = 2 + (rand() % 4); // Minimum of 2 and maximum of 6 minions
         Alien *behaviour = new Alien(*alien, randomMinions);
@@ -41,6 +41,16 @@ State::State() {
         alien->box.y = 300;
 
         AddObject(alien);
+
+    // ===================== ALIEN 2 ===============================
+    //GameObject *alien2 = new GameObject();
+    //    Alien *behaviour2 = new Alien(*alien2, randomMinions);
+    //    alien2->AddComponent((std::shared_ptr<Alien>)behaviour2);
+
+    //    alien2->box.x = 912;
+    //    alien2->box.y = 800;
+
+    //    AddObject(alien2);
 
 
     LoadAssets();
@@ -65,6 +75,28 @@ void State::Update(float dt){
         quitRequested = true;
     }
 
+
+    // Verifica se há colisões  
+    std::vector<std::shared_ptr<GameObject>> objWithCollider;
+
+    for (const auto& obj : objectArray){
+        auto colliderComponent = obj->GetComponent("Collider");
+        
+        if (colliderComponent){
+            objWithCollider.push_back(obj);
+        }
+    }
+
+    for (size_t i = 0; i < objWithCollider.size(); ++i){
+        for (size_t j = i + 1; j < objWithCollider.size(); ++j){
+            if (Collision::IsColliding(objWithCollider[i]->box, objWithCollider[j]->box, objWithCollider[i]->GetAngleRad(), objWithCollider[j]->GetAngleRad())){
+                objWithCollider[i]->NotifyCollision(*objWithCollider[j]);
+                objWithCollider[j]->NotifyCollision(*objWithCollider[i]);
+            }
+        }
+    }
+
+    //Verifica se deve deletar objetos
     for (int i = (int)objectArray.size() - 1; i >= 0; --i){
         objectArray[i]->Update(dt);         
     }
@@ -74,27 +106,6 @@ void State::Update(float dt){
         }
     }
 
-    // Verifica se há colisões
-    std::vector<std::shared_ptr<GameObject>> objWithCollider;
-    for (int i = (int)objectArray.size() - 1; i >= 0; i--)
-    {   
-        std::shared_ptr<Component> colliderComponent = objectArray[i]->GetComponent("Collider");
-        if (colliderComponent.get() != nullptr)
-        {
-            objWithCollider.push_back(objectArray[i]);
-            for (int j = 0; j < (int)objWithCollider.size(); j++)
-            {
-                if (objectArray[i] != objWithCollider[j])
-                {
-                    if (Collision::IsColliding(objectArray[i]->box, objWithCollider[j]->box, objectArray[i]->GetAngleRad(), objWithCollider[j]->GetAngleRad()))
-                    {
-                        objectArray[i]->NotifyCollision(*objWithCollider[j].get());
-                        objWithCollider[j]->NotifyCollision(*objectArray[i].get());
-                    }
-                }
-            }
-        }
-    }
     SDL_Delay(dt);
 }
 

@@ -4,10 +4,11 @@
 #define INCLUDE_SDL
 #define INCLUDE_SDL_IMAGE
 
-#include <iostream>
 #include "SDL_include.h"
 #include "Component.h"
 #include "Vec2.h"
+#include "Timer.h"
+#include "GameObject.h"
 
 //Class responsible for load and render of images
 class Sprite : public Component{
@@ -15,7 +16,8 @@ class Sprite : public Component{
     Sprite(GameObject &associated);
     Sprite(GameObject &associated, std::string file, 
             int frameCount = 1, 
-            float frameTime = 1);
+            float frameTime = 1,
+            float secondsToSelfDestruct = 0);
 
     ~Sprite();
     void Open(std::string file);
@@ -34,7 +36,7 @@ class Sprite : public Component{
     void SetFrame(int frame);
     void SetFrameCount(int frameCount);
     void SetFrameTime(float frameTime);
-    
+    void SetSelfDestruct(float frameTime);
 
   private:
     SDL_Texture *texture;
@@ -47,4 +49,7 @@ class Sprite : public Component{
     int currentFrame; 
     float timeElapsed;
     float frameTime;
+
+    Timer selfDestructCount;
+    float secondsToSelfDestruct;
 };

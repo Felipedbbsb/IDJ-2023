@@ -4,8 +4,9 @@
 #include "Collider.h"
 
 Minion::Minion(GameObject& associated, std::weak_ptr<GameObject> alienCenter, float arcOffsetDeg): Component::Component(associated),
-      alienCenter(alienCenter),
-      arc(arcOffsetDeg)
+    alienCenter(alienCenter),
+    arc(arcOffsetDeg),
+    hp(MINION_VIDA)
 {
     // Inicializa com sprite fixo
     Sprite* minion_spr = new Sprite(associated, MINION_SPRITE);
@@ -14,7 +15,7 @@ Minion::Minion(GameObject& associated, std::weak_ptr<GameObject> alienCenter, fl
     minion_spr->SetScale(zoom, zoom);
     associated.AddComponent(std::shared_ptr<Sprite>(minion_spr));
 
-    // Adicionando Collider
+    // Adicionando Collider 
     Collider* minion_collider = new Collider(associated);
     associated.AddComponent((std::shared_ptr<Collider>)minion_collider);
 
@@ -44,6 +45,29 @@ Minion::Minion(GameObject& associated, std::weak_ptr<GameObject> alienCenter, fl
 }
 
 void Minion::Update(float dt) {
+    if (hp <= 0){
+
+        associated.RequestDelete();
+        GameObject *minion_death = new GameObject();
+    
+        Sprite *explosion_sprite_minion = new Sprite(*minion_death,MINION_DEATH_SPRITE, 
+                                                           MINION_DEATH_SPRITE_FC, 
+                                                           MINION_DEATH_SPRITE_FT / MINION_DEATH_SPRITE_FC  ,
+                                                           MINION_DEATH_SPRITE_FT);
+
+
+        explosion_sprite_minion->SetFrameCount(MINION_DEATH_SPRITE_FC);                                               
+        minion_death->AddComponent((std::shared_ptr<Sprite>)explosion_sprite_minion);
+        // Criando som da morte
+        //Sound *explosion_sound_minion = new Sound(*minion_death,MINION_DEATH_SOUND);
+        //minion_death->AddComponent((std::shared_ptr<Sound>)explosion_sound_minion);
+        minion_death->box.DefineCenter(associated.box.GetCenter());
+        Game::GetInstance().GetState().AddObject(minion_death);
+
+        //explosion_sound_minion->Play();
+    }
+
+
     float angleMovement = dt * MINION_V_ANGULAR;
     associated.angleDeg += angleMovement; // faz girar
 
@@ -72,12 +96,12 @@ void Minion::Shoot(Vec2 target)
 
     // Criando um bullet
     GameObject* bullet = new GameObject();
-    Bullet *bullet_behaviour = new Bullet(*bullet, angle, MINION_V_BULLET, BULLET_DAMAGE, MINION_BULLET_DISTANCE, BULLET_SPRITE, "Enemey");
+    Bullet *bullet_behaviour = new Bullet(*bullet, angle, MINION_V_BULLET, BULLET_DAMAGE, MINION_BULLET_DISTANCE, BULLET_SPRITE, "Minion");
     bullet->AddComponent((std::shared_ptr<Bullet>)bullet_behaviour);
 
     bullet->box.DefineCenter(associated.box.GetCenter());
  
-    
+     
     Game::GetInstance().GetState().AddObject(bullet);
 
     std::weak_ptr<GameObject> weak_bullet = Game::GetInstance().GetState().AddObject(bullet);
@@ -88,5 +112,14 @@ void Minion::Shoot(Vec2 target)
     std::cout << "Shoot to target: X"  << target.x << " Y" << target.y  <<  std::endl;
 }
 
-void Minion::NotifyCollision(GameObject &other)
-{}
+void Minion::NotifyCollision(GameObject &other){
+    // Try to convert the component to a Bullet
+    std::shared_ptr<Bullet> shared_Bullet = std::dynamic_pointer_cast<Bullet>(other.GetComponent("Bullet"));
+
+    // Check if the component is a bullet and if it wasn't shot by the player
+    if (shared_Bullet && !shared_Bullet->WhoIsShooter("Minion")){
+        int m_alien = shared_Bullet->GetDamage();
+        hp -= m_alien;
+        std::cout << "MINION(HP) " << hp << std::endl;
+    }       
+}

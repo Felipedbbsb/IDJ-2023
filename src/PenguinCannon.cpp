@@ -5,12 +5,14 @@
 PenguinCannon::PenguinCannon(GameObject& associated, std::weak_ptr<GameObject> pbody)
     : Component::Component(associated),
       pbody(pbody),
-      angle(0)
-{
+      angle(0){
 
     Sprite* pengCannon_sprite = new Sprite(associated, PENGUINCANNON_SPRITE);
     associated.AddComponent(std::shared_ptr<Sprite>(pengCannon_sprite));
 
+    Collider *penguinCannon_cl = new Collider(associated);
+    associated.AddComponent((std::shared_ptr<Collider>)penguinCannon_cl);
+    
     std::shared_ptr<GameObject> penguin_body = pbody.lock();
 
     // Check if the shared pointer is valid
@@ -18,27 +20,27 @@ PenguinCannon::PenguinCannon(GameObject& associated, std::weak_ptr<GameObject> p
         associated.box.DefineCenter(penguin_body->box.GetCenter());
     }
     else{
-        associated.RequestDelete();
+        associated.RequestDelete(); 
     }
 }
-
+ 
 void PenguinCannon::Update(float dt) {
     if (auto penguin_body = pbody.lock()) {
         // Update the position of the cannon's box to match the penguin's box center
         associated.box.DefineCenter(penguin_body->box.GetCenter());
-        //shootCooldown.Update(dt);
+        shootTimer.Update(dt);
         // Calculate the angle in degrees
         Vec2 mousePos(InputManager::GetInstance().GetMouseX() - Camera::pos.x, InputManager::GetInstance().GetMouseY() - Camera::pos.y);
         angle = Vec2::D2points(associated.box.GetCenter(), mousePos).Angle();
         associated.angleDeg = angle * (180.0 / 3.1415);
 
         // Check for left mouse button press and shoot if cooldown is ready
-        //if (shootCooldown.Get() >= PENGUIN_BULLET_CD) {
-        if (InputManager::GetInstance().MousePress(LEFT_MOUSE_BUTTON)) {
-            Shoot();
-            //std::cout << "PENGUIN: iiiii pew" << std::endl;
-            //shootCooldown.Restart();
-        }
+        if (shootTimer.Get() >= PENGUIN_BULLET_CD) {
+            if (InputManager::GetInstance().MousePress(LEFT_MOUSE_BUTTON)) {
+                Shoot();
+                shootTimer.Restart();
+            }
+        }    
     } else {
         // Penguin body is no longer valid, request deletion of the cannon
         associated.RequestDelete();
@@ -67,3 +69,6 @@ void PenguinCannon::Shoot() {
 } 
 
 bool PenguinCannon::Is(std::string type){return (type == "PenguinCannon");}
+
+void PenguinCannon::NotifyCollision(GameObject &other)
+{}

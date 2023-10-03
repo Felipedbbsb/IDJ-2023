@@ -186,7 +186,7 @@ dep/Bullet.d bin/Bullet.o: src/Bullet.cpp include/Bullet.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
  include/Vec2.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath c:\mingw\include\math.h \
- include/Collider.h
+ include/Timer.h include/Collider.h
 
 include/Bullet.h:
 
@@ -637,5 +637,7 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath:
 
 c:\mingw\include\math.h:
+
+include/Timer.h:
 
 include/Collider.h:
