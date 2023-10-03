@@ -75,6 +75,7 @@
         "queue": "c",
         "ranges": "c",
         "span": "c",
-        "sprite.h": "c"
+        "sprite.h": "c",
+        "bullet.h": "c"
     }
 }

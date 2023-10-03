@@ -99,29 +99,7 @@ dep/State.d bin/State.o: src/State.cpp include/State.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
- include/Sprite.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ios \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ios_base.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\system_error \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\error_constants.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\streambuf \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwctype \
- c:\mingw\include\wctype.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_base.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf_iterator.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_inline.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc \
- include/SDL_include.h C:/SDL2/include/SDL2/SDL.h \
+ include/Sprite.h include/SDL_include.h C:/SDL2/include/SDL2/SDL.h \
  C:/SDL2/include/SDL2/SDL_main.h C:/SDL2/include/SDL2/SDL_stdinc.h \
  C:/SDL2/include/SDL2/SDL_config.h C:/SDL2/include/SDL2/SDL_platform.h \
  C:/SDL2/include/SDL2/begin_code.h C:/SDL2/include/SDL2/close_code.h \
@@ -183,11 +161,34 @@ dep/State.d bin/State.o: src/State.cpp include/State.h \
  C:/SDL2/include/SDL2/SDL_timer.h C:/SDL2/include/SDL2/SDL_version.h \
  C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
  C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h \
- include/Component.h include/GameObject.h include/Rect.h include/Vec2.h \
+ include/Component.h include/GameObject.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ios \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ios_base.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.tcc \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\system_error \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\error_constants.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\streambuf \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf.tcc \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwctype \
+ c:\mingw\include\wctype.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_base.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf_iterator.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_inline.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.tcc \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.tcc \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc \
+ include/Rect.h include/Vec2.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath c:\mingw\include\math.h \
- include/Music.h C:/SDL2/include/SDL2/SDL_mixer.h include/Sound.h \
- include/Face.h include/TileMap.h \
+ include/Timer.h include/Music.h C:/SDL2/include/SDL2/SDL_mixer.h \
+ include/Sound.h include/Face.h include/TileMap.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
@@ -209,7 +210,9 @@ dep/State.d bin/State.o: src/State.cpp include/State.h \
  include/Bullet.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h \
+ include/PenguinBody.h include/PenguinCannon.h include/Collider.h \
+ include/Collision.h
 
 include/State.h:
 
@@ -425,50 +428,6 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h:
 
 include/Sprite.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ios:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ios_base.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.tcc:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\system_error:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\error_constants.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\streambuf:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf.tcc:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwctype:
-
-c:\mingw\include\wctype.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_base.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf_iterator.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_inline.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.tcc:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.tcc:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc:
-
 include/SDL_include.h:
 
 C:/SDL2/include/SDL2/SDL.h:
@@ -651,6 +610,50 @@ include/Component.h:
 
 include/GameObject.h:
 
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ios:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ios_base.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\system_error:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\error_constants.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\streambuf:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwctype:
+
+c:\mingw\include\wctype.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_base.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf_iterator.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_inline.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc:
+
 include/Rect.h:
 
 include/Vec2.h:
@@ -660,6 +663,8 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath:
 
 c:\mingw\include\math.h:
+
+include/Timer.h:
 
 include/Music.h:
 
@@ -724,3 +729,11 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h:
+
+include/PenguinBody.h:
+
+include/PenguinCannon.h:
+
+include/Collider.h:
+
+include/Collision.h:

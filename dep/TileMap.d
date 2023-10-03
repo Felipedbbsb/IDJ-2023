@@ -191,7 +191,8 @@ dep/TileMap.d bin/TileMap.o: src/TileMap.cpp include/Camera.h \
  C:/SDL2/include/SDL2/SDL_shape.h C:/SDL2/include/SDL2/SDL_system.h \
  C:/SDL2/include/SDL2/SDL_timer.h C:/SDL2/include/SDL2/SDL_version.h \
  C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
- C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h
+ C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h \
+ include/Timer.h
 
 include/Camera.h:
 
@@ -656,3 +657,5 @@ C:/SDL2/include/SDL2/SDL_misc.h:
 C:/SDL2/include/SDL2/SDL_image.h:
 
 C:/SDL2/include/SDL2/SDL.h:
+
+include/Timer.h:

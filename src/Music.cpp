@@ -8,50 +8,46 @@ Music::Music() {
 
 Music::Music(std::string file) {
     music = nullptr;
-    Open(file);
+    try {
+        Open(file);
+    } catch (const std::exception& e) {
+        std::cerr << "Failed to create Music: " << e.what() << std::endl;
+    }
 }
 
-//Se loops(times) for -1, a música repete infinitamente. Se loops for 0, a música não é tocada.
-//Vale notar que a Mixer só suporta uma música sendo tocada por vez: 
-//Se outra música já estiver tocando, ela para.
-void Music::Play(int times){
-    if (music != nullptr){
+void Music::Play(int times) {
+    if (music != nullptr) {
         Mix_PlayMusic(music, times);
-    }
-    else{
-        std::cout << "SDL_MUSIC = nullptr";
+    } else {
+        std::cerr << "Failed to play music: Music is not loaded!" << std::endl;
     }
 }
 
-//default como 1,5 segundos. Caso queria que pare
-//imediatamente, basta passar 0 como argumento.
-void Music::Stop(int msToStop){
-    Mix_FadeOutMusic(msToStop);
+void Music::Stop(int msToStop) {
+    if (music != nullptr) {
+        Mix_FadeOutMusic(msToStop);
+    } else {
+        std::cerr << "Cannot stop music: Music is not loaded!" << std::endl;
+    }
 }
 
-void Music::Open(std::string file){
+void Music::Open(std::string file) {
     //music = Mix_LoadMUS(file.c_str()); // const char* file
     music = Resources::GetMusic(file.c_str());
-    if(music == nullptr){
-        std::cout << "Error loading music!"<< std::endl;
-    } 
-    else {
+    if (music == nullptr) {
+        throw std::runtime_error("Error loading music: " + std::string(Mix_GetError()));
+    } else {
         std::cout << "Music uploaded successfully!" << std::endl;
     }
 }
 
-//Checa se music é nula.
 bool Music::IsOpen() {
-    if (music != nullptr) {
-        return true;
-    } 
-    else {
-        return false;
-    }
+    return (music != nullptr);
 }
 
 Music::~Music() {
     if (music != nullptr) {
         Mix_FreeMusic(music);
+        music = nullptr;
     }
 }

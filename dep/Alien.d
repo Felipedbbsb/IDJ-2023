@@ -193,7 +193,8 @@ dep/Alien.d bin/Alien.o: src/Alien.cpp include/Alien.h \
  C:/SDL2/include/SDL2/SDL_timer.h C:/SDL2/include/SDL2/SDL_version.h \
  C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
  C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h \
- include/Bullet.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm \
+ include/Timer.h include/Bullet.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h \
@@ -209,7 +210,8 @@ dep/Alien.d bin/Alien.o: src/Alien.cpp include/Alien.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc \
- include/TileSet.h include/CameraFollower.h
+ include/TileSet.h include/CameraFollower.h include/PenguinBody.h \
+ include/PenguinCannon.h include/Collider.h include/Collision.h
 
 include/Alien.h:
 
@@ -677,6 +679,8 @@ C:/SDL2/include/SDL2/SDL_image.h:
 
 C:/SDL2/include/SDL2/SDL.h:
 
+include/Timer.h:
+
 include/Bullet.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm:
@@ -726,3 +730,11 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc:
 include/TileSet.h:
 
 include/CameraFollower.h:
+
+include/PenguinBody.h:
+
+include/PenguinCannon.h:
+
+include/Collider.h:
+
+include/Collision.h:

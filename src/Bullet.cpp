@@ -1,19 +1,26 @@
-#include "../include/Bullet.h"
+#include "Bullet.h"
+#include "Collider.h"
 
-Bullet::Bullet(GameObject& associated, float angle, float speed, int damage, float maxDistance, std::string sprite) : Component::Component(associated),
+Bullet::Bullet(GameObject& associated, float angle, float speed, int damage, float maxDistance, std::string sprite, std::string WhoShooter) : Component::Component(associated),
 distanceLeft(maxDistance),
-damage(damage){
-    // Crie o Sprite diretamente com smart pointer
+damage(damage),
+WhoShooter(WhoShooter){
+    
+    // Crie o Sprite diretamente com smart pointer, determinando se é minion ou penguin
     auto bullet_spr = std::make_shared<Sprite>(associated, sprite);
+    //bullet_spr->SetScale(1.5, 1.5);
     associated.AddComponent(bullet_spr);
 
-    // Calcule a velocidade diretamente no construtor
-    this->speed = Vec2(cos(angle) * speed, sin(angle) * speed);
+    // Adicionando Collider
+    Collider *bullet_collider = new Collider(associated);
+    associated.AddComponent((std::shared_ptr<Collider>)bullet_collider);
+    
+    // Calcule a velocidade diretamente no construto
+    this->speed = Vec2::FromAngle(angle) * speed;
     associated.angleDeg = this->speed.RotateDegree();
 }
-
 void Bullet::Update(float dt) {
-    Vec2 movementBullet(speed.x * dt, speed.y * dt);
+    Vec2 movementBullet = speed * dt;
     associated.box.DefineCenter(associated.box.GetCenter() + movementBullet);
 
     distanceLeft -= movementBullet.Hypotenuse();
@@ -31,4 +38,20 @@ bool Bullet::Is(std::string type) {
 
 int Bullet::GetDamage() {
     return damage;
+}
+
+void Bullet::NotifyCollision(GameObject &other){   
+    //Caso de colisao bullet com enemy
+    if ((other.GetComponent("Minion") || other.GetComponent("Alien")) && WhoShooter =="Penguin") {
+		associated.RequestDelete();
+	}
+    //Caso de colisao bullet com penguin
+	if (other.GetComponent("PenguinBody") && WhoShooter =="Minion") {
+		associated.RequestDelete();
+	}
+}
+
+bool Bullet::WhoIsShooter(std::string WhoShooter)
+{
+    return (WhoShooter == this->WhoShooter);
 }

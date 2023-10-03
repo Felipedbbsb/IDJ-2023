@@ -192,7 +192,7 @@ dep/Music.d bin/Music.o: src/Music.cpp \
  include/Sprite.h include/Component.h include/GameObject.h include/Rect.h \
  include/Vec2.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath c:\mingw\include\math.h \
- include/Sound.h include/Face.h include/TileMap.h \
+ include/Timer.h include/Sound.h include/Face.h include/TileMap.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
@@ -210,7 +210,9 @@ dep/Music.d bin/Music.o: src/Music.cpp \
  include/Bullet.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h \
+ include/PenguinBody.h include/PenguinCannon.h include/Collider.h \
+ include/Collision.h
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:
 
@@ -678,6 +680,8 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath:
 
 c:\mingw\include\math.h:
 
+include/Timer.h:
+
 include/Sound.h:
 
 include/Face.h:
@@ -729,3 +733,11 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h:
+
+include/PenguinBody.h:
+
+include/PenguinCannon.h:
+
+include/Collider.h:
+
+include/Collision.h:

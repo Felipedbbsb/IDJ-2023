@@ -12,6 +12,8 @@ class Component;
 class GameObject{
   public:
     GameObject();
+    GameObject(int posX, int posY);
+    GameObject(Vec2 pos);
     ~GameObject();
     void Start();
     void Update(float dt);
@@ -24,7 +26,10 @@ class GameObject{
     std::shared_ptr<Component> GetComponent(std::string type);
     double angleDeg;
     Rect box;
-    
+    void NotifyCollision(GameObject& other);
+
+
+    double GetAngleRad();
 
   private:
     std::vector<std::shared_ptr<Component>> components;

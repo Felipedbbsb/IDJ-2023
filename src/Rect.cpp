@@ -3,6 +3,10 @@
 Rect::Rect(float x, float y, float w, float h)
     : x(x), y(y), w(w), h(h) {}
 
+Rect::Rect() 
+: Rect(0, 0, 0, 0) {}
+
+
 bool Rect::Contains(float x, float y)  {
     return (x >= this->x) && (x <= this->x + this->w) &&
            (y >= this->y) && (y <= this->y + this->h);

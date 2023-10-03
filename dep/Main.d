@@ -158,7 +158,9 @@ dep/Main.d bin/Main.o: src/Main.cpp include/Game.h include/SDL_include.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
- include/Sprite.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
+ include/Sprite.h C:/SDL2/include/SDL2/SDL_image.h \
+ C:/SDL2/include/SDL2/SDL.h include/Component.h include/GameObject.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ios \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ios_base.h \
@@ -180,12 +182,11 @@ dep/Main.d bin/Main.o: src/Main.cpp include/Game.h include/SDL_include.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc \
- C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h \
- include/Component.h include/GameObject.h include/Rect.h include/Vec2.h \
+ include/Rect.h include/Vec2.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath c:\mingw\include\math.h \
- include/Music.h C:/SDL2/include/SDL2/SDL_mixer.h include/Sound.h \
- include/Face.h include/TileMap.h \
+ include/Timer.h include/Music.h C:/SDL2/include/SDL2/SDL_mixer.h \
+ include/Sound.h include/Face.h include/TileMap.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
@@ -207,7 +208,9 @@ dep/Main.d bin/Main.o: src/Main.cpp include/Game.h include/SDL_include.h \
  include/Bullet.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h \
+ include/PenguinBody.h include/PenguinCannon.h include/Collider.h \
+ include/Collision.h
 
 include/Game.h:
 
@@ -599,6 +602,14 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h:
 
 include/Sprite.h:
 
+C:/SDL2/include/SDL2/SDL_image.h:
+
+C:/SDL2/include/SDL2/SDL.h:
+
+include/Component.h:
+
+include/GameObject.h:
+
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream:
@@ -643,14 +654,6 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc:
 
-C:/SDL2/include/SDL2/SDL_image.h:
-
-C:/SDL2/include/SDL2/SDL.h:
-
-include/Component.h:
-
-include/GameObject.h:
-
 include/Rect.h:
 
 include/Vec2.h:
@@ -660,6 +663,8 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath:
 
 c:\mingw\include\math.h:
+
+include/Timer.h:
 
 include/Music.h:
 
@@ -724,3 +729,11 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h:
+
+include/PenguinBody.h:
+
+include/PenguinCannon.h:
+
+include/Collider.h:
+
+include/Collision.h:
