@@ -2,40 +2,49 @@
 
 #define INCLUDE_SDL
 
-// Screen definition
-#define SCREEN_WIDTH 1024
-#define SCREEN_HEIGHT 600
-#define SCREEN_TITLE "Felipe Dantas Borges - 202021749"
-
 
 #include "SDL_include.h"
 #include "State.h"
 #include "InputManager.h"
 
+
+
+#include <stack>
+#include <iostream>
+#include <string>
+#include <memory>
+
+
+class State;
+
+
 //Class responsible for running main game loop
 class Game {
-    private:
-        static Game* instance;
+    public:
         Game(std::string title, int width, int height);
+        ~Game();
+        static Game& GetInstance();
+        SDL_Renderer *GetRenderer();
+        State& GetCurrentState();
+        void Push(State* state);
+        void Run();
+        float GetDeltaTime();
+
+    private:
+        void CalculateDeltaTime();
+        int frameStart;
+        float dt;
+        static Game* instance;
+
+        State* storedState;
+        SDL_Window* window;
+        SDL_Renderer* renderer;
+
+        std::stack<std::unique_ptr<State>> stateStack;
 
         bool InitializeSDL();
         bool InitializeIMG();
         bool InitializeMixer();
         bool CreateWindowAndRenderer(const std::string& title, int width, int height, int flags);
 
-        SDL_Window* window;
-        SDL_Renderer* renderer;
-        State* state;
-
-        int frameStart;
-        float dt;
-        void CalculateDeltaTime();
-
-    public:
-        ~Game();
-        void Run();
-        SDL_Renderer* GetRenderer();
-        State& GetState();
-        static Game& GetInstance();
-        float GetDeltaTime();
 };

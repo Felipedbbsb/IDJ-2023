@@ -30,12 +30,12 @@ PenguinBody::~PenguinBody(){
  
 void PenguinBody::Start() {
 
-    std::weak_ptr<GameObject> weak_pcan = Game::GetInstance().GetState().GetObjectPtr(&associated);
+    std::weak_ptr<GameObject> weak_pcan = Game::GetInstance().GetCurrentState().GetObjectPtr(&associated);
     GameObject *pcan = new GameObject();
     PenguinCannon* pcan_behaviour = new PenguinCannon(*pcan, weak_pcan);
     std::shared_ptr<PenguinCannon> pcan_shared = std::make_shared<PenguinCannon>(*pcan_behaviour);
     pcan->AddComponent(pcan_shared);
-    Game::GetInstance().GetState().AddObject(pcan);
+    Game::GetInstance().GetCurrentState().AddObject(pcan);
 	
 }
 
@@ -57,7 +57,7 @@ void PenguinBody::Update(float dt) {
         Sound *explosion_sound = new Sound(*penguin_death, PENGUIN_DEATH_SOUND);
         penguin_death->AddComponent((std::shared_ptr<Sound>)explosion_sound);
         penguin_death->box.DefineCenter(associated.box.GetCenter());
-        Game::GetInstance().GetState().AddObject(penguin_death);
+        Game::GetInstance().GetCurrentState().AddObject(penguin_death);
         
         explosion_sound->Play();
     }

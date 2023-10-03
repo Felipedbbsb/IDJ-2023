@@ -203,15 +203,11 @@ dep/Alien.d bin/Alien.o: src/Alien.cpp include/Alien.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h \
- include/Camera.h include/Game.h include/State.h include/Music.h \
- C:/SDL2/include/SDL2/SDL_mixer.h include/Sound.h include/Face.h \
- include/TileMap.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc \
- include/TileSet.h include/CameraFollower.h include/PenguinBody.h \
- include/PenguinCannon.h include/Collider.h include/Collision.h
+ include/Camera.h include/Game.h include/State.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stack \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_stack.h \
+ include/Collider.h include/Sound.h C:/SDL2/include/SDL2/SDL_mixer.h \
+ include/PenguinBody.h
 
 include/Alien.h:
 
@@ -707,34 +703,14 @@ include/Game.h:
 
 include/State.h:
 
-include/Music.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stack:
 
-C:/SDL2/include/SDL2/SDL_mixer.h:
-
-include/Sound.h:
-
-include/Face.h:
-
-include/TileMap.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc:
-
-include/TileSet.h:
-
-include/CameraFollower.h:
-
-include/PenguinBody.h:
-
-include/PenguinCannon.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_stack.h:
 
 include/Collider.h:
 
-include/Collision.h:
+include/Sound.h:
+
+C:/SDL2/include/SDL2/SDL_mixer.h:
+
+include/PenguinBody.h:

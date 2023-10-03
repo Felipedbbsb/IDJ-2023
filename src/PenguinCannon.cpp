@@ -1,6 +1,7 @@
 #include "PenguinCannon.h"
 #include "InputManager.h"
 #include "Game.h"
+#include "Camera.h"
 
 PenguinCannon::PenguinCannon(GameObject& associated, std::weak_ptr<GameObject> pbody)
     : Component::Component(associated),
@@ -60,7 +61,7 @@ void PenguinCannon::Shoot() {
     Bullet *bullet_behaviour = new Bullet(*bullet, angle, PENGUIN_BULLET_SPEED, PENGUIN_BULLET_DAMAGE, PENGUIN_BULLET_DISTANCE, PENGUIN_BULLET_SPRITE, "Penguin");
     bullet->AddComponent((std::shared_ptr<Bullet>)bullet_behaviour);
 
-     std::weak_ptr<GameObject> weakbullet = Game::GetInstance().GetState().AddObject(bullet);
+     std::weak_ptr<GameObject> weakbullet = Game::GetInstance().GetCurrentState().AddObject(bullet);
     // Configura a sprite da bala se o componente existir
     if ( Sprite *bulletSprite = (Sprite *)weakbullet.lock()->GetComponent("Sprite").get()) {
         bulletSprite->SetFrameCount(PENGUINCANNON_FC);

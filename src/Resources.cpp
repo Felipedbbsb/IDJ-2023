@@ -26,8 +26,8 @@ SDL_Texture* Resources::GetImage(std::string file) {
         }
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
-        // Tratamento de erro: Encerrar o jogo ou realizar ações apropriadas em caso de falha na inicialização.
-        // Neste exemplo, apenas registramos o erro no console.
+        // Error handling: Quit the game or take appropriate actions in case of initialization failure.
+        // In this example, we just log the error to the console.
         return nullptr;
     }
 }
@@ -64,8 +64,8 @@ Mix_Music* Resources::GetMusic(std::string file) {
         return it->second;
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
-        // Tratamento de erro: Encerrar o jogo ou realizar ações apropriadas em caso de falha na inicialização.
-        // Neste exemplo, apenas registramos o erro no console.
+        // Error handling: Quit the game or take appropriate actions in case of initialization failure.
+        // In this example, we just log the error to the console.
         return nullptr;
     }
 }
@@ -101,8 +101,8 @@ Mix_Chunk* Resources::GetSound(std::string file) {
         return it->second;
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
-        // Tratamento de erro: Encerrar o jogo ou realizar ações apropriadas em caso de falha na inicialização.
-        // Neste exemplo, apenas registramos o erro no console.
+        // Error handling: Quit the game or take appropriate actions in case of initialization failure.
+        // In this example, we just log the error to the console.
         return nullptr;
     }
 }

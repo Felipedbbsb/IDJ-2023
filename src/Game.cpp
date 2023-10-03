@@ -8,9 +8,12 @@
 #define AUDIO_FREQUENCY MIX_DEFAULT_FREQUENCY
 #define AUDIO_FORMAT MIX_DEFAULT_FORMAT
 #define AUDIO_CHANNELS MIX_DEFAULT_CHANNELS
-#define SOUND_RESOLUTION 64
+#define SOUND_RESOLUTION 32
 
-
+// Screen definition
+#define SCREEN_WIDTH 1024
+#define SCREEN_HEIGHT 600
+#define SCREEN_TITLE "Felipe Dantas Borges - 202021749"
 
 #define WINDOW_FLAGS 0 // Ex.: SDL_WINDOW_FULLSCREEN
 
@@ -19,7 +22,11 @@
 // Static class member initialization
 Game *Game::instance = nullptr;
 
-Game::Game(std::string title, int width, int height) : frameStart(0), dt(0.0) {
+Game::Game(std::string title, int width, int height) : 
+    storedState(nullptr),
+    frameStart(0), 
+    dt(0.0) {
+
     if (Game::instance != nullptr) {
         throw std::runtime_error("Something's Wrong!");
     } else {
@@ -37,7 +44,7 @@ Game::Game(std::string title, int width, int height) : frameStart(0), dt(0.0) {
         // Você pode até mesmo lançar uma exceção aqui para indicar que a inicialização do jogo falhou.
     }
 
-    state = new State();
+    //state = new State();
 }
 
 bool Game::InitializeSDL() {
@@ -82,9 +89,33 @@ bool Game::CreateWindowAndRenderer(const std::string& title, int width, int heig
     return true;
 }
 
-//É utilizado para impedir que uma classe possua mais de uma instância.
+
+
+//A ordem importa! Faça na ordem inversa da inizialização
+Game::~Game() {
+    // Clean up the state stack using a while loop
+    while (!stateStack.empty()) {
+        // Delete and pop each state, ensuring proper resource release
+        stateStack.pop();
+    }
+
+    // Release the stored state if it is not nullptr
+    if (storedState != nullptr) {
+        storedState = nullptr;
+    }
+
+    // Clean up SDL and SDL_image resources
+    Mix_CloseAudio();               // Close audio subsystem
+    Mix_Quit();                     // Quit SDL_mixer
+    IMG_Quit();                     // Quit SDL_image
+    SDL_DestroyRenderer(renderer);  // Destroy SDL renderer
+    SDL_DestroyWindow(window);      // Destroy SDL window
+    SDL_Quit();                     // Quit SDL
+}
+
+
+//It is used to prevent a class from having more than one instance.
 Game& Game::GetInstance() {
-    //std::string title = "Felipe Dantas Borges - 202021749";
     std::string title = SCREEN_TITLE;
     // dimensoes da janela do jogo
     int width = SCREEN_WIDTH;
@@ -98,40 +129,62 @@ Game& Game::GetInstance() {
     }
 }
 
-
-//A ordem importa! Faça na ordem inversa da inizialização
-Game::~Game() {
-    Mix_Quit();
-    IMG_Quit();
-    Mix_CloseAudio();
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-
-}
-
-State& Game::GetState () {
-    return *state;
+State &Game::GetCurrentState(){
+    return *stateStack.top();
 }
 
 SDL_Renderer* Game::GetRenderer() {
     return renderer;
 }
 
-
+void Game::Push(State *state){ 
+    storedState = state;
+}
+ 
 
 //GAME LOOP
 
 void Game::Run() {
-    state->Start();
-    while (state->QuitRequested()!=true) {
+    if (storedState != nullptr){
+        stateStack.push((std::unique_ptr<State>)storedState);
+        stateStack.top()->Start();
+        storedState = nullptr;
+    }
+
+    while (!stateStack.empty()) {
+        // Check if the top state wants to quit
+        if (stateStack.top()->QuitRequested()) {
+            break;
+        }
+
+        // Check if the top state wants to pop
+        if (stateStack.top()->PopRequested()) {
+            stateStack.top()->Pause();
+            stateStack.pop();
+            if (!stateStack.empty()) {
+                stateStack.top()->Resume();
+            }
+        }
+
+        // Check if there's a stored state to push
+        if (storedState != nullptr) {
+            if (!stateStack.empty()) {
+                stateStack.top()->Pause();
+            }
+            stateStack.push((std::unique_ptr<State>)storedState); // Use std::move to transfer ownership
+            stateStack.top()->Start();
+            storedState = nullptr;
+        }
+
         CalculateDeltaTime();
         InputManager::GetInstance().Update();
-        state->Update(dt);
-        state->Render();
+        auto& currentTopState = stateStack.top();
+        currentTopState->Update(dt);
+        currentTopState->Render();
         SDL_RenderPresent(Game::GetInstance().GetRenderer());
-        //SDL_Delay(10* dt);//por enquanto, depois será criado controle de frame
-    }
+    }   
+
+
     Resources::ClearImages();
     Resources::ClearMusics();
     Resources::ClearSounds();

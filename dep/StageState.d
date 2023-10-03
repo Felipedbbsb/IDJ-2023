@@ -1,5 +1,5 @@
-dep/PenguinBody.d bin/PenguinBody.o: src/PenguinBody.cpp \
- include/PenguinBody.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory \
+dep/StageState.d bin/StageState.o: src/StageState.cpp \
+ include/StageState.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algobase.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++config.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\os_defines.h \
@@ -33,10 +33,17 @@ dep/PenguinBody.d bin/PenguinBody.o: src/PenguinBody.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\alloc_traits.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\alloc_traits.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\initializer_list \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\functional_hash.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hash_bytes.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\range_access.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tempbuf.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_raw_storage_iter.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\typeinfo \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hash_bytes.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iosfwd \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stringfwd.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\postypes.h \
@@ -61,7 +68,6 @@ dep/PenguinBody.d bin/PenguinBody.o: src/PenguinBody.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\tuple \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\utility \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_relops.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\initializer_list \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\array \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdexcept \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\string \
@@ -77,7 +83,6 @@ dep/PenguinBody.d bin/PenguinBody.o: src/PenguinBody.cpp \
  c:\mingw\include\ctype.h c:\mingw\include\wctype.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream_insert.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\cxxabi_forced.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\range_access.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_string.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\string_conversions.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdlib \
@@ -85,7 +90,6 @@ dep/PenguinBody.d bin/PenguinBody.o: src/PenguinBody.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdio \
  c:\mingw\include\stdio.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cerrno \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\functional_hash.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_string.tcc \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unique_ptr.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr.h \
@@ -95,7 +99,7 @@ dep/PenguinBody.d bin/PenguinBody.o: src/PenguinBody.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\shared_ptr_atomic.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h \
- include/Component.h include/GameObject.h \
+ include/State.h include/GameObject.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ios \
@@ -118,17 +122,14 @@ dep/PenguinBody.d bin/PenguinBody.o: src/PenguinBody.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
  include/Rect.h include/Vec2.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath c:\mingw\include\math.h \
- include/Sound.h include/SDL_include.h C:/SDL2/include/SDL2/SDL.h \
- C:/SDL2/include/SDL2/SDL_main.h C:/SDL2/include/SDL2/SDL_stdinc.h \
- C:/SDL2/include/SDL2/SDL_config.h C:/SDL2/include/SDL2/SDL_platform.h \
- C:/SDL2/include/SDL2/begin_code.h C:/SDL2/include/SDL2/close_code.h \
+ include/Component.h include/Sprite.h include/SDL_include.h \
+ C:/SDL2/include/SDL2/SDL.h C:/SDL2/include/SDL2/SDL_main.h \
+ C:/SDL2/include/SDL2/SDL_stdinc.h C:/SDL2/include/SDL2/SDL_config.h \
+ C:/SDL2/include/SDL2/SDL_platform.h C:/SDL2/include/SDL2/begin_code.h \
+ C:/SDL2/include/SDL2/close_code.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdlib.h \
  C:/SDL2/include/SDL2/SDL_assert.h C:/SDL2/include/SDL2/SDL_atomic.h \
  C:/SDL2/include/SDL2/SDL_audio.h C:/SDL2/include/SDL2/SDL_error.h \
@@ -186,24 +187,37 @@ dep/PenguinBody.d bin/PenguinBody.o: src/PenguinBody.cpp \
  C:/SDL2/include/SDL2/SDL_shape.h C:/SDL2/include/SDL2/SDL_system.h \
  C:/SDL2/include/SDL2/SDL_timer.h C:/SDL2/include/SDL2/SDL_version.h \
  C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
- C:/SDL2/include/SDL2/SDL_mixer.h include/Bullet.h include/Sprite.h \
  C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h \
- include/Timer.h include/PenguinCannon.h include/Collider.h \
- include/InputManager.h \
+ include/Timer.h include/Music.h C:/SDL2/include/SDL2/SDL_mixer.h \
+ include/Sound.h include/TileMap.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc \
+ include/TileSet.h include/InputManager.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\unordered_map \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h \
- include/Camera.h include/Game.h include/State.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stack \
+ include/Camera.h include/CameraFollower.h include/Alien.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\queue \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\deque \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_deque.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\deque.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_stack.h
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_heap.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_queue.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\limits include/Minion.h \
+ include/Bullet.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h \
+ include/PenguinBody.h include/PenguinCannon.h include/Collider.h \
+ include/Collision.h
 
-include/PenguinBody.h:
+include/StageState.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algobase.h:
 
@@ -271,13 +285,27 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\alloc_traits.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h:
 
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\initializer_list:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\functional_hash.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hash_bytes.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\range_access.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\memory:
+
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tempbuf.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_raw_storage_iter.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\typeinfo:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hash_bytes.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iosfwd:
 
@@ -335,8 +363,6 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\utility:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_relops.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\initializer_list:
-
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\array:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdexcept:
@@ -369,8 +395,6 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream_insert.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\cxxabi_forced.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\range_access.h:
-
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_string.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\string_conversions.h:
@@ -384,8 +408,6 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdio:
 c:\mingw\include\stdio.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cerrno:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\functional_hash.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_string.tcc:
 
@@ -405,7 +427,7 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_base.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\auto_ptr.h:
 
-include/Component.h:
+include/State.h:
 
 include/GameObject.h:
 
@@ -453,14 +475,6 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc:
-
 include/Rect.h:
 
 include/Vec2.h:
@@ -471,7 +485,9 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cmath:
 
 c:\mingw\include\math.h:
 
-include/Sound.h:
+include/Component.h:
+
+include/Sprite.h:
 
 include/SDL_include.h:
 
@@ -647,21 +663,31 @@ C:/SDL2/include/SDL2/SDL_locale.h:
 
 C:/SDL2/include/SDL2/SDL_misc.h:
 
-C:/SDL2/include/SDL2/SDL_mixer.h:
-
-include/Bullet.h:
-
-include/Sprite.h:
-
 C:/SDL2/include/SDL2/SDL_image.h:
 
 C:/SDL2/include/SDL2/SDL.h:
 
 include/Timer.h:
 
-include/PenguinCannon.h:
+include/Music.h:
 
-include/Collider.h:
+C:/SDL2/include/SDL2/SDL_mixer.h:
+
+include/Sound.h:
+
+include/TileMap.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc:
+
+include/TileSet.h:
 
 include/InputManager.h:
 
@@ -675,11 +701,11 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h:
 
 include/Camera.h:
 
-include/Game.h:
+include/CameraFollower.h:
 
-include/State.h:
+include/Alien.h:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stack:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\queue:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\deque:
 
@@ -687,4 +713,28 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_deque.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\deque.tcc:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_stack.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_heap.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_queue.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\limits:
+
+include/Minion.h:
+
+include/Bullet.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h:
+
+include/PenguinBody.h:
+
+include/PenguinCannon.h:
+
+include/Collider.h:
+
+include/Collision.h:
