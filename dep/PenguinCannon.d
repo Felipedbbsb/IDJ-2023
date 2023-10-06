@@ -194,7 +194,7 @@ dep/PenguinCannon.d bin/PenguinCannon.o: src/PenguinCannon.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h \
- include/Game.h include/State.h \
+ include/Game.h C:/SDL2/include/SDL2/SDL_ttf.h include/State.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stack \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\deque \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_deque.h \
@@ -669,6 +669,8 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h:
 
 include/Game.h:
+
+C:/SDL2/include/SDL2/SDL_ttf.h:
 
 include/State.h:
 

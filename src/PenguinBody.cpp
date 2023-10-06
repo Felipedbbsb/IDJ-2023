@@ -1,7 +1,7 @@
 #include "PenguinBody.h"
 #include "PenguinCannon.h"
 #include "InputManager.h"
-#include "Camera.h"
+#include "Camera.h" 
 #include "Game.h"
 
 PenguinBody* PenguinBody::player = nullptr;
@@ -10,8 +10,7 @@ PenguinBody::PenguinBody(GameObject &associated) : Component::Component(associat
 speed(0, 0),
 linearSpeed(0),
 angle(0),
-hp(PENGUIN_HP)
-{
+hp(PENGUIN_HP)  {
     player = this;
 
     Sprite* sp = new Sprite(associated, PENGUINBODY_SPRITE);
@@ -101,6 +100,6 @@ void PenguinBody::NotifyCollision(GameObject &other) {
     {
         int d_penguin = shared_Bullet->GetDamage();
         hp -= d_penguin;
-        std::cout << "PENGUIN(HP): " << hp << std::endl;
+        //std::cout << "PENGUIN(HP): " << hp << std::endl;
     }
 }

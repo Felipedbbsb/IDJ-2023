@@ -4,15 +4,15 @@
 #include "Game.h"
 #include "InputManager.h"
 
+ 
 #define AUDIO_CHUNKSIZE 1024
 #define AUDIO_FREQUENCY MIX_DEFAULT_FREQUENCY
 #define AUDIO_FORMAT MIX_DEFAULT_FORMAT
 #define AUDIO_CHANNELS MIX_DEFAULT_CHANNELS
-#define SOUND_RESOLUTION 32
+#define SOUND_RESOLUTION 64
 
 // Screen definition
-#define SCREEN_WIDTH 1024
-#define SCREEN_HEIGHT 600
+
 #define SCREEN_TITLE "Felipe Dantas Borges - 202021749"
 
 #define WINDOW_FLAGS 0 // Ex.: SDL_WINDOW_FULLSCREEN
@@ -23,9 +23,9 @@
 Game *Game::instance = nullptr;
 
 Game::Game(std::string title, int width, int height) : 
-    storedState(nullptr),
     frameStart(0), 
-    dt(0.0) {
+    dt(0.0),
+    storedState(nullptr){
 
     if (Game::instance != nullptr) {
         throw std::runtime_error("Something's Wrong!");
@@ -34,7 +34,7 @@ Game::Game(std::string title, int width, int height) :
     }
 
     try {
-        if (!InitializeSDL() || !InitializeIMG() || !InitializeMixer() || !CreateWindowAndRenderer(title, width, height, WINDOW_FLAGS)) {
+        if (!InitializeSDL() || !InitializeIMG() || !InitializeMixer() || !InitializeTTF() ||!CreateWindowAndRenderer(title, width, height, WINDOW_FLAGS)) {
             // Tratar falhas de inicialização aqui, se necessário.
             throw std::runtime_error("Initialization failed");
         }
@@ -44,7 +44,6 @@ Game::Game(std::string title, int width, int height) :
         // Você pode até mesmo lançar uma exceção aqui para indicar que a inicialização do jogo falhou.
     }
 
-    //state = new State();
 }
 
 bool Game::InitializeSDL() {
@@ -75,6 +74,16 @@ bool Game::InitializeMixer() {
     return true;
 }
 
+bool Game::InitializeTTF() {
+    int TTF_FAIL = TTF_Init();;
+    
+    if (TTF_FAIL == 1) {
+        throw std::runtime_error("TTF_Init Failed");
+    }
+
+    return true;
+}
+
 bool Game::CreateWindowAndRenderer(const std::string& title, int width, int height, int flags) {
     window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
     if (window == nullptr) {
@@ -99,15 +108,20 @@ Game::~Game() {
         stateStack.pop();
     }
 
-    // Release the stored state if it is not nullptr
+    // Release the stored state if it is not nullptr 
     if (storedState != nullptr) {
-        storedState = nullptr;
+        delete storedState;
     }
+
+    Resources::ClearImages();
+	Resources::ClearSounds();
+	Resources::ClearMusics();
 
     // Clean up SDL and SDL_image resources
     Mix_CloseAudio();               // Close audio subsystem
     Mix_Quit();                     // Quit SDL_mixer
     IMG_Quit();                     // Quit SDL_image
+    TTF_Quit();
     SDL_DestroyRenderer(renderer);  // Destroy SDL renderer
     SDL_DestroyWindow(window);      // Destroy SDL window
     SDL_Quit();                     // Quit SDL
@@ -150,20 +164,27 @@ void Game::Run() {
         stateStack.top()->Start();
         storedState = nullptr;
     }
+    else {
+	    return;
+	}
 
-    while (!stateStack.empty()) {
-        // Check if the top state wants to quit
-        if (stateStack.top()->QuitRequested()) {
-            break;
-        }
-
+    while (!stateStack.empty() && !stateStack.top()->QuitRequested() ) {
+        
+        
         // Check if the top state wants to pop
         if (stateStack.top()->PopRequested()) {
             stateStack.top()->Pause();
             stateStack.pop();
+
+            Resources::ClearImages();
+			Resources::ClearSounds();
+			Resources::ClearMusics();
+            
             if (!stateStack.empty()) {
                 stateStack.top()->Resume();
             }
+
+            
         }
 
         // Check if there's a stored state to push
@@ -174,7 +195,10 @@ void Game::Run() {
             stateStack.push((std::unique_ptr<State>)storedState); // Use std::move to transfer ownership
             stateStack.top()->Start();
             storedState = nullptr;
-        }
+        } 
+        else if (stateStack.empty()) {
+			break;
+		}
 
         CalculateDeltaTime();
         InputManager::GetInstance().Update();
@@ -184,7 +208,7 @@ void Game::Run() {
         SDL_RenderPresent(Game::GetInstance().GetRenderer());
     }   
 
-
+   
     Resources::ClearImages();
     Resources::ClearMusics();
     Resources::ClearSounds();
@@ -201,4 +225,4 @@ void Game::CalculateDeltaTime(){
     frameStart = time_delta;
 }
 
-float Game::GetDeltaTime(){return dt;}
+float Game::GetDeltaTime(){return dt;} 

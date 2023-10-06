@@ -169,8 +169,9 @@ dep/Game.d bin/Game.o: src/Game.cpp \
  C:/SDL2/include/SDL2/SDL_timer.h C:/SDL2/include/SDL2/SDL_version.h \
  C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
  C:/SDL2/include/SDL2/SDL_image.h C:/SDL2/include/SDL2/SDL.h \
- C:/SDL2/include/SDL2/SDL_mixer.h include/Game.h include/State.h \
- include/GameObject.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector \
+ C:/SDL2/include/SDL2/SDL_mixer.h include/Game.h \
+ C:/SDL2/include/SDL2/SDL_ttf.h include/State.h include/GameObject.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_construct.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_uninitialized.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h \
@@ -605,6 +606,8 @@ C:/SDL2/include/SDL2/SDL.h:
 C:/SDL2/include/SDL2/SDL_mixer.h:
 
 include/Game.h:
+
+C:/SDL2/include/SDL2/SDL_ttf.h:
 
 include/State.h:
 

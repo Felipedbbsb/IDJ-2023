@@ -1,9 +1,22 @@
 #include "StageState.h"
-
+#include "TitleState.h"
+#include "EndState.h"
+#include "Game.h"
+#include "GameData.h"
+ 
 StageState::StageState() : State::State(){  
     
-    
-    // ====================Background ================================
+}
+
+//Agora se reseta a posicao da camera
+StageState::~StageState(){
+    Camera::pos.x = 0;
+    Camera::pos.y = 0;
+}
+
+// Method responsible for preloading game state assets
+void StageState::LoadAssets(){
+// ====================Background ================================
     GameObject *background = new GameObject();
         Sprite *bg_sprite = new Sprite(*background, BG_SPRITE);
         CameraFollower *bg_cmfl = new CameraFollower(*background);
@@ -45,19 +58,6 @@ StageState::StageState() : State::State(){
     music.Open(BG_MUSIC);
 }
 
-//Agora se reseta a posicao da camera
-StageState::~StageState(){
-    Camera::pos.x = 0;
-    Camera::pos.y = 0;
-}
-
-// Method responsible for preloading game state assets
-void StageState::LoadAssets(){
-
-
-
-}
-
 // Update the state of entities, collision tests, and game termination check
 void StageState::Update(float dt){
     InputManager& input = InputManager::GetInstance();
@@ -66,9 +66,24 @@ void StageState::Update(float dt){
 
     // If the event is quit, set the termination flag
     if ((input.KeyPress(ESCAPE_KEY)) || input.QuitRequested()){
-        quitRequested = true;
+        TitleState* title = new TitleState();
+        Game::GetInstance().Push(title);
+        popRequested = true;
     }
 
+    if (Alien::alienCount == 0){   
+        EndState *goodEnd = new EndState();
+        Game::GetInstance().Push(goodEnd);
+        popRequested = true;
+        GameData::playerVictory = true;
+    }
+
+    if (PenguinBody::player == nullptr){  
+        EndState* badEnd = new EndState();
+        Game::GetInstance().Push(badEnd);
+        popRequested = true;
+        GameData::playerVictory = false;
+    }
 
     //============================ Checks for collisions ==================================== 
     std::vector<std::shared_ptr<GameObject>> obj_cl;
@@ -91,14 +106,8 @@ void StageState::Update(float dt){
     }
 
     //============================ Checks whether to delete objects and updates ========================================
-    for (int i = (int)objectArray.size() - 1; i >= 0; --i){
-        objectArray[i]->Update(dt);         
-    }
-    for (int i = (int)objectArray.size() - 1; i >= 0; --i){
-        if (objectArray[i]->IsDead()){
-            objectArray.erase(objectArray.begin() + i);
-        }
-    }
+    UpdateArray(dt);
+    
 
     SDL_Delay(dt);
 }
@@ -108,19 +117,16 @@ void StageState::Update(float dt){
 
 // Rendering the game state, including entities, backgrounds, HUD, and more.
 void StageState::Render(){
-    for (int i = 0; i != (int)objectArray.size(); i++){
-        objectArray[i]->Render();
-    }
+    RenderArray();
 }
 
 
 void StageState::Start(){
     LoadAssets();
-    for (int i = 0; i < (int)objectArray.size(); i++){
-        objectArray[i]->Start();
-    } 
-    music.Play(BG_MUSIC_LOOP);
+    StartArray();
     started = true;
+
+    music.Play(BG_MUSIC_LOOP);
 }
 
 void StageState::Pause(){

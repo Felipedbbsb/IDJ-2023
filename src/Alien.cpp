@@ -3,10 +3,10 @@
 #include "Camera.h"
 #include "Vec2.h"
 #include "Game.h"
-#include "Collider.h"
+#include "Collider.h" 
 #include "Sound.h"
 #include "PenguinBody.h"
-
+ 
 int Alien::alienCount = 0;
 
 Alien::Alien(GameObject& associated, int nMinions): Component::Component(associated),
@@ -49,9 +49,10 @@ Alien::~Alien() {
 void Alien::Update(float dt) {
 
     // Verifica morte
+    
     if (hp <= 0){
         associated.RequestDelete();
- 
+
         GameObject *alien_death = new GameObject();
     
         Sprite *explosion_sprite = new Sprite(*alien_death, ALIEN_DEATH_SPRITE, 
@@ -59,16 +60,15 @@ void Alien::Update(float dt) {
                                                             ALIEN_DEATH_SPRITE_FT / ALIEN_DEATH_SPRITE_FC  ,
                                                             ALIEN_DEATH_SPRITE_FT);
 
-
         explosion_sprite->SetFrameCount(ALIEN_DEATH_SPRITE_FC);                                               
 
         alien_death->AddComponent((std::shared_ptr<Sprite>)explosion_sprite);
         // Criando som da morte
-        Sound *alienDeath_sound = new Sound(*alien_death, ALIEN_DEATH_SOUND_PATH);
+        Sound *alienDeath_sound = new Sound(*alien_death, ALIEN_DEATH_SOUND);
         alien_death->AddComponent((std::shared_ptr<Sound>)alienDeath_sound);
         alien_death->box.DefineCenter(associated.box.GetCenter());
         Game::GetInstance().GetCurrentState().AddObject(alien_death);
-
+ 
         alienDeath_sound->Play();
     }
     
@@ -169,6 +169,6 @@ void Alien::NotifyCollision(GameObject &other){
     if (shared_Bullet && !shared_Bullet->WhoIsShooter("Minion")){
         int d_alien = shared_Bullet->GetDamage();
         hp -= d_alien;
-        std::cout << "ALIEN(HP) " << hp << std::endl;
+        //std::cout << "ALIEN(HP) " << hp << std::endl;
     }
 }

@@ -71,6 +71,7 @@ dep/Main.d bin/Main.o: src/Main.cpp include/Game.h include/SDL_include.h \
  C:/SDL2/include/SDL2/SDL_shape.h C:/SDL2/include/SDL2/SDL_system.h \
  C:/SDL2/include/SDL2/SDL_timer.h C:/SDL2/include/SDL2/SDL_version.h \
  C:/SDL2/include/SDL2/SDL_locale.h C:/SDL2/include/SDL2/SDL_misc.h \
+ C:/SDL2/include/SDL2/SDL_ttf.h C:/SDL2/include/SDL2/SDL.h \
  include/State.h include/GameObject.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream \
@@ -193,8 +194,8 @@ dep/Main.d bin/Main.o: src/Main.cpp include/Game.h include/SDL_include.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_deque.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\deque.tcc \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_stack.h \
- include/StageState.h include/Sprite.h C:/SDL2/include/SDL2/SDL_image.h \
- C:/SDL2/include/SDL2/SDL.h include/Timer.h include/Music.h \
+ include/TitleState.h include/Sprite.h C:/SDL2/include/SDL2/SDL_image.h \
+ include/Timer.h include/StageState.h include/Music.h \
  C:/SDL2/include/SDL2/SDL_mixer.h include/Sound.h include/TileMap.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
@@ -418,6 +419,10 @@ C:/SDL2/include/SDL2/SDL_version.h:
 C:/SDL2/include/SDL2/SDL_locale.h:
 
 C:/SDL2/include/SDL2/SDL_misc.h:
+
+C:/SDL2/include/SDL2/SDL_ttf.h:
+
+C:/SDL2/include/SDL2/SDL.h:
 
 include/State.h:
 
@@ -679,15 +684,15 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\deque.tcc:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_stack.h:
 
-include/StageState.h:
+include/TitleState.h:
 
 include/Sprite.h:
 
 C:/SDL2/include/SDL2/SDL_image.h:
 
-C:/SDL2/include/SDL2/SDL.h:
-
 include/Timer.h:
+
+include/StageState.h:
 
 include/Music.h:
 

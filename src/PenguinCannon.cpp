@@ -1,7 +1,7 @@
 #include "PenguinCannon.h"
 #include "InputManager.h"
-#include "Game.h"
-#include "Camera.h"
+#include "Game.h" 
+#include "Camera.h" 
 
 PenguinCannon::PenguinCannon(GameObject& associated, std::weak_ptr<GameObject> pbody)
     : Component::Component(associated),

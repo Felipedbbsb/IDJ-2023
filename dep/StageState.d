@@ -213,7 +213,11 @@ dep/StageState.d bin/StageState.o: src/StageState.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h \
  include/PenguinBody.h include/PenguinCannon.h include/Collider.h \
- include/Collision.h
+ include/Collision.h include/TitleState.h include/EndState.h \
+ include/Game.h C:/SDL2/include/SDL2/SDL_ttf.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stack \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_stack.h \
+ include/GameData.h
 
 include/StageState.h:
 
@@ -738,3 +742,17 @@ include/PenguinCannon.h:
 include/Collider.h:
 
 include/Collision.h:
+
+include/TitleState.h:
+
+include/EndState.h:
+
+include/Game.h:
+
+C:/SDL2/include/SDL2/SDL_ttf.h:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stack:
+
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_stack.h:
+
+include/GameData.h:

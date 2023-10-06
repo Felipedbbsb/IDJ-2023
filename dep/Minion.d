@@ -187,7 +187,8 @@ dep/Minion.d bin/Minion.o: src/Minion.cpp include/Minion.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
  include/Rect.h include/Vec2.h include/Timer.h include/Bullet.h \
- include/Game.h include/State.h include/InputManager.h \
+ include/Game.h C:/SDL2/include/SDL2/SDL_ttf.h include/State.h \
+ include/InputManager.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\unordered_map \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h \
@@ -654,6 +655,8 @@ include/Timer.h:
 include/Bullet.h:
 
 include/Game.h:
+
+C:/SDL2/include/SDL2/SDL_ttf.h:
 
 include/State.h:
 

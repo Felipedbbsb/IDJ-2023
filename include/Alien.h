@@ -22,7 +22,7 @@
 #define ALIEN_DEATH_SPRITE "assets/img/aliendeath.png"
 #define ALIEN_DEATH_SPRITE_FC 4.0
 #define ALIEN_DEATH_SPRITE_FT 1.0
-#define ALIEN_DEATH_SOUND_PATH "assets/audio/boom.wav"
+#define ALIEN_DEATH_SOUND "assets/audio/boom.wav"
 
 #define ALIEN_MOV_TIMER 0.5 + (rand() % 2)
 #define ALIEN_TARGET_MAX_DIST 300 

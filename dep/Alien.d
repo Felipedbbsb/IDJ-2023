@@ -203,8 +203,8 @@ dep/Alien.d bin/Alien.o: src/Alien.cpp include/Alien.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h \
- include/Camera.h include/Game.h include/State.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stack \
+ include/Camera.h include/Game.h C:/SDL2/include/SDL2/SDL_ttf.h \
+ include/State.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stack \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_stack.h \
  include/Collider.h include/Sound.h C:/SDL2/include/SDL2/SDL_mixer.h \
  include/PenguinBody.h
@@ -700,6 +700,8 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h:
 include/Camera.h:
 
 include/Game.h:
+
+C:/SDL2/include/SDL2/SDL_ttf.h:
 
 include/State.h:
 

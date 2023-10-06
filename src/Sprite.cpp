@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "GameObject.h"
 #include "Resources.h"
+#include "Camera.h"
 
 #define SETCLIP_X 0
 #define SETCLIP_Y 0

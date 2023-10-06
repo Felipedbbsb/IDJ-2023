@@ -1,7 +1,10 @@
 #pragma once
 
 #define INCLUDE_SDL
+#define INCLUDE_SDL_TTF 
 
+#define SCREEN_WIDTH 1024
+#define SCREEN_HEIGHT 600
 
 #include "SDL_include.h"
 #include "State.h"
@@ -45,6 +48,7 @@ class Game {
         bool InitializeSDL();
         bool InitializeIMG();
         bool InitializeMixer();
+        bool InitializeTTF();
         bool CreateWindowAndRenderer(const std::string& title, int width, int height, int flags);
 
 };

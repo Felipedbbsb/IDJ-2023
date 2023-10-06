@@ -120,6 +120,6 @@ void Minion::NotifyCollision(GameObject &other){
     if (shared_Bullet && !shared_Bullet->WhoIsShooter("Minion")){
         int m_alien = shared_Bullet->GetDamage();
         hp -= m_alien;
-        std::cout << "MINION(HP) " << hp << std::endl;
+        //std::cout << "MINION(HP) " << hp << std::endl;
     }       
 }
