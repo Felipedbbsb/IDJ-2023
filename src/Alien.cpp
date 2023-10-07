@@ -3,8 +3,10 @@
 #include "Camera.h"
 #include "Vec2.h"
 #include "Game.h"
-#include "Collider.h"
-
+#include "Collider.h" 
+#include "Sound.h"
+#include "PenguinBody.h"
+ 
 int Alien::alienCount = 0;
 
 Alien::Alien(GameObject& associated, int nMinions): Component::Component(associated),
@@ -21,14 +23,14 @@ Alien::Alien(GameObject& associated, int nMinions): Component::Component(associa
 }
 
 void Alien::Start() {
-    std::weak_ptr<GameObject> go_alien = Game::GetInstance().GetState().GetObjectPtr(&associated);
+    std::weak_ptr<GameObject> go_alien = Game::GetInstance().GetCurrentState().GetObjectPtr(&associated);
 
     for (int i = 0; i < nMinions; i++) {
         GameObject* minion = new GameObject();
         int equally_dist = 360 / nMinions * i;
         Minion* minion_behaviour = new Minion(*minion, go_alien, equally_dist);
         minion->AddComponent(std::shared_ptr<Minion>(minion_behaviour));
-        std::weak_ptr<GameObject> go_minion = Game::GetInstance().GetState().AddObject(minion);
+        std::weak_ptr<GameObject> go_minion = Game::GetInstance().GetCurrentState().AddObject(minion);
         minionArray.push_back(go_minion);
     }
 }
@@ -47,9 +49,10 @@ Alien::~Alien() {
 void Alien::Update(float dt) {
 
     // Verifica morte
+    
     if (hp <= 0){
         associated.RequestDelete();
- 
+
         GameObject *alien_death = new GameObject();
     
         Sprite *explosion_sprite = new Sprite(*alien_death, ALIEN_DEATH_SPRITE, 
@@ -57,17 +60,16 @@ void Alien::Update(float dt) {
                                                             ALIEN_DEATH_SPRITE_FT / ALIEN_DEATH_SPRITE_FC  ,
                                                             ALIEN_DEATH_SPRITE_FT);
 
-
         explosion_sprite->SetFrameCount(ALIEN_DEATH_SPRITE_FC);                                               
 
         alien_death->AddComponent((std::shared_ptr<Sprite>)explosion_sprite);
         // Criando som da morte
-        Sound *explosion_sound = new Sound(*alien_death, ALIEN_DEATH_SOUND_PATH);
-        alien_death->AddComponent((std::shared_ptr<Sound>)explosion_sound);
+        Sound *alienDeath_sound = new Sound(*alien_death, ALIEN_DEATH_SOUND);
+        alien_death->AddComponent((std::shared_ptr<Sound>)alienDeath_sound);
         alien_death->box.DefineCenter(associated.box.GetCenter());
-        Game::GetInstance().GetState().AddObject(alien_death);
-
-        explosion_sound->Play();
+        Game::GetInstance().GetCurrentState().AddObject(alien_death);
+ 
+        alienDeath_sound->Play();
     }
     
 
@@ -121,20 +123,20 @@ void Alien::Update(float dt) {
                         real_minion->Shoot(destination);
                     }
                 } 
-                else {
+                else { 
                     std::cout << "No minion" << std::endl;
-                }
+                } 
 
                 // Reset the timer and change the state to RESTING
                 restTimer.Restart();
                 state = AlienState::RESTING;
             }
-            break;
-        }
+            break; 
+        } 
 
         case AlienState::RESTING: {
             // If the timer has already "elapsed"
-            if (restTimer.Get() >= ALIEN_MOV_TIMER) {
+            if (restTimer.Get() >= ALIEN_MOV_TIMER ) {
                 // Update the destination/target position and change the state to MOVING
                 if (PenguinBody::player != nullptr) {
                     destination = PenguinBody::player->Pos();
@@ -167,6 +169,6 @@ void Alien::NotifyCollision(GameObject &other){
     if (shared_Bullet && !shared_Bullet->WhoIsShooter("Minion")){
         int d_alien = shared_Bullet->GetDamage();
         hp -= d_alien;
-        std::cout << "ALIEN(HP) " << hp << std::endl;
+        //std::cout << "ALIEN(HP) " << hp << std::endl;
     }
 }

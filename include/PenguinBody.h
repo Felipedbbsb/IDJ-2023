@@ -7,7 +7,7 @@
 #define PENGUIN_ACC 0.025
 #define SPEED_MAX 2.5
 #define SPEED_ANG 1
-#define PENGUIN_HP 100
+#define PENGUIN_HP 150
 
 #define PENGUIN_DEATH_FC 5.0
 #define PENGUIN_DEATH_FT 0.5

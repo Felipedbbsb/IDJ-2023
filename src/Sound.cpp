@@ -46,7 +46,7 @@ void Sound::Open(std::string file) {
 
 Sound::~Sound() {
     if (chunk != nullptr) {
-        Mix_FreeChunk(chunk);
+        Mix_HaltChannel(channel);
         chunk = nullptr;
     }
 }

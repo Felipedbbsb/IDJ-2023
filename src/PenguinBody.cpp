@@ -1,7 +1,7 @@
 #include "PenguinBody.h"
 #include "PenguinCannon.h"
 #include "InputManager.h"
-#include "Camera.h"
+#include "Camera.h" 
 #include "Game.h"
 
 PenguinBody* PenguinBody::player = nullptr;
@@ -10,10 +10,9 @@ PenguinBody::PenguinBody(GameObject &associated) : Component::Component(associat
 speed(0, 0),
 linearSpeed(0),
 angle(0),
-hp(PENGUIN_HP)
-{
+hp(PENGUIN_HP)  {
     player = this;
-
+ 
     Sprite* sp = new Sprite(associated, PENGUINBODY_SPRITE);
     associated.AddComponent((std::shared_ptr<Sprite>)sp);
 
@@ -30,12 +29,12 @@ PenguinBody::~PenguinBody(){
  
 void PenguinBody::Start() {
 
-    std::weak_ptr<GameObject> weak_pcan = Game::GetInstance().GetState().GetObjectPtr(&associated);
+    std::weak_ptr<GameObject> weak_pcan = Game::GetInstance().GetCurrentState().GetObjectPtr(&associated);
     GameObject *pcan = new GameObject();
     PenguinCannon* pcan_behaviour = new PenguinCannon(*pcan, weak_pcan);
     std::shared_ptr<PenguinCannon> pcan_shared = std::make_shared<PenguinCannon>(*pcan_behaviour);
     pcan->AddComponent(pcan_shared);
-    Game::GetInstance().GetState().AddObject(pcan);
+    Game::GetInstance().GetCurrentState().AddObject(pcan);
 	
 }
 
@@ -57,7 +56,7 @@ void PenguinBody::Update(float dt) {
         Sound *explosion_sound = new Sound(*penguin_death, PENGUIN_DEATH_SOUND);
         penguin_death->AddComponent((std::shared_ptr<Sound>)explosion_sound);
         penguin_death->box.DefineCenter(associated.box.GetCenter());
-        Game::GetInstance().GetState().AddObject(penguin_death);
+        Game::GetInstance().GetCurrentState().AddObject(penguin_death);
         
         explosion_sound->Play();
     }
@@ -101,6 +100,6 @@ void PenguinBody::NotifyCollision(GameObject &other) {
     {
         int d_penguin = shared_Bullet->GetDamage();
         hp -= d_penguin;
-        std::cout << "PENGUIN(HP): " << hp << std::endl;
+        //std::cout << "PENGUIN(HP): " << hp << std::endl;
     }
 }

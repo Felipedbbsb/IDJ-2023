@@ -62,7 +62,7 @@ void Minion::Update(float dt) {
         //Sound *explosion_sound_minion = new Sound(*minion_death,MINION_DEATH_SOUND);
         //minion_death->AddComponent((std::shared_ptr<Sound>)explosion_sound_minion);
         minion_death->box.DefineCenter(associated.box.GetCenter());
-        Game::GetInstance().GetState().AddObject(minion_death);
+        Game::GetInstance().GetCurrentState().AddObject(minion_death);
 
         //explosion_sound_minion->Play();
     }
@@ -102,9 +102,9 @@ void Minion::Shoot(Vec2 target)
     bullet->box.DefineCenter(associated.box.GetCenter());
  
      
-    Game::GetInstance().GetState().AddObject(bullet);
+    Game::GetInstance().GetCurrentState().AddObject(bullet);
 
-    std::weak_ptr<GameObject> weak_bullet = Game::GetInstance().GetState().AddObject(bullet);
+    std::weak_ptr<GameObject> weak_bullet = Game::GetInstance().GetCurrentState().AddObject(bullet);
     Sprite* bulletSprite = (Sprite*)weak_bullet.lock()->GetComponent("Sprite").get();
     bulletSprite->SetFrameCount(BULLET_FC);
     bulletSprite->SetFrameTime(BULLET_FT );
@@ -120,6 +120,6 @@ void Minion::NotifyCollision(GameObject &other){
     if (shared_Bullet && !shared_Bullet->WhoIsShooter("Minion")){
         int m_alien = shared_Bullet->GetDamage();
         hp -= m_alien;
-        std::cout << "MINION(HP) " << hp << std::endl;
+        //std::cout << "MINION(HP) " << hp << std::endl;
     }       
 }

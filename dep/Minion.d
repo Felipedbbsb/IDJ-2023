@@ -187,32 +187,18 @@ dep/Minion.d bin/Minion.o: src/Minion.cpp include/Minion.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
  include/Rect.h include/Vec2.h include/Timer.h include/Bullet.h \
- include/Game.h include/State.h include/Music.h \
- C:/SDL2/include/SDL2/SDL_mixer.h include/Sound.h include/Face.h \
- include/TileMap.h c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc \
- include/TileSet.h include/InputManager.h \
+ include/Game.h C:/SDL2/include/SDL2/SDL_ttf.h include/State.h \
+ include/InputManager.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\unordered_map \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h \
- include/Camera.h include/CameraFollower.h include/Alien.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\queue \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stack \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\deque \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_deque.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\deque.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_heap.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_queue.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\limits \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h \
- include/PenguinBody.h include/PenguinCannon.h include/Collider.h \
- include/Collision.h
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_stack.h \
+ include/Collider.h
 
 include/Minion.h:
 
@@ -670,29 +656,9 @@ include/Bullet.h:
 
 include/Game.h:
 
+C:/SDL2/include/SDL2/SDL_ttf.h:
+
 include/State.h:
-
-include/Music.h:
-
-C:/SDL2/include/SDL2/SDL_mixer.h:
-
-include/Sound.h:
-
-include/Face.h:
-
-include/TileMap.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\fstream:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\codecvt.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\basic_file.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++io.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\fstream.tcc:
-
-include/TileSet.h:
 
 include/InputManager.h:
 
@@ -704,13 +670,7 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hashtable_policy.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\unordered_map.h:
 
-include/Camera.h:
-
-include/CameraFollower.h:
-
-include/Alien.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\queue:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stack:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\deque:
 
@@ -718,24 +678,6 @@ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_deque.h:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\deque.tcc:
 
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_heap.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_queue.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\limits:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h:
-
-c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h:
-
-include/PenguinBody.h:
-
-include/PenguinCannon.h:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_stack.h:
 
 include/Collider.h:
-
-include/Collision.h:

@@ -14,7 +14,7 @@
 #include <algorithm> 
 
 #define ALIEN_SPRITE "assets/img/alien.png"
-#define ALIEN_VELOCIDADE 200
+#define ALIEN_VELOCIDADE 100
 #define ALIEN_VIDA 50
 #define ALIEN_V_ANGULAR 20 // degree/frame
 #define MIN_DIST 5
@@ -22,10 +22,10 @@
 #define ALIEN_DEATH_SPRITE "assets/img/aliendeath.png"
 #define ALIEN_DEATH_SPRITE_FC 4.0
 #define ALIEN_DEATH_SPRITE_FT 1.0
-#define ALIEN_DEATH_SOUND_PATH "assets/audio/boom.wav"
+#define ALIEN_DEATH_SOUND "assets/audio/boom.wav"
 
-#define ALIEN_MOV_TIMER 0.5
-#define ALIEN_TARGET_MAX_DIST 300
+#define ALIEN_MOV_TIMER 0.5 + (rand() % 2)
+#define ALIEN_TARGET_MAX_DIST 300 
 
 
 

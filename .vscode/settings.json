@@ -76,6 +76,11 @@
         "ranges": "c",
         "span": "c",
         "sprite.h": "c",
-        "bullet.h": "c"
+        "bullet.h": "c",
+        "camera.h": "c",
+        "penguincannon.h": "c",
+        "stack": "cpp",
+        "sound.h": "c",
+        "camerafollower.h": "c"
     }
 }
