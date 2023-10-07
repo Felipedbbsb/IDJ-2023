@@ -8,7 +8,7 @@ PenguinCannon::PenguinCannon(GameObject& associated, std::weak_ptr<GameObject> p
       pbody(pbody),
       angle(0){
 
-    Sprite* pengCannon_sprite = new Sprite(associated, PENGUINCANNON_SPRITE);
+    Sprite* pengCannon_sprite = new Sprite(associated, PENGUINCANNON_SPRITE); 
     associated.AddComponent(std::shared_ptr<Sprite>(pengCannon_sprite));
 
     Collider *penguinCannon_cl = new Collider(associated);

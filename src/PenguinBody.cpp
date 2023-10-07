@@ -12,7 +12,7 @@ linearSpeed(0),
 angle(0),
 hp(PENGUIN_HP)  {
     player = this;
-
+ 
     Sprite* sp = new Sprite(associated, PENGUINBODY_SPRITE);
     associated.AddComponent((std::shared_ptr<Sprite>)sp);
 

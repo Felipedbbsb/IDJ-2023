@@ -216,7 +216,8 @@ dep/EndState.d bin/EndState.o: src/EndState.cpp include/EndState.h \
  include/Collision.h include/GameData.h include/Game.h \
  C:/SDL2/include/SDL2/SDL_ttf.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stack \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_stack.h
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_stack.h \
+ include/Text.h
 
 include/EndState.h:
 
@@ -755,3 +756,5 @@ C:/SDL2/include/SDL2/SDL_ttf.h:
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stack:
 
 c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_stack.h:
+
+include/Text.h:
