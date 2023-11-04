@@ -5,12 +5,12 @@
 #include "Camera.h"
 #include "Text.h"
 
-
+  
 
 TitleState::TitleState() : State::State(){
-}
+} 
 
-TitleState::~TitleState(){}
+TitleState::~TitleState(){} 
 
 void TitleState::Update(float dt){   
     InputManager& input = InputManager::GetInstance();

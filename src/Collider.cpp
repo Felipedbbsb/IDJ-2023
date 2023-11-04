@@ -15,12 +15,12 @@ offset(offset)
 {}
 
 void Collider::Update(float dt){
-    // Copy the dimensions of the associated object's bounding box
+    // Copy the dimensions of the associated object's bounding box 
     this->box = associated.box;
 
     // Scale the bounding box dimensions
     this->box.w *= scale.x;
-    this->box.h *= scale.y;
+    this->box.h *= scale.y; 
 
     // Calculate the rotation in degrees
     float rotationInDegrees = offset.RotateDegree();

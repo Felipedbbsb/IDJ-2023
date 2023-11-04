@@ -1,7 +1,7 @@
 #pragma once
 
 #define TITLE_IMAGE "assets/img/title.jpg"
-#define TITLE_FONT "assets/font/Call me maybe.ttf"
+#define TITLE_FONT "assets/font/Play-Regular.ttf"
 #define FONT_COLOR {200, 200, 200, 0} // Red Green Blue Alpha
 #define TITLE_TEXT "PRESS SPACEBAR TO PLAY"
 
